@@ -1,0 +1,87 @@
+version: '3.7'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/app/Dockerfile
+    image: registrability/app:latest
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - .:/var/www/html:cached
+    networks:
+      - net
+    restart: on-failure:3
+  # environment:
+  #    APP_ENV: local
+  #    CONTAINER_ROLE: app
+
+  #
+  # scheduler:
+  #  image: registrability/app:latest
+  #  container_name: scheduler
+  #  depends_on:
+  #    - app
+  #  volumes:
+  #    - .:/var/www/html
+  #  environment:
+  #    APP_ENV: local
+  #    CONTAINER_ROLE: scheduler
+  #
+  # queue:
+  #   image: registrability/app:latest
+  #   container_name: queue
+  #   depends_on:
+  #     - app
+  #   volumes:
+  #     - .:/var/www/html
+  #   environment:
+  #     APP_ENV: local
+  #     CONTAINER_ROLE: queue
+
+  redis:
+    build:
+      context: ./docker/redis
+    image: registrability/redis:latest
+    command: redis-server --requirepass ${REDIS_PASSWORD} --appendonly yes
+    ports:
+      - 6379:6379
+    volumes:
+      - redisdata:/data
+    networks:
+      - net
+    restart: on-failure:3
+
+  mysql:
+    build:
+      context: ./docker/mysql
+    image: registrability/mysql:latest
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      # - ~/Documents/Backups/ockham/registrability_prod-latest.sql:/docker-entrypoint-initdb.d/dump.sql
+      - mysqldata_registrability:/var/lib/mysql
+    networks:
+      - net
+    restart: on-failure:3
+
+volumes:
+  redisdata:
+    driver: local
+  mysqldata_registrability:
+     driver: local
+
+networks:
+  net:
+    driver: bridge
+
+## TODO
+# - Automatise mkcert or letsencrypt
+# - Import MySQL dump on boot and multiplatform
+# - Custom docker image for small tool: php-cs-fixer, node, composer
