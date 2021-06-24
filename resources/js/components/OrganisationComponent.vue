@@ -9,7 +9,6 @@
                         I'm an example component. tet
                         <p>{{ $t('auth.failed') }}</p>
 
-
                     </div>
                 </div>
             </div>

@@ -112,8 +112,8 @@
 
 <footer class="footer">
   <div class="container text-center small">
-    <p>An open-source product by <a href="https://mesydel.com">Mesylab Sprl</a> | Version 1.0 <br />
-      Licensed with <a href="https://github.com/mesydel/registrability/LICENSE.txt">MIT</a> | 2019 | <a href="https://github.com/mesydel/registrability">Source code</a>
+    <p>An open-source product by <a href="https://openjustice.be" targe="_blank">OpenJustice.be</a> | Version 1.0 <br />
+      Licensed with <a href="https://github.com/openjusticebe/registrability/blob/main/LICENSE" targe="_blank">GPL</a> | {{ date('Y') }} | <a href="https://github.com/openjusticebe/registrability" targe="_blank">Source code</a>
     </p>
   </div>
 </footer>

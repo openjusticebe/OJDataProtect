@@ -12,4 +12,6 @@ npm-debug.log
 yarn-error.log
 .DS_Store
 *.pxm
-/docker/app/certs
+/docker/apps/certs
+docker/app/certs/localhost-key.pem
+docker/app/certs/localhost.pem
