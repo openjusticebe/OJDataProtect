@@ -11,8 +11,6 @@ class OrganisationsTableSeeder extends Seeder
      */
     public function run()
     {
-
         factory(App\Models\Organisation::class, 10)->create();
-
     }
 }

@@ -19,9 +19,14 @@ class User extends Authenticatable
     ];
 
     public function organisations()
-     {
-         return $this->belongsToMany('App\Models\Organisation');
-     }
+    {
+        return $this->belongsToMany('App\Models\Organisation');
+    }
+
+    public function units()
+    {
+        return $this->belongsToMany('App\Models\Unit');
+    }
 
     protected $casts = [
         'email_verified_at' => 'datetime',
@@ -31,5 +36,4 @@ class User extends Authenticatable
     {
         return "{$this->first_name} {$this->last_name}";
     }
-
 }

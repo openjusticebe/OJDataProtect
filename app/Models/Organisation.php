@@ -12,30 +12,35 @@ class Organisation extends Model
         'vat_number',
     ];
 
-  public function processes()
-  {
-      return $this->hasMany('App\Models\Process');
-  }
+    public function processes()
+    {
+        return $this->hasMany('App\Models\Process');
+    }
 
-  public function tags()
-  {
-      return $this->hasMany('App\Models\Tag');
-  }
+    public function tags()
+    {
+        return $this->hasMany('App\Models\Tag');
+    }
 
-  public function members()
-  {
-       return $this->belongsToMany('App\User')
+    public function units()
+    {
+        return $this->hasMany('App\Models\Unit');
+    }
+
+
+    public function members()
+    {
+        return $this->belongsToMany('App\User')
        ->withPivot(['member_type', 'is_external', 'is_admin'])
        ->withTimestamps()
        ->where('member_type', '!=', 'data_protection_officer');
-  }
+    }
 
-  public function dpo()
-  {
-       return $this->belongsToMany('App\User')
+    public function dpo()
+    {
+        return $this->belongsToMany('App\User')
        ->withPivot(['member_type', 'is_external', 'is_admin'])
        ->withTimestamps()
        ->where('member_type', '=', 'data_protection_officer');
-  }
-
+    }
 }

@@ -84,6 +84,9 @@ RUN chown -R www-data:www-data /var/www/html/
 RUN chmod -R 755 /var/www/html/
 RUN chmod -R o+w /var/www/html/storage
 
+# Install Composer
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+
 # RUN php /var/www/html/artisan route:cache
 # RUN php /var/www/html/artisan config:cache
 # RUN php /var/www/html/artisan optimize
