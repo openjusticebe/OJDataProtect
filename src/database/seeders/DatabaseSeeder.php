@@ -19,6 +19,10 @@ class DatabaseSeeder extends Seeder
   
   
         $this->call(RandomContentGenSeeder::class);
+
+        $this->call(OpenJusticeOrganisationSeeder::class);
+        $this->call(OpenJusticeProcessesSeeder::class);
+
         $this->call(MesylabOrganisationSeeder::class);
   
         $this->call(MesylabProcessDengueSeeder::class);

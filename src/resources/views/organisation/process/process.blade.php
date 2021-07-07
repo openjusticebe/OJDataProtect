@@ -4,37 +4,37 @@
           {{ __('Organisation') }} {{ $organisation->name }} dd
   </x-slot>
 
-  <div class="container">
-    <div class="row justify-content-center">
+  <div class="container mx-auto sm:px-4">
+    <div class="flex flex-wrap  justify-center">
 
-      <div class="col-md-9">
-        <div class="card">
+      <div class="md:w-3/4 pr-4 pl-4">
+        <div class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-gray-300">
 
-          <div class="card-header">
+          <div class="py-3 px-6 mb-0 bg-gray-200 border-b-1 border-gray-300 text-gray-900">
             <h5>
               {{ $process->name }}
             </h5>
           </div>
 
-          <div class="card-body">
+          <div class="flex-auto p-6">
 
-            <ul class="nav nav-tabs justify-content-end" id="nav-tab" role="tablist">
-              <li class="nav-item">
-                <a class="nav-item nav-link active" id="nav-show-tab" data-toggle="tab" href="#nav-show" role="tab" aria-controls="nav-show" aria-selected="true">Show</a>
+            <ul class="flex flex-wrap list-none pl-0 mb-0 border border-t-0 border-r-0 border-l-0 border-b-1 border-gray-200 justify-end" id="nav-tab" role="tablist">
+              <li class="">
+                <a class=" inline-block py-2 px-4 no-underline active" id="nav-show-tab" data-toggle="tab" href="#nav-show" role="tab" aria-controls="nav-show" aria-selected="true">Show</a>
               </li>
-              <li class="nav-item">
+              <li class="">
 
-                <a class="nav-item nav-link" id="nav-edit-tab" data-toggle="tab" href="#nav-edit" role="tab" aria-controls="nav-edit" aria-selected="false">Edit</a>
+                <a class=" inline-block py-2 px-4 no-underline" id="nav-edit-tab" data-toggle="tab" href="#nav-edit" role="tab" aria-controls="nav-edit" aria-selected="false">Edit</a>
               </li>
             </ul>
             <div class="tab-content" id="nav-tabContent">
-              <div class="tab-pane fade show active" id="nav-show" role="tabpanel" aria-labelledby="nav-show-tab">
+              <div class="tab-pane opacity-0 opacity-100 block active" id="nav-show" role="tabpanel" aria-labelledby="nav-show-tab">
                 <p>
                   {{ $process->description }}
                 </p>
 
               </div>
-              <div class="tab-pane fade" id="nav-edit" role="tabpanel" aria-labelledby="nav-edit-tab">
+              <div class="tab-pane opacity-0" id="nav-edit" role="tabpanel" aria-labelledby="nav-edit-tab">
                 <form>
 
                   {{-- {!! Form::textField('name', 'Name', $process->name) !!}
@@ -47,18 +47,18 @@
 
 
               </div>
-              <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">Contact
+              <div class="tab-pane opacity-0" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">Contact
 
               </div>
             </div>
           </div>
 
 
-          <div class="card-body">
+          <div class="flex-auto p-6">
 
 
             <h3>Tags</h3>
-            <table class="table table-hover">
+            <table class="w-full max-w-full mb-4 bg-transparent table-hover">
               <thead>
                 <tr>
                   <th>Name</th>
@@ -107,17 +107,17 @@
   </div>
 </div>
 
-<div class="col-md-3">
+<div class="md:w-1/4 pr-4 pl-4">
 
-  <div class="card">
-    <div class="card-header">
+  <div class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-gray-300">
+    <div class="py-3 px-6 mb-0 bg-gray-200 border-b-1 border-gray-300 text-gray-900">
       Adding tag
     </div>
-    <div class="card-body">
+    <div class="flex-auto p-6">
 
       <input type="text" name="" value="">
       <input type="text" name="" value="">
-<button type="button" name="button" class="btn btn-success">add</button>
+<button type="button" name="button" class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-green-500 text-white hover:bg-green-600">add</button>
     </div>
 
   </div>
