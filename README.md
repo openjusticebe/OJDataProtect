@@ -1,3 +1,4 @@
+@ -1,15 +0,0 @@
 🚧 Under (heavy) construction. Please come back in a few nanoseconds. 🚧
 
 # Registrability
@@ -8,8 +9,9 @@ Registrability is a tool for Data Protection Officers (DPO) to register their da
 
 ## How to install
 - Clone the repo
-- Launch `docker` & exec `docker-compose up` ;
-- `docker exec registrability_app_1 php artisan migrate:fresh --seed`
+- `cd src/` 
+- exec `docker-compose up` ;
+- `docker-compose exec php php artisan migrate:fresh --seed`
 
 ## Author
 Martin Erpicum from [OpenJustice.be](https://openjustice.be)
