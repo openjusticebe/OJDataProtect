@@ -16,25 +16,14 @@ use App\Http\Controllers\OrganisationTagController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+require base_path('routes/auth.php');
+require base_path('routes/includes/public.php');
 
-Route::get('/', function () {
-    return redirect()->route('dashboard');
-});
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('dashboard', [HomeController::class, 'dashboard'])
-    ->name('dashboard');
+    require base_path('routes/includes/auth/default.inc.php');
   
     Route::group(['middleware' => 'member'], function () {
-        Route::get('org-{org_slug}', [OrganisationController::class, 'show'])
-      ->name('organisation.show');
-  
-        Route::get('org-{org_slug}/process-{proc_id}', [OrganisationProcessController::class, 'show'])
-      ->name('organisation.process.show');
-  
-        Route::get('org-{org_slug}/tag-{tag_id}', [OrganisationTagController::class, 'show'])->name('organisation.tags.show');
+        require base_path('routes/includes/auth/can-view-organisation.inc.php');
     });
 });
-
-
-require __DIR__.'/auth.php';

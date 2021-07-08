@@ -14,6 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+// Route::group(['middleware' => ['auth:api', 'verified']], function () {
+Route::group(['middleware' => ['auth:api']], function () {
+    require base_path('routes/includes/api/default.inc.php');
+
+    Route::group(['middleware' => [
+    'can:view-organisation,organisation',
+  ],
+], function () {
+    require base_path('routes/includes/api/can-view-organisation.inc.php');
+});
 });
