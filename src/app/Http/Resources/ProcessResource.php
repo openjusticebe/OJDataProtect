@@ -29,8 +29,8 @@ class ProcessResource extends JsonResource
     public function with($request)
     {
         return [
-      'api_version' => config('mesylab.api_version'),
-      'author_url' => config('mesylab.url')
+      'api_version' => null,
+      'author_url' => null
     ];
     }
 }

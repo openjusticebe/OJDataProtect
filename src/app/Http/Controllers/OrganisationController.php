@@ -14,7 +14,7 @@ class OrganisationController extends Controller
 
     public function show($org_slug)
     {
-        $organisation = Organisation::whereSlug($org_slug)->first();
+        $organisation = Organisation::whereSlug($org_slug)->firstOrfail();
 
 
         return view('organisation.organisation', compact('organisation'));

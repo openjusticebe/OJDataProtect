@@ -3906,7 +3906,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
-    console.log('Component mounted.');
+    console.log("Component mounted.");
   }
 });
 
@@ -3940,10 +3940,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
-    console.log('Component mounted.');
+    console.log("Component mounted.");
   }
 });
 
@@ -4013,17 +4012,47 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       org_slug: org_slug,
       processes: [],
       process: {
-        id: '',
-        name: '',
-        description: ''
+        id: "",
+        name: "",
+        description: ""
       },
-      process_id: '',
+      process_id: "",
       pagination: {},
       edit: false
     };
@@ -4036,7 +4065,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var vm = this;
-      page_url = page_url || '/api/org-' + this.org_slug + '/process';
+      page_url = page_url || "/api/org-" + this.org_slug + "/process";
       fetch(page_url).then(function (res) {
         return res.json();
       }).then(function (res) {
@@ -4058,13 +4087,13 @@ __webpack_require__.r(__webpack_exports__);
     deleteProcess: function deleteProcess(id) {
       var _this2 = this;
 
-      if (confirm('Are You Sure?')) {
+      if (confirm("Are You Sure?")) {
         fetch("/api/org-" + this.org_slug + "/process/".concat(id), {
-          method: 'delete'
+          method: "delete"
         }).then(function (res) {
           return res.json();
         }).then(function (data) {
-          alert('Process Removed');
+          alert("Process Removed");
 
           _this2.fetchProcess();
         })["catch"](function (err) {
@@ -4077,18 +4106,18 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.edit === false) {
         // Add
-        fetch('api/process', {
-          method: 'post',
+        fetch("api/process", {
+          method: "post",
           body: JSON.stringify(this.process),
           headers: {
-            'content-type': 'application/json'
+            "content-type": "application/json"
           }
         }).then(function (res) {
           return res.json();
         }).then(function (data) {
           _this3.clearForm();
 
-          alert('Process Added');
+          alert("Process Added");
 
           _this3.fetchProcess();
         })["catch"](function (err) {
@@ -4096,18 +4125,18 @@ __webpack_require__.r(__webpack_exports__);
         });
       } else {
         // Update
-        fetch('/api/org-' + this.org_slug + '/process', {
-          method: 'put',
+        fetch("/api/org-" + this.org_slug + "/process", {
+          method: "put",
           body: JSON.stringify(this.process),
           headers: {
-            'content-type': 'application/json'
+            "content-type": "application/json"
           }
         }).then(function (res) {
           return res.json();
         }).then(function (data) {
           _this3.clearForm();
 
-          alert('Process Updated');
+          alert("Process Updated");
 
           _this3.fetchProcess();
         })["catch"](function (err) {
@@ -4126,8 +4155,8 @@ __webpack_require__.r(__webpack_exports__);
       this.edit = false;
       this.process.id = null;
       this.process.process_id = null;
-      this.process.name = '';
-      this.process.description = '';
+      this.process.name = "";
+      this.process.description = "";
     }
   }
 });
@@ -4159,12 +4188,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
-    console.log('Component mounted.');
+    console.log("Component mounted.");
   }
 });
 
@@ -22482,9 +22508,7 @@ var render = function() {
           _c("div", { staticClass: "card-header" }),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
-            _vm._v(
-              "\n                    I'm an example component. tet\n                    "
-            ),
+            _vm._v("\n          I'm an example component. tet\n          "),
             _c("p", [_vm._v(_vm._s(_vm.$t("auth.failed")))])
           ])
         ])
@@ -22680,7 +22704,7 @@ var render = function() {
               _c(
                 "ul",
                 _vm._l(process.tags, function(tag) {
-                  return _c("li", { key: tag.id }, [_vm._v(_vm._s(tag) + " ")])
+                  return _c("li", { key: tag.id }, [_vm._v(_vm._s(tag))])
                 }),
                 0
               )
@@ -22758,9 +22782,7 @@ var staticRenderFns = [
               _vm._v("Add a new tag")
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v("\nEdit tag\n\n                    ")
-            ])
+            _c("div", { staticClass: "card-body" }, [_vm._v("Edit tag")])
           ])
         ])
       ])
