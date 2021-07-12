@@ -23,7 +23,7 @@ class OpenJusticeProcessesSeeder extends Seeder
             [
         'name' => 'Anonymisation des décisions de justice en vue de la constitution d’une base de données libre et accessible à tous',
         'organisation_id' => $organisation->id,
-        'description' => 'Outil d’anonymisation OpenJustice'
+        'description' => 'Open Justice met à disposition des utilisateurs inscrits sur la plateforme Openjustice.be une interface d’anonymisation des décisions de justice qui doit être utilisée avant transmission des décisions (dès lors anonymisées) dans une base de données.  Pour se connecter et disposer d’un identifiant, l’utilisateur doit transmettre son nom, prénom et coordonnées professionnelles.  Il est important de noter qu’il n’y a aucun enregistrement des données lors de l’importation de la décision dans l’interface et que partant, Open Justice ne traite en principe pas les données personnelles contenues dans les décisions de Justice.'
       ]
         );
 
@@ -50,19 +50,12 @@ class OpenJusticeProcessesSeeder extends Seeder
         'description' => 'Profession, title',
         'specific_description' => ''
       ],
-      [
-        'name' => 'Irsib Innoviris',
-        'type' => 'client',
-        'category' => 'data_controller',
-        'description' => 'Company',
-        'specific_description' => ''
-      ],
 
       [
-        'name' => 'Scientist',
-        'type' => 'participant',
+        'name' => 'User',
+        'type' => 'user',
         'category' => 'data_subject',
-        'description' => 'Scientist',
+        'description' => 'Membres inscrits sur la plateforme et essentiellement professionnels du droit, Juges, Greffiers, Avocats, Huissiers, Juristes, Sociologues, Etudiants, Chercheurs.',
         'specific_description' => ''
       ],
       [
@@ -93,27 +86,6 @@ class OpenJusticeProcessesSeeder extends Seeder
         'description' => 'Consensus based on scientific construction',
         'specific_description' => 'Open Justice met à disposition des utilisateurs inscrits sur la plateforme Openjustice.be une interface d’anonymisation des décisions de justice qui doit être utilisée avant transmission des décisions (dès lors anonymisées) dans une base de données.  Pour se connecter et disposer d’un identifiant, l’utilisateur doit transmettre son nom, prénom et coordonnées professionnelles.  Il est important de noter qu’il n’y a aucun enregistrement des données lors de l’importation de la décision dans l’interface et que partant, Open Justice ne traite en principe pas les données personnelles contenues dans les décisions de Justice.'
       ],
-      [
-        'name' => 'NIH',
-        'type' => 'research_center',
-        'category' => 'data_recipient',
-        'description' => '',
-        'specific_description' => ''
-      ],
-      [
-        'name' => 'Mesylab',
-        'type' => 'company',
-        'category' => 'data_processor',
-        'description' => '',
-        'specific_description' => ''
-      ],
-      [
-        'name' => 'Mesylab',
-        'type' => 'company',
-        'category' => 'data_operator',
-        'description' => '',
-        'specific_description' => ''
-      ]
     ]);
 
 

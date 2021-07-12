@@ -17,26 +17,26 @@ class ApiHomeController extends Controller
         return OrganisationResource::collection($organisations);
     }
 
-    // public function show(Collection $collection)
+    // public function show(Organisation $organisation)
     // {
-    //     $collection->load(['labels', 'users'])->withCount('texts');
+    //     $organisation->load(['processes', 'users'])->withCount('processes');
 
-    //     return new CollectionResource($collection);
+    //     return new OrganisationResource($organisation);
     // }
 
-    // public function update(Collection $collection, Request $request)
+    // public function update(Organisation $organisation, Request $request)
     // {
-    //     $collection->fill($request->all());
-    //     $collection->slug = $collection->getUniqueSlug($collection->title);
-    //     $collection->save();
+    //     $organisation->fill($request->all());
+    //     $organisation->slug = $organisation->getUniqueSlug($organisation->title);
+    //     $organisation->save();
 
     //     return response(null, Response::HTTP_OK);
     // }
 
-    // public function destroy(Collection $collection)
+    // public function destroy(Organisation $organisation)
     // {
-    //     if (Gate::allows('delete-collection', $collection)) {
-    //         $collection->delete();
+    //     if (Gate::allows('delete-organisation', $organisation)) {
+    //         $organisation->delete();
 
     //         return response(null, Response::HTTP_OK);
     //     }

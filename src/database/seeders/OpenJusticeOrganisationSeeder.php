@@ -51,7 +51,7 @@ class OpenJusticeOrganisationSeeder extends Seeder
         $dpo->id => [
           'member_type' => 'data_protection_officer',
           'is_external' => rand(0, 1),
-          'is_admin' => 0
+          'is_admin' => 1
         ]
       ]
         );

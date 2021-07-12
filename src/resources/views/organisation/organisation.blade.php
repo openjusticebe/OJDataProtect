@@ -127,9 +127,8 @@
                                 </thead>
                                 <tbody>
 
-                                    @foreach
-                                    ($organisation->processes as
-                                    $process)
+                                    @foreach ($organisation->processes
+                                    as $process)
                                     <tr>
                                         <th scope="row"><a
                                                 href="{{ route('organisation.process.show', [$organisation->slug, $process->id]) }}">{{ $process->name }}</a>
