@@ -41,6 +41,9 @@
             {{ $slot }}
         </main>
     </div>
+
+    @include('partials.js_translations')
+
 </body>
 
 </html>
