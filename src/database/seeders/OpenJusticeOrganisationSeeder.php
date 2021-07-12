@@ -16,13 +16,13 @@ class OpenJusticeOrganisationSeeder extends Seeder
     */
     public function run()
     {
-        $dpo = User::firstOrCreate([
+        $dpo = User::factory()->create([
       'name' => 'Jeoffrey Vigneron',
       'email' => 'jeoffrey@openjustice.be',
       'password' => '$2y$10$SEGNhI5HKOWqc.2AoDQMU.HzxsDHwAl8NpaqD0s4WJxZM.2REFqUS',
     ]);
 
-        $member = User::firstOrCreate([
+        $member = User::factory()->create([
       'name' => 'Martin Erpicum',
       'email' => 'martin@mesydel.com',
       'password' => '$2y$10$SEGNhI5HKOWqc.2AoDQMU.HzxsDHwAl8NpaqD0s4WJxZM.2REFqUS',

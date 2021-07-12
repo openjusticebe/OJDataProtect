@@ -5,7 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1">
+    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    @if (auth()->check())
+    <meta name="api-token" content="{{ auth()->user()->api_token }}">
+    @endif
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -21,7 +26,7 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100">
+    <div class="min-h-screen bg-blue-50">
         @include('layouts.navigation')
 
         <!-- Page Heading -->

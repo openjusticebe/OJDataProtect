@@ -11,7 +11,8 @@
                 class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
-                    <example-component></example-component>
+                    <portfolio page_url="/api/v1/dashboard">
+                    </portfolio>
 
                     @foreach (Auth::user()->organisations as
                     $organisation)
