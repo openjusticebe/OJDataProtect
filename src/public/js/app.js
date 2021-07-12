@@ -21817,19 +21817,26 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("img", {
-      attrs: {
-        src:
-          "https://raw.githubusercontent.com/openjusticebe/ui-assets/main/svg/oj-animate.svg",
-        alt: "loading"
-      }
-    }),
-    _vm._v(" "),
-    _c("div", [_c("em", [_vm._v("loading... "), _c("spinner")], 1)])
-  ])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("img", {
+        attrs: {
+          src:
+            "https://raw.githubusercontent.com/openjusticebe/ui-assets/main/svg/oj-animate.svg",
+          alt: "loading"
+        }
+      }),
+      _vm._v(" "),
+      _c("div", [_c("em", [_vm._v("loading...")])])
+    ])
+  }
+]
 render._withStripped = true
 
 

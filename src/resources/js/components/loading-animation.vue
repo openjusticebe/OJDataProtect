@@ -5,7 +5,7 @@
       alt="loading"
     />
     <div>
-      <em>loading... <spinner /></em>
+      <em>loading...</em>
     </div>
   </div>
 </template>

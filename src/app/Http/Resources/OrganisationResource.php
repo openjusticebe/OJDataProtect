@@ -14,15 +14,19 @@ class OrganisationResource extends JsonResource
     */
     public function toArray($request)
     {
-        // return parent::toArray($request);
         return [
       'id' => (int)$this->id,
       'slug' => (string)$this->slug,
       'name' => (string)mb_strimwidth($this->name, 0, 45, "..."),
       'description' => (string)mb_strimwidth($this->description, 0, 144, "..."),
-      'processes' => $this->processes()->get(),
+      'address' => $this->address,
+      'city' => $this->city,
+      'postcode' => $this->postcode,
+      'country' => $this->country,
+      'logo_url' => $this->logo_url,
+      'vat_number' => $this->vat_number,
+      'relationships' => new OrganisationRelationshipResource($this),
       'datetimes' => $this->datetimes,
-      // 'relationships' => new CollectionRelationshipResource($this),
       'links'         => [
         'self' => route('organisation.show', [$this->slug]),
         'api_update' => '',

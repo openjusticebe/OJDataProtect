@@ -20,9 +20,7 @@ class Unit extends BaseModel
 
     public function members()
     {
-        return $this->belongsToMany('App\User')
-       ->withTimestamps()
+        return $this->belongsToMany('App\Models\User')
+       ->withTimestamps();
     }
-
-    
 }
