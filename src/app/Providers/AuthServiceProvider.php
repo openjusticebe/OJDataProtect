@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Organisation;
-use App\Models\Text;
+use App\Models\Process;
 use App\Models\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
@@ -46,7 +46,7 @@ class AuthServiceProvider extends ServiceProvider
             if ($this->isAdmin($organisation, $user)) {
                 if ($this->notUniqueAdmin($organisation)) {
                     return true;
-                } elseif ($this->notOnlyMember($organisation)) {
+                } elseif ($this->notUniqueMember($organisation)) {
                     return true;
                 }
             } else {
@@ -72,7 +72,7 @@ class AuthServiceProvider extends ServiceProvider
             User $user,
             Process $process
         ) {
-            return $process->uploader_id == $user->id;
+            return $process->creator_id == $user->id;
         });
     }
 
@@ -81,12 +81,12 @@ class AuthServiceProvider extends ServiceProvider
     #
     private function belongsToOrganisation(Organisation $organisation, User $user)
     {
-        return in_array($organisation->id, $user->Organisations()->pluck('Organisations.id')->toArray());
+        return in_array($organisation->id, $user->organisations()->pluck('organisations.id')->toArray());
     }
 
     private function isAdmin(Organisation $organisation, User $user)
     {
-        return in_array($user->id, $organisation->users()->whereRole('admin')->pluck('Organisation_user.user_id')->toArray());
+        return in_array($user->id, $organisation->users()->whereRole('admin')->pluck('organisation_user.user_id')->toArray());
     }
 
     private function notUniqueAdmin(Organisation $organisation)
@@ -99,7 +99,7 @@ class AuthServiceProvider extends ServiceProvider
         return ($user->id == 1);
     }
 
-    private function notOnlyMember(Organisation $organisation)
+    private function notUniqueMember(Organisation $organisation)
     {
         return ($organisation->users()->get()->count() > 1);
     }
