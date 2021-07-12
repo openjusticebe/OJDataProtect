@@ -55,4 +55,25 @@ class User extends Authenticatable
     {
         return "{$this->name} {$this->first_name} {$this->last_name}";
     }
+
+    public function getIsAuthAttribute()
+    {
+        if (Auth::user()->id == $this->id) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function getDatetimesAttribute()
+    {
+        return [
+      'updated_at'       => (string)$this->updated_at,
+      'updated_at_diff'  => (string)$this->updated_at->diffForHumans(['parts' => 2]),
+      'created_at'       => (string)$this->created_at,
+      'created_at_diff'  => (string)$this->created_at->diffForHumans([
+        'parts' => 2,
+      ]),
+    ];
+    }
 }

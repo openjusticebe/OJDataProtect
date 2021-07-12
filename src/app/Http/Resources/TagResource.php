@@ -21,11 +21,4 @@ class TagResource extends JsonResource
       'description' => $this->description
     ];
     }
-    public function with($request)
-    {
-        return [
-      'api_version' => null,
-      'author_url' => null
-    ];
-    }
 }

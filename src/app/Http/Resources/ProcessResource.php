@@ -26,11 +26,4 @@ class ProcessResource extends JsonResource
 
     ];
     }
-    public function with($request)
-    {
-        return [
-      'api_version' => null,
-      'author_url' => null
-    ];
-    }
 }

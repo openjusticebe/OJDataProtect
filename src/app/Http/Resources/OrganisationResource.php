@@ -16,19 +16,17 @@ class OrganisationResource extends JsonResource
     {
         // return parent::toArray($request);
         return [
-      'id' => $this->id,
-      'name' => $this->name,
-      'created_at' => $this->created_at->diffForHumans(),
-      'updated_at' => $this->updated_at->diffForHumans(),
-      'processes' => $this->processes()->get()
-
-    ];
-    }
-    public function with($request)
-    {
-        return [
-      'api_version' => null,
-      'author_url' => null
+      'id' => (int)$this->id,
+      'slug' => (string)$this->slug,
+      'name' => (string)mb_strimwidth($this->name, 0, 45, "..."),
+      'description' => (string)mb_strimwidth($this->description, 0, 144, "..."),
+      'processes' => $this->processes()->get(),
+      'datetimes' => $this->datetimes,
+      // 'relationships' => new CollectionRelationshipResource($this),
+      'links'         => [
+        'self' => route('organisation.show', [$this->slug]),
+        'api_update' => '',
+      ],
     ];
     }
 }
