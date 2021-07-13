@@ -28,7 +28,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  if (api_token) {
    window.axios.defaults.headers.common['Authorization'] = 'Bearer ' + api_token.content;
  } else {
-     console.error('API token not found');
+     console.log('API token not found');
  }
 
 /**

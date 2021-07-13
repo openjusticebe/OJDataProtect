@@ -38,7 +38,7 @@ class Organisation extends BaseModel
        ->where('member_type', '!=', 'data_protection_officer');
     }
 
-    public function dpo()
+    public function dpos()
     {
         return $this->belongsToMany('App\Models\User')
        ->withPivot(['member_type', 'is_external', 'is_admin'])

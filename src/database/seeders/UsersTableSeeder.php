@@ -18,7 +18,7 @@ class UsersTableSeeder extends Seeder
         User::factory()->make([
             'name' => 'John Doe',
             'email' => 'john.doe@openjustice.be',
-            'password' => bcrypt('demo'),
+            'password' => '$2y$10$SEGNhI5HKOWqc.2AoDQMU.HzxsDHwAl8NpaqD0s4WJxZM.2REFqUS',
         ]);
 
         User::factory()->count(10)->create();

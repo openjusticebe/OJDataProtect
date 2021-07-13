@@ -4043,7 +4043,7 @@ var api_token = document.head.querySelector('meta[name="api-token"]');
 if (api_token) {
   window.axios.defaults.headers.common['Authorization'] = 'Bearer ' + api_token.content;
 } else {
-  console.error('API token not found');
+  console.log('API token not found');
 }
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
