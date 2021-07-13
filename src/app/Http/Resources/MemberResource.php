@@ -19,7 +19,7 @@ class MemberResource extends JsonResource
       'id'            => (int)$this->id,
       'name'          => (string)$this->name,
       'email'          => (string)$this->email,
-          'datetimes' => $this->datetimes,
+      'datetimes' => $this->datetimes,
     ];
     }
 }

@@ -15,11 +15,13 @@ class UsersTableSeeder extends Seeder
     */
     public function run()
     {
-        User::factory()->make([
+        User::factory()->create([
             'name' => 'John Doe',
             'email' => 'john.doe@openjustice.be',
             'password' => '$2y$10$SEGNhI5HKOWqc.2AoDQMU.HzxsDHwAl8NpaqD0s4WJxZM.2REFqUS',
-        ]);
+          ]);
+
+          
 
         User::factory()->count(10)->create();
     }

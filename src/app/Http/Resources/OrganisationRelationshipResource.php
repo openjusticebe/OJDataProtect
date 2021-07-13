@@ -20,7 +20,10 @@ class OrganisationRelationshipResource extends JsonResource
       'members' => [
         'data' => MemberResource::collection($this->whenLoaded('members')),
       ],
-       'processes' => [
+      'dpos' => [
+        'data' => MemberResource::collection($this->whenLoaded('dpos')),
+      ],
+      'processes' => [
         'data' => ProcessResource::collection($this->whenLoaded('processes')),
       ],
       'units'   => [

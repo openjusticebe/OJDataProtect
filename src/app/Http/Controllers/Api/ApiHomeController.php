@@ -13,7 +13,7 @@ class ApiHomeController extends Controller
     public function dashboard()
     {
         $organisations = Auth::user()->organisations()->orderBy('updated_at', 'desc')->get();
-
+        $organisations->load(['members', 'processes', 'units', 'dpos']);
         return OrganisationResource::collection($organisations);
     }
 

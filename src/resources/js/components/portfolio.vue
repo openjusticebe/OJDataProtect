@@ -20,7 +20,7 @@
       >
         <header class="flex items-center justify-between">
           <h2 class="text-lg leading-6 font-medium text-black">
-            Organisations
+            Organisations <small>{{ filteredList.length }}</small>
           </h2>
           <button
             class="
@@ -36,6 +36,7 @@
               px-4
               py-2
             "
+            @click="new_org = !new_org"
           >
             <svg
               class="group-hover:text-blue-600 text-blue-500 mr-2"
@@ -85,11 +86,18 @@
               py-2
               pl-10
             "
+            v-model="search"
             type="text"
             aria-label="Filter organisations"
             placeholder="Filter organisations"
           />
         </form>
+        <div class="text-right text-sm" v-if="search">
+          Filter for <em>{{ search }}</em>
+        </div>
+
+        <new-org v-if="new_org"></new-org>
+
         <ul
           class="
             grid grid-cols-1
@@ -99,9 +107,9 @@
             gap-4
           "
         >
-          <li x-for="item in items" v-for="item in fields">
+          <li x-for="item in items" v-for="item in filteredList">
             <a
-              :href="item.url"
+              :href="item.links.self"
               class="
                 hover:bg-blue-500
                 hover:border-transparent
@@ -148,14 +156,25 @@
                       xl:mb-4
                     "
                   >
-                    {{ item.description }}
+                    Description: {{ item.description }}
 
-                    {{ item.relationships.processes }}
-                    {{ item.relationships.units }}
-                    {{ item.relationships.members }}
-                    {{ item.relationships.dpos }}
+                    <div v-for="process in item.relationships.processes.data">
+                      <a :href="process.links.self"
+                        >{{ process.name }} {{ process.tags.length }}</a
+                      >
+                    </div>
 
-                    <a :href="item.links.self"> link </a>
+                    <div v-for="unit in item.relationships.units.data">
+                      {{ unit.name }}
+                    </div>
+
+                    <div v-for="member in item.relationships.members.data">
+                      {{ member.name }}
+                    </div>
+
+                    <div v-for="dpo in item.relationships.dpos.data">
+                      {{ dpo.name }}
+                    </div>
                   </dd>
                 </div>
                 <div class="col-start-2 row-start-1 row-end-3">
@@ -173,8 +192,8 @@
                     <img
                       x-for="user in item.users"
                       v-for="user in item.relationships.members"
-                      src="user.avatar"
-                      alt="user.name"
+                      :src="user.avatar"
+                      :alt="user.name"
                       width="48"
                       height="48"
                       class="
@@ -192,7 +211,7 @@
           </li>
           <li class="hover:shadow-lg flex rounded-lg">
             <a
-              href="/new"
+              @click="new_org = !new_org"
               class="
                 hover:border-transparent
                 hover:shadow-xs
@@ -207,7 +226,7 @@
                 py-4
               "
             >
-              New Project
+              New organisation
             </a>
           </li>
         </ul>
@@ -224,7 +243,10 @@ export default {
   mixins: [GetDataMixin],
   props: ["page_url"],
   data() {
-    return {};
+    return {
+      search: "",
+      new_org: false,
+    };
   },
 
   methods: {
@@ -234,6 +256,13 @@ export default {
       } else {
         return "border-light";
       }
+    },
+  },
+  computed: {
+    filteredList() {
+      return this.fields.filter((item) => {
+        return item.name.toLowerCase().includes(this.search.toLowerCase());
+      });
     },
   },
 };
