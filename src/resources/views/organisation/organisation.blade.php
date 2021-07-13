@@ -1,7 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Organisation') }} {{ $organisation->name }}
+            {{-- {{ __('Organisation') }} {{ $organisation->name }}
+            --}}
     </x-slot>
 
     <div class="py-12">
@@ -127,124 +128,123 @@
                                 </thead>
                                 <tbody>
 
-                                    @foreach ($organisation->processes
+                                    {{-- @foreach ($organisation->processes
                                     as $process)
                                     <tr>
                                         <th scope="row"><a
                                                 href="{{ route('organisation.process.show', [$organisation->slug, $process->id]) }}">{{ $process->name }}</a>
-                                        </th>
-                                        <td>
-                                            <strong>Data
-                                                subject</strong>
-                                            <ul class="list-unstyled">
-                                                @foreach
-                                                ($process->tags()->ofCategory('data_subject')->get()
-                                                as $tag)
-                                                {{ $tag }}
-                                                {{-- <li>{!! Html::tag_badge($organisation, $tag) !!}</li> --}}
-                                                @endforeach
-                                            </ul>
-                                            <strong>Data
-                                                processor</strong>
-                                            <ul class="list-unstyled">
-                                                @foreach
-                                                ($process->tags()->ofCategory('data_processor')->get()
-                                                as $tag)
-                                                {{ $tag }}
-                                                {{-- <li>{!! Html::tag_badge($organisation, $tag) !!}</li> --}}
-                                                @endforeach
-                                            </ul>
+                                    </th>
+                                    <td>
+                                        <strong>Data
+                                            subject</strong>
+                                        <ul class="list-unstyled">
+                                            @foreach
+                                            ($process->tags()->ofCategory('data_subject')->get()
+                                            as $tag)
+                                            {{ $tag }}
+                                            {{-- <li>{!! Html::tag_badge($organisation, $tag) !!}</li> --}}
+                                            @endforeach
+                                        </ul>
+                                        <strong>Data
+                                            processor</strong>
+                                        <ul class="list-unstyled">
+                                            @foreach
+                                            ($process->tags()->ofCategory('data_processor')->get()
+                                            as $tag)
+                                            {{ $tag }}
+                                            {{-- <li>{!! Html::tag_badge($organisation, $tag) !!}</li> --}}
+                                            @endforeach
+                                        </ul>
 
-                                            <strong>Data
-                                                operator</strong>
-                                            <ul class="list-unstyled">
-                                                @foreach
-                                                ($process->tags()->ofCategory('data_operator')->get()
-                                                as $tag)
-                                                {{ $tag }}
-                                                {{-- <li>{!! Html::tag_badge($organisation, $tag) !!}</li> --}}
-                                                @endforeach
-                                            </ul>
-                                        </td>
-                                        <td>
-                                            <strong>Data
-                                                object</strong>
+                                        <strong>Data
+                                            operator</strong>
+                                        <ul class="list-unstyled">
+                                            @foreach
+                                            ($process->tags()->ofCategory('data_operator')->get()
+                                            as $tag)
+                                            {{ $tag }}
+                                            {{-- <li>{!! Html::tag_badge($organisation, $tag) !!}</li> --}}
+                                            @endforeach
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <strong>Data
+                                            object</strong>
 
-                                            <ul class="list-unstyled">
-                                                @foreach
-                                                ($process->tags()->ofCategory('data_object')->get()
-                                                as $tag)
-                                                {{ $tag }}
-                                                {{-- <li>{!! Html::tag_badge($organisation, $tag) !!}</li> --}}
-                                                @endforeach
-                                            </ul>
-                                        </td>
-                                        <td>
-                                            <strong>Data
-                                                recipient</strong>
-                                            <ul class="list-unstyled">
-                                                @foreach
-                                                ($process->tags()->ofCategory('data_recipient')->get()
-                                                as $tag)
-                                                {{ $tag }}
-                                                {{-- <li>{!! Html::tag_badge($organisation, $tag) !!}</li> --}}
-                                                @endforeach
-                                            </ul>
-                                            <strong>Purpose</strong>
+                                        <ul class="list-unstyled">
+                                            @foreach
+                                            ($process->tags()->ofCategory('data_object')->get()
+                                            as $tag)
+                                            {{ $tag }}
+                                            {{-- <li>{!! Html::tag_badge($organisation, $tag) !!}</li> --}}
+                                            @endforeach
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <strong>Data
+                                            recipient</strong>
+                                        <ul class="list-unstyled">
+                                            @foreach
+                                            ($process->tags()->ofCategory('data_recipient')->get()
+                                            as $tag)
+                                            {{ $tag }}
+                                            {{-- <li>{!! Html::tag_badge($organisation, $tag) !!}</li> --}}
+                                            @endforeach
+                                        </ul>
+                                        <strong>Purpose</strong>
 
-                                            <ul class="list-unstyled">
-                                                @foreach
-                                                ($process->tags()->ofCategory('purpose')->get()
-                                                as $tag)
-                                                {{ $tag }}
-                                                {{-- <li>{!! Html::tag_badge($organisation, $tag) !!}</li> --}}
-                                                @endforeach
-                                            </ul>
-                                        </td>
+                                        <ul class="list-unstyled">
+                                            @foreach
+                                            ($process->tags()->ofCategory('purpose')->get()
+                                            as $tag)
+                                            {{ $tag }}
+                                            {{-- <li>{!! Html::tag_badge($organisation, $tag) !!}</li> --}}
+                                            @endforeach
+                                        </ul>
+                                    </td>
 
-                                        <td>
+                                    <td>
 
 
 
-                                            <ul
-                                                class="list-unstyled text-xs">
-                                                {{-- <li>{!! Html::alias_fa('check') !!}  Consent</li>
+                                        <ul
+                                            class="list-unstyled text-xs">
+                                            {{-- <li>{!! Html::alias_fa('check') !!}  Consent</li>
                             <li>{!! Html::alias_fa('box') !!} Contract</li>
                             <li>{!! Html::alias_fa('check') !!} Legal obligation</li>
                             <li>{!! Html::alias_fa('check') !!} Vital interest</li>
                             <li>{!! Html::alias_fa('check') !!} Public task</li>
                             <li>{!! Html::alias_fa('check') !!} Legitimate interest</li> --}}
-                                            </ul>
+                                        </ul>
 
-                                            Art. 6 of GDPR
-                                        </td>
-                                        <td
-                                            class="text-xs text-gray-700">
-                                            <table
-                                                class="w-full max-w-full mb-4 bg-transparent table-condensed table-borderless">
-                                                <tr>
-                                                    <td>Active
-                                                    </td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Updated
-                                                    </td>
-                                                    <td>{{ $process->updated_at->diffForHumans() }}
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Created
-                                                    </td>
-                                                    <td>{{ $process->created_at->diffForHumans() }}
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                        Art. 6 of GDPR
+                                    </td>
+                                    <td class="text-xs text-gray-700">
+                                        <table
+                                            class="w-full max-w-full mb-4 bg-transparent table-condensed table-borderless">
+                                            <tr>
+                                                <td>Active
+                                                </td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Updated
+                                                </td>
+                                                <td>{{ $process->updated_at->diffForHumans() }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Created
+                                                </td>
+                                                <td>{{ $process->created_at->diffForHumans() }}
+                                                </td>
+                                            </tr>
+                                        </table>
 
 
-                                        </td>
+                                    </td>
                                     </tr>
-                                    @endforeach
+                                    @endforeach --}}
                                 </tbody>
 
                             </table>

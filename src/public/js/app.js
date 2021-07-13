@@ -3960,6 +3960,184 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mixins: [_mixins_GetDataMixin__WEBPACK_IMPORTED_MODULE_0__.default],
@@ -21859,64 +22037,247 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
-    _c("table", { staticClass: "table" }, [
-      _c("thead", [
-        _c("tr", [
-          _c("th", { attrs: { scope: "col" } }, [
-            _vm._v("\n          " + _vm._s(_vm.__("app.name")) + "\n        ")
-          ]),
-          _vm._v(" "),
-          _c("th", { staticClass: "text-right" }, [
-            _vm._v(_vm._s(_vm.__("app.labels")))
-          ]),
-          _vm._v(" "),
-          _c("th", { staticClass: "text-right" }, [
-            _vm._v(_vm._s(_vm.__("app.tags")))
-          ]),
-          _vm._v(" "),
-          _c("th", { attrs: { scope: "col" } }, [
-            _vm._v("\n          " + _vm._s(_vm.__("app.role")) + "\n        ")
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        [
-          !_vm.data_fetched
-            ? _c("tr", [
+  return _c("div", [
+    !_vm.data_fetched
+      ? _c(
+          "div",
+          { staticClass: "grid justify-items-center" },
+          [_c("loading-animation")],
+          1
+        )
+      : _c("div", [
+          _c(
+            "section",
+            {
+              staticClass:
+                "\n        px-4\n        sm:px-6\n        lg:px-4\n        xl:px-6\n        pt-4\n        pb-4\n        sm:pb-6\n        lg:pb-4\n        xl:pb-6\n        space-y-4\n      "
+            },
+            [
+              _c(
+                "header",
+                { staticClass: "flex items-center justify-between" },
+                [
+                  _c(
+                    "h2",
+                    { staticClass: "text-lg leading-6 font-medium text-black" },
+                    [_vm._v("\n          Organisations\n        ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "\n            hover:bg-blue-200\n            hover:text-blue-800\n            group\n            flex\n            items-center\n            rounded-md\n            bg-blue-100\n            text-blue-600 text-sm\n            font-medium\n            px-4\n            py-2\n          "
+                    },
+                    [
+                      _c(
+                        "svg",
+                        {
+                          staticClass:
+                            "group-hover:text-blue-600 text-blue-500 mr-2",
+                          attrs: {
+                            width: "12",
+                            height: "20",
+                            fill: "currentColor"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "fill-rule": "evenodd",
+                              "clip-rule": "evenodd",
+                              d:
+                                "M6 5a1 1 0 011 1v3h3a1 1 0 110 2H7v3a1 1 0 11-2 0v-3H2a1 1 0 110-2h3V6a1 1 0 011-1z"
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v("\n          New\n        ")
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c("form", { staticClass: "relative" }, [
                 _c(
-                  "td",
-                  { staticClass: "text-center", attrs: { colspan: "6" } },
-                  [_c("loading-animation")],
-                  1
-                )
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm._l(_vm.fields, function(item) {
-            return _c("tr", [
-              _c("td", { attrs: { scope: "row" } }, [
-                _c("a", { attrs: { href: item.links.self } }, [
-                  _vm._v("\n            " + _vm._s(item.name) + "\n          ")
-                ])
+                  "svg",
+                  {
+                    staticClass:
+                      "\n            absolute\n            left-3\n            top-1/2\n            transform\n            -translate-y-1/2\n            text-gray-400\n          ",
+                    attrs: { width: "20", height: "20", fill: "currentColor" }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        "fill-rule": "evenodd",
+                        "clip-rule": "evenodd",
+                        d:
+                          "M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass:
+                    "\n            focus:border-blue-500\n            focus:ring-1 focus:ring-blue-500\n            focus:outline-none\n            w-full\n            text-sm text-black\n            placeholder-gray-500\n            border border-gray-200\n            rounded-md\n            py-2\n            pl-10\n          ",
+                  attrs: {
+                    type: "text",
+                    "aria-label": "Filter organisations",
+                    placeholder: "Filter organisations"
+                  }
+                })
               ]),
               _vm._v(" "),
-              _c("td", { staticClass: "text-right" }, [
-                _vm._v("\n          " + _vm._s(item.description) + "\n        ")
-              ]),
-              _vm._v(" "),
-              _c("td", [_c("em", [_vm._v(_vm._s(item.processes))])])
-            ])
-          })
-        ],
-        2
-      )
-    ])
+              _c(
+                "ul",
+                {
+                  staticClass:
+                    "\n          grid grid-cols-1\n          sm:grid-cols-2\n          lg:grid-cols-1\n          xl:grid-cols-2\n          gap-4\n        "
+                },
+                [
+                  _vm._l(_vm.fields, function(item) {
+                    return _c("li", { attrs: { "x-for": "item in items" } }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass:
+                            "\n              hover:bg-blue-500\n              hover:border-transparent\n              hover:shadow-lg\n              group\n              block\n              rounded-lg\n              p-4\n              border border-gray-200\n            ",
+                          attrs: { href: item.url }
+                        },
+                        [
+                          _c(
+                            "dl",
+                            {
+                              staticClass:
+                                "\n                grid\n                sm:block\n                lg:grid\n                xl:block\n                grid-cols-2 grid-rows-2\n                items-center\n              "
+                            },
+                            [
+                              _c("div", [
+                                _c("dt", { staticClass: "sr-only" }, [
+                                  _vm._v("Title")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "dd",
+                                  {
+                                    staticClass:
+                                      "\n                    group-hover:text-white\n                    leading-6\n                    font-medium\n                    text-black\n                  "
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                  " +
+                                        _vm._s(item.name) +
+                                        "\n                "
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", [
+                                _c("dt", { staticClass: "sr-only" }, [
+                                  _vm._v("Category")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "dd",
+                                  {
+                                    staticClass:
+                                      "\n                    group-hover:text-blue-200\n                    text-sm\n                    font-medium\n                    sm:mb-4\n                    lg:mb-0\n                    xl:mb-4\n                  "
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                  " +
+                                        _vm._s(item.description) +
+                                        "\n\n                  " +
+                                        _vm._s(item.relationships.processes) +
+                                        "\n                  " +
+                                        _vm._s(item.relationships.units) +
+                                        "\n                  " +
+                                        _vm._s(item.relationships.members) +
+                                        "\n                  " +
+                                        _vm._s(item.relationships.dpos) +
+                                        "\n\n                  "
+                                    ),
+                                    _c(
+                                      "a",
+                                      { attrs: { href: item.links.self } },
+                                      [_vm._v(" link ")]
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "col-start-2 row-start-1 row-end-3"
+                                },
+                                [
+                                  _c("dt", { staticClass: "sr-only" }, [
+                                    _vm._v("Members")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "dd",
+                                    {
+                                      staticClass:
+                                        "\n                    flex\n                    justify-end\n                    sm:justify-start\n                    lg:justify-end\n                    xl:justify-start\n                    -space-x-2\n                  "
+                                    },
+                                    _vm._l(item.relationships.members, function(
+                                      user
+                                    ) {
+                                      return _c("img", {
+                                        staticClass:
+                                          "\n                      w-7\n                      h-7\n                      rounded-full\n                      bg-gray-100\n                      border-2 border-white\n                    ",
+                                        attrs: {
+                                          "x-for": "user in item.users",
+                                          src: "user.avatar",
+                                          alt: "user.name",
+                                          width: "48",
+                                          height: "48"
+                                        }
+                                      })
+                                    }),
+                                    0
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _vm._m(0)
+                ],
+                2
+              )
+            ]
+          )
+        ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "hover:shadow-lg flex rounded-lg" }, [
+      _c(
+        "a",
+        {
+          staticClass:
+            "\n              hover:border-transparent\n              hover:shadow-xs\n              w-full\n              flex\n              items-center\n              justify-center\n              rounded-lg\n              border-2 border-dashed border-gray-200\n              text-sm\n              font-medium\n              py-4\n            ",
+          attrs: { href: "/new" }
+        },
+        [_vm._v("\n            New Project\n          ")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
