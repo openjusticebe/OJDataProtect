@@ -4,6 +4,57 @@
       <loading-animation></loading-animation>
     </div>
     <div v-else>
+      <FormulateForm v-model="values" @submit="submitted">
+        <h2 class="text-2xl mb-2">Password reset</h2>
+        <FormulateInput
+          type="password"
+          name="password"
+          label="New password"
+          help="Pick a new password, must have at least 1 number."
+          validation="^required|min:5,length|matches:/[0-9]/"
+          :validation-messages="{
+            matches: 'Password must contain at least 1 number.',
+          }"
+          input-class="border border-gray-400 rounded px-3 py-2 leading-none focus:border-green-500 outline-none border-box w-full"
+        />
+        <FormulateInput
+          type="password"
+          name="password_confirm"
+          label="Confirm password"
+          help="Just re-type what you entered above"
+          validation="^required|confirm"
+          validation-name="Password confirmation"
+          input-class="border border-gray-400 rounded px-3 py-2 leading-none focus:border-green-500 outline-none border-box w-full"
+        />
+        <FormulateInput type="submit" />
+      </FormulateForm>
+
+      <FormulateInput type="text" />
+      <FormulateInput type="textarea" />
+      <FormulateInput type="email" name="email" validation="required|email" />
+      <FormulateInput
+        type="select"
+        label="Which animals make good pets?"
+        :options="{ dog: 'Dogs', alligators: 'Alligators', cat: 'Cats' }"
+      />
+      <FormulateInput validation="required|max:10|min:5" />
+
+      <FormulateInput
+        type="text"
+        label="What ice cream flavor?"
+        help="Note: We're fresh out of strawberries and bananas."
+        name="flavor"
+        validation="required|not:strawberry,banana"
+      />
+
+      <FormulateInput
+        label="How many tacos do you want?"
+        type="text"
+        validation="bail|required|number|between:1,10,value"
+        validation-name="Taco quantity"
+        error-behavior="live"
+      />
+
       <section
         class="
           px-4
@@ -158,19 +209,38 @@
                   >
                     Description: {{ item.description }}
 
-                    <div v-for="process in item.relationships.processes.data">
-                      <a :href="process.links.self"
-                        >{{ process.name }} {{ process.tags.length }}</a
+                    <div
+                      class="
+                        bg-blue-100
+                        border-t border-b border-blue-500
+                        text-blue-700
+                        px-4
+                        py-3
+                      "
+                      role="alert"
+                    >
+                      <p class="font-bold">processes</p>
+                      <p
+                        class="text-sm"
+                        v-for="process in item.relationships.processes.data"
                       >
+                        <a :href="process.links.self"
+                          >{{ process.name }} {{ process.tags.length }}</a
+                        >
+                      </p>
                     </div>
+
+                    <h2>units</h2>
 
                     <div v-for="unit in item.relationships.units.data">
                       {{ unit.name }}
                     </div>
+                    <h2>members</h2>
 
                     <div v-for="member in item.relationships.members.data">
                       {{ member.name }}
                     </div>
+                    <h2>dpos</h2>
 
                     <div v-for="dpo in item.relationships.dpos.data">
                       {{ dpo.name }}
