@@ -29,7 +29,7 @@ class OrganisationResource extends JsonResource
       'datetimes' => $this->datetimes,
       'links'         => [
         'self' => route('organisation.show', [$this->slug]),
-        'api_update' => '',
+        'api_update' => route('api.organisation.update', [$this->slug]),
       ],
     ];
     }

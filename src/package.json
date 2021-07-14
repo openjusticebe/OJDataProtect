@@ -29,6 +29,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "@braid/vue-formulate": "^2.5.2"
+        "@braid/vue-formulate": "^2.5.2",
+        "md5": "^2.3.0"
     }
 }

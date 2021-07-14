@@ -1,9 +1,9 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Organisation') }} {{ $organisation->name }}
+            {{ $organisation->name }}
+            <small>{{ __('Organisation') }}</small>
         </h2>
-        {{ route('api.organisation.show', ['org_slug' => $organisation->slug]) }}
     </x-slot>
 
     <div class="py-12">

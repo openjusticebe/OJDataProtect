@@ -36,6 +36,7 @@
               px-4
               py-2
             "
+            v-if="!new_org"
             @click="new_org = !new_org"
           >
             <svg
@@ -52,6 +53,7 @@
             </svg>
             New
           </button>
+          <button v-else @click="new_org = !new_org">Cancel</button>
         </header>
         <form class="relative">
           <svg
@@ -171,30 +173,30 @@
                       <p class="font-bold">processes</p>
                       <p
                         class="text-sm"
-                        v-for="process in item.relationships.processes.data"
+                        v-for="process in item.relationships.processes"
                       >
                         <a :href="process.links.self"
-                          >{{ process.name }} {{ process.tags.length }}</a
+                          >{{ process.name }} {{ process }}</a
                         >
                       </p>
                     </div>
-
-                    <h2>units</h2>
-
-                    <div v-for="unit in item.relationships.units.data">
-                      {{ unit.name }}
-                    </div>
-                    <h2>members</h2>
-
-                    <div v-for="member in item.relationships.members.data">
-                      {{ member.name }}
-                    </div>
-                    <h2>dpos</h2>
-
-                    <div v-for="dpo in item.relationships.dpos.data">
-                      {{ dpo.name }}
-                    </div>
                   </dd>
+                </div>
+
+                <h2 class="text-md leading-5 font-medium text-black">units</h2>
+
+                <div v-for="unit in item.relationships.units">
+                  {{ unit.name }}
+                </div>
+                <h2>members</h2>
+
+                <div v-for="member in item.relationships.members">
+                  {{ member.name }}
+                </div>
+                <h2>dpos</h2>
+
+                <div v-for="dpo in item.relationships.dpos">
+                  {{ dpo.name }}
                 </div>
                 <div class="col-start-2 row-start-1 row-end-3">
                   <dt class="sr-only">Members</dt>
@@ -209,9 +211,13 @@
                     "
                   >
                     <img
-                      x-for="user in item.users"
+                      x-for="user in item.relationships.members"
                       v-for="user in item.relationships.members"
-                      :src="user.avatar"
+                      :src="
+                        'https://www.gravatar.com/avatar/' +
+                        user.email_hash +
+                        '?d=mp'
+                      "
                       :alt="user.name"
                       width="48"
                       height="48"
@@ -234,6 +240,7 @@
               class="
                 hover:border-transparent
                 hover:shadow-xs
+                hover:bg-green-100
                 w-full
                 flex
                 items-center
@@ -256,6 +263,7 @@
 
  
  <script>
+import md5 from "md5";
 import GetDataMixin from "../mixins/GetDataMixin";
 
 export default {

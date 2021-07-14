@@ -18,12 +18,21 @@
           space-y-4
         "
       >
-        {{ fields }}
+        <pre>{{ fields }}</pre>
+
         <header class="flex items-center justify-between">
           <h2 class="text-lg leading-6 font-medium text-black">
             <!-- Process <small>{{ filteredList.length }}</small> -->
           </h2>
         </header>
+
+        <div v-for="process in fields.relationships.processes">
+          <h2>
+            {{ process.name }}
+          </h2>
+
+          {{ process }}
+        </div>
       </section>
     </div>
   </div>

@@ -16,29 +16,10 @@ class OrganisationRelationshipResource extends JsonResource
     {
         return [
 
-
-      'members' => [
-        'data' => MemberResource::collection($this->whenLoaded('members')),
-      ],
-      'dpos' => [
-        'data' => MemberResource::collection($this->whenLoaded('dpos')),
-      ],
-      'processes' => [
-        'data' => ProcessResource::collection($this->whenLoaded('processes')),
-      ],
-      'units'   => [
-        'data' => UnitResource::collection($this->whenLoaded('units')),
-      ],
-
-
-    ];
-    }
-    public function with($request)
-    {
-        return [
-      'links' => [
-        'self' => route('organisation.show'),
-      ],
+      'members' => MemberResource::collection($this->whenLoaded('members')),
+      'dpos' => MemberResource::collection($this->whenLoaded('dpos')),
+      'processes' => ProcessResource::collection($this->whenLoaded('processes')),
+      'units'   => UnitResource::collection($this->whenLoaded('units')),
     ];
     }
 }

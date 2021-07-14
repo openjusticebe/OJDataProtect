@@ -21,10 +21,10 @@ class ProcessResource extends JsonResource
       'description' => $this->description,
       'organisation_id' => $this->organisation_id,
       'datetimes' => $this->datetimes,
-      'tags' => TagResource::collection($this->tags()->get()),
+      'tags' => TagResource::collection($this->whenLoaded('tags')),
       'links'         => [
         'self' => route('organisation.process.show', [$this->organisation->slug, $this->id]),
-        'api_update' => '',
+        'api_update' => route('api.organisation.process.update', [$this->organisation->slug, $this->id]),
       ],
     ];
     }
