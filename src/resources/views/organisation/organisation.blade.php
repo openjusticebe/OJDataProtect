@@ -3,7 +3,7 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Organisation') }} {{ $organisation->name }}
         </h2>
-
+        {{ route('api.organisation.show', ['org_slug' => $organisation->slug]) }}
     </x-slot>
 
     <div class="py-12">
@@ -12,8 +12,9 @@
                 class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
+
                     <organisation
-                        page_url="/api/v1/{{ $organisation->slug }}">
+                        page_url="{{ route('api.organisation.show', ['org_slug' => $organisation->slug]) }}">
                     </organisation>
 
 

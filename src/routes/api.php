@@ -23,7 +23,7 @@ Route::group(['middleware' => ['auth:api']], function () {
     require base_path('routes/includes/api/default.inc.php');
 
     Route::group(['middleware' => [
-    'can:view-organisation,organisation',
+    'member',
   ],
 ], function () {
     require base_path('routes/includes/api/can-view-organisation.inc.php');

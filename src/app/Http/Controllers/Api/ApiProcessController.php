@@ -18,9 +18,7 @@ class ApiProcessController extends Controller
      */
     public function index($org_slug)
     {
-
         $processes = Process::orderBy('created_at', 'desc')->whereOrganisation_id(Organisation::whereSlug($org_slug)->firstOrfail()->id)->paginate(5);
-
 
         return ProcessResource::collection($processes);
     }
@@ -37,10 +35,9 @@ class ApiProcessController extends Controller
         $process->organisation_id = $request->input('organisation_id');
         $process->description = $request->input('description');
 
-        if($process->save()) {
+        if ($process->save()) {
             return new ProcessResource($process);
         }
-
     }
 
     /**
@@ -55,10 +52,9 @@ class ApiProcessController extends Controller
         $process->name = $request->input('name');
         $process->description = $request->input('description');
 
-        if($process->save()) {
+        if ($process->save()) {
             return new ProcessResource($process);
         }
-
     }
     /**
      * Display the specified resource.
@@ -83,7 +79,7 @@ class ApiProcessController extends Controller
     {
         // Get process
         $process = Process::findOrFail($id);
-        if($process->delete()) {
+        if ($process->delete()) {
             return new ProcessResource($process);
         }
     }

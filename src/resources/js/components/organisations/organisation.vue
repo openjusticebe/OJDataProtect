@@ -18,9 +18,10 @@
           space-y-4
         "
       >
+        {{ fields }}
         <header class="flex items-center justify-between">
           <h2 class="text-lg leading-6 font-medium text-black">
-            Organisations <small>{{ filteredList.length }}</small>
+            <!-- Process <small>{{ filteredList.length }}</small> -->
           </h2>
         </header>
       </section>
@@ -52,11 +53,11 @@ export default {
     },
   },
   computed: {
-    filteredList() {
-      return this.fields.filter((item) => {
-        return item.name.toLowerCase().includes(this.search.toLowerCase());
-      });
-    },
+    // filteredList() {
+    //   return this.fields.filter((item) => {
+    //     return item.name.toLowerCase().includes(this.search.toLowerCase());
+    //   });
+    // },
   },
 };
 </script>
