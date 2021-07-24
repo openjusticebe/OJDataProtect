@@ -22,8 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => ['auth:api']], function () {
     require base_path('routes/includes/api/default.inc.php');
 
-    Route::group(['middleware' => [
-    'member',
+    Route::group(['middleware' => ['can:view-organisation,organisation'
   ],
 ], function () {
     require base_path('routes/includes/api/can-view-organisation.inc.php');

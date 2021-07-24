@@ -53,7 +53,25 @@
             </svg>
             New
           </button>
-          <button v-else @click="new_org = !new_org">Cancel</button>
+          <button
+            v-else
+            @click="new_org = !new_org"
+            class="
+              hover:bg-gray-200
+              hover:text-gray-800
+              group
+              flex
+              items-center
+              rounded-md
+              bg-gray-100
+              text-gray-600 text-sm
+              font-medium
+              px-4
+              py-2
+            "
+          >
+            Cancel
+          </button>
         </header>
         <form class="relative">
           <svg
@@ -161,6 +179,7 @@
                     Description: {{ item.description }}
 
                     <div
+                      v-for="process in item.relationships.processes"
                       class="
                         bg-blue-100
                         border-t border-b border-blue-500
@@ -168,36 +187,56 @@
                         px-4
                         py-3
                       "
-                      role="alert"
                     >
-                      <p class="font-bold">processes</p>
-                      <p
-                        class="text-sm"
-                        v-for="process in item.relationships.processes"
-                      >
-                        <a :href="process.links.self"
-                          >{{ process.name }} {{ process }}</a
-                        >
+                      <p>
+                        <a :href="process.links.self">{{ process.name }}</a>
                       </p>
                     </div>
                   </dd>
                 </div>
 
-                <h2 class="text-md leading-5 font-medium text-black">units</h2>
+                <h2 class="text-md leading-5 font-medium text-black sr-only">
+                  Units
+                </h2>
 
                 <div v-for="unit in item.relationships.units">
                   {{ unit.name }}
                 </div>
-                <h2>members</h2>
 
-                <div v-for="member in item.relationships.members">
-                  {{ member.name }}
+                <div class="col-start-2 row-start-1 row-end-3">
+                  <dt class="sr-only">Dpos</dt>
+                  <dd
+                    class="
+                      flex
+                      justify-end
+                      sm:justify-start
+                      lg:justify-end
+                      xl:justify-start
+                      -space-x-2
+                    "
+                  >
+                    <img
+                      x-for="user in item.relationships.dpos"
+                      v-for="user in item.relationships.dpos"
+                      :src="
+                        'https://www.gravatar.com/avatar/' +
+                        user.email_hash +
+                        '?d=mp'
+                      "
+                      :alt="user.name"
+                      width="48"
+                      height="48"
+                      class="
+                        w-7
+                        h-7
+                        rounded-full
+                        bg-red-100
+                        border-2 border-white
+                      "
+                    />
+                  </dd>
                 </div>
-                <h2>dpos</h2>
 
-                <div v-for="dpo in item.relationships.dpos">
-                  {{ dpo.name }}
-                </div>
                 <div class="col-start-2 row-start-1 row-end-3">
                   <dt class="sr-only">Members</dt>
                   <dd
@@ -240,7 +279,7 @@
               class="
                 hover:border-transparent
                 hover:shadow-xs
-                hover:bg-green-100
+                hover:bg-green-dark
                 w-full
                 flex
                 items-center

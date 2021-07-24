@@ -16,9 +16,8 @@ class ApiOrganisationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($org_slug)
+    public function show(Organisation $organisation)
     {
-        $organisation = Organisation::whereSlug($org_slug)->firstOrfail();
         $organisation->load(['members', 'processes', 'units', 'dpos']);
        
         return new OrganisationResource($organisation);

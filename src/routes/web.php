@@ -19,11 +19,10 @@ use App\Http\Controllers\OrganisationTagController;
 require base_path('routes/auth.php');
 require base_path('routes/includes/public.php');
 
-
 Route::group(['middleware' => 'auth'], function () {
     require base_path('routes/includes/auth/default.inc.php');
   
-    Route::group(['middleware' => 'member'], function () {
+    Route::group(['middleware' => ['can:view-organisation,organisation']], function () {
         require base_path('routes/includes/auth/can-view-organisation.inc.php');
     });
 });

@@ -14,7 +14,7 @@
 
 
                     <organisation
-                        page_url="{{ route('api.organisation.show', ['org_slug' => $organisation->slug]) }}">
+                        page_url="{{ route('api.organisation.show', [$organisation]) }}">
                     </organisation>
 
 

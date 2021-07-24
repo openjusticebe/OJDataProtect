@@ -8,14 +8,8 @@ use App\Models\Organisation;
 
 class OrganisationController extends Controller
 {
-    public function __construct()
+    public function show(Organisation $organisation)
     {
-    }
-
-    public function show($org_slug)
-    {
-        $organisation = Organisation::whereSlug($org_slug)->firstOrfail();
-
         return view('organisation.organisation', compact('organisation'));
     }
 }
