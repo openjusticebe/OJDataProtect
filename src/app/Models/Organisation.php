@@ -61,4 +61,24 @@ class Organisation extends BaseModel
        ->withTimestamps()
        ->where('member_type', '=', 'data_protection_officer');
     }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        self::deleting(function ($organisation) {
+            foreach ($organisation->organisation_users()->pluck('id') as $user_organisation_id) {
+                \App\Models\CollectionUser::find($user_organisation_id)->delete();
+            }
+            $organisation->units()->each(function ($unit) {
+                $unit->delete();
+            });
+            $organisation->tags()->each(function ($tag) {
+                $tag->delete();
+            });
+            $organisation->processes()->each(function ($process) {
+                $process->delete();
+            });
+        });
+    }
 }
