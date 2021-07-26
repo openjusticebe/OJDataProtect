@@ -16,8 +16,8 @@ class OpenJusticeProcessesSeeder extends Seeder
     */
     public function run()
     {
-        $organisation = Organisation::whereSlug('openjustice-asbl')
-    ->first();
+        $organisation = Organisation::whereName('OpenJustice ASBL')
+    ->firstOrFail();
 
         $process = Process::factory()->create(
             [

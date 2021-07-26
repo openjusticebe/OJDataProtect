@@ -37,7 +37,12 @@ class Organisation extends BaseModel
 
     public function tags()
     {
-        return $this->hasMany('App\Models\Tag');
+        return $this->hasMany(
+            'App\Models\Tag',
+        )
+      ->withCount('tag_process')
+      ->groupBy('tags.id')
+      ->orderBy('tags.name');
     }
 
     public function units()
@@ -54,6 +59,9 @@ class Organisation extends BaseModel
        ->where('member_type', '!=', 'data_protection_officer');
     }
 
+
+
+
     public function dpos()
     {
         return $this->belongsToMany('App\Models\User')
@@ -62,9 +70,35 @@ class Organisation extends BaseModel
        ->where('member_type', '=', 'data_protection_officer');
     }
 
+    public function setSlugAttribute($value)
+    {
+        if (static::whereSlug($slug = str_slug($value, '-'))->exists()) {
+            $slug = $this->incrementSlug($slug);
+        }
+        $this->attributes['slug'] = $slug;
+    }
+    
+    public function incrementSlug($slug)
+    {
+        // get the slug of the latest created post
+        $max = static::whereName($this->name)->latest('id')->skip(1)->value('slug');
+
+        if (is_numeric($max[-1])) {
+            return pred_replace_callback('/(\d+)$/', function ($matches) {
+                return $matches[1] + 1;
+            }, $max);
+        }
+        return "{$slug}-2";
+    }
+    
+
     public static function boot()
     {
         parent::boot();
+
+        self::creating(function ($organisation) {
+            $organisation->update(['slug' => $organisation->name]);
+        });
 
         self::deleting(function ($organisation) {
             foreach ($organisation->organisation_users()->pluck('id') as $user_organisation_id) {

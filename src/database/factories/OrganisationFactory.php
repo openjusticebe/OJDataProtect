@@ -3,7 +3,6 @@ namespace Database\Factories;
 
 use App\Models\Organisation;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 class OrganisationFactory extends Factory
 {
@@ -24,7 +23,7 @@ class OrganisationFactory extends Factory
         $company_name = $this->faker->company;
         return [
         'name' => $company_name,
-        'slug' => Str::slug($company_name),
+        'slug' => str_slug($company_name, '-'),
         'vat_number' => $this->faker->bankAccountNumber,
         'address' => $this->faker->streetName,
         'city' => $this->faker->city,
