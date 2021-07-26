@@ -30,7 +30,7 @@ class OrganisationFactory extends Factory
         'postcode' => $this->faker->postcode,
         'country' => $this->faker->country,
         'description' => $this->faker->text,
-        'logo_url' => $this->faker->imageUrl($width = 50, $height = 50),
+        'logo_url' => $this->faker->imageUrl($width = 150, $height = 150, $word = $company_name),
     ];
     }
 };

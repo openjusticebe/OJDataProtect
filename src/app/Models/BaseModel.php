@@ -60,4 +60,25 @@ class BaseModel extends Model
 
         return $array;
     }
+
+    public function setSlugAttribute($value)
+    {
+        if (static::whereSlug($slug = str_slug($value, '-'))->exists()) {
+            $slug = $this->incrementSlug($slug);
+        }
+        $this->attributes['slug'] = $slug;
+    }
+    
+    public function incrementSlug($slug)
+    {
+        // get the slug of the latest created post
+        $max = static::whereName($this->name)->latest('id')->skip(1)->value('slug');
+
+        if (is_numeric($max[-1])) {
+            return pred_replace_callback('/(\d+)$/', function ($matches) {
+                return $matches[1] + 1;
+            }, $max);
+        }
+        return "{$slug}-2";
+    }
 }

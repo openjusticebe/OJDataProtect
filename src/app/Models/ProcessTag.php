@@ -12,11 +12,7 @@ class ProcessTag extends BaseModel
 
     protected $fillable = [
     'process_id',
-    'text_id',
     'tag_id',
-    'snippet_start',
-    'snippet_end',
-    'user_id',
   ];
 
     public function tag()

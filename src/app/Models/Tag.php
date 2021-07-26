@@ -10,12 +10,17 @@ class Tag extends BaseModel
 
     public function organisation()
     {
-        return $this->belongsTo('App\Models\Organistation');
+        return $this->belongsTo('App\Models\Organisation');
     }
 
     public function processes()
     {
         return $this->belongsToMany('App\Models\Process')->withPivot(['specific_description'])->withTimestamps();
+    }
+
+    public function process_tag()
+    {
+        return $this->hasMany('App\Models\ProcessTag');
     }
 
     public function scopeOfType($query, $type)

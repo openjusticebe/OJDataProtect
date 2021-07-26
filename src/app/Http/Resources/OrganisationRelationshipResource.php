@@ -19,6 +19,7 @@ class OrganisationRelationshipResource extends JsonResource
       'members' => MemberResource::collection($this->whenLoaded('members')),
       'dpos' => MemberResource::collection($this->whenLoaded('dpos')),
       'processes' => ProcessResource::collection($this->whenLoaded('processes')),
+      'tags' => TagResource::collection($this->whenLoaded('tags')),
       'units'   => UnitResource::collection($this->whenLoaded('units')),
     ];
     }

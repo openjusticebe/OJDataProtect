@@ -40,8 +40,7 @@ class Organisation extends BaseModel
         return $this->hasMany(
             'App\Models\Tag',
         )
-      ->withCount('tag_process')
-      ->groupBy('tags.id')
+      ->withCount('process_tag')
       ->orderBy('tags.name');
     }
 
@@ -70,27 +69,7 @@ class Organisation extends BaseModel
        ->where('member_type', '=', 'data_protection_officer');
     }
 
-    public function setSlugAttribute($value)
-    {
-        if (static::whereSlug($slug = str_slug($value, '-'))->exists()) {
-            $slug = $this->incrementSlug($slug);
-        }
-        $this->attributes['slug'] = $slug;
-    }
-    
-    public function incrementSlug($slug)
-    {
-        // get the slug of the latest created post
-        $max = static::whereName($this->name)->latest('id')->skip(1)->value('slug');
-
-        if (is_numeric($max[-1])) {
-            return pred_replace_callback('/(\d+)$/', function ($matches) {
-                return $matches[1] + 1;
-            }, $max);
-        }
-        return "{$slug}-2";
-    }
-    
+   
 
     public static function boot()
     {

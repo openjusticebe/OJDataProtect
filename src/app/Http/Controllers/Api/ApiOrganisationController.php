@@ -18,7 +18,7 @@ class ApiOrganisationController extends Controller
      */
     public function show(Organisation $organisation)
     {
-        $organisation->load(['members', 'processes', 'units', 'dpos']);
+        $organisation->load(['members', 'dpos', 'tags', 'processes.tags', 'units', ]);
        
         return new OrganisationResource($organisation);
     }

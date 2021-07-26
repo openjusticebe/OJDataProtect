@@ -18,20 +18,57 @@
           space-y-4
         "
       >
-        <pre>{{ fields }}</pre>
-
         <header class="flex items-center justify-between">
           <h2 class="text-lg leading-6 font-medium text-black">
-            <!-- Process <small>{{ filteredList.length }}</small> -->
+            {{ fields.name }}
+
+            {{ fields.description }}
+            {{ fields.address }}
+
+            {{ fields.city }}
+
+            {{ fields.postcode }}
+
+            {{ fields.country }}
+
+            <img :src="fields.logo_url" :alt="fields.name" />
+
+            {{ fields.vat_number }}
           </h2>
+
+          <!-- Processes <small>{{ filteredList.length }}</small> -->
         </header>
 
-        <div v-for="process in fields.relationships.processes">
-          <h2>
-            {{ process.name }}
-          </h2>
+        <process-list>
+          <process-item
+            v-for="process in fields.relationships.processes"
+            :key="process.id"
+            :process="process"
+          />
+        </process-list>
 
-          {{ process }}
+        <div v-for="member in fields.relationships.members">
+          <h2>
+            <a :href="member.links.self">{{ member.name }}</a>
+          </h2>
+        </div>
+
+        <div v-for="dpo in fields.relationships.dpos">
+          <h2>
+            <a :href="dpo.links.self">{{ dpo.name }}</a>
+          </h2>
+        </div>
+
+        <div v-for="unit in fields.relationships.units">
+          <h2>
+            <a :href="unit.links.self">{{ unit.name }}</a>
+          </h2>
+        </div>
+
+        <div v-for="tag in fields.relationships.tags">
+          <h2>
+            <a href="">{{ tag.name }}</a>
+          </h2>
         </div>
       </section>
     </div>
@@ -62,11 +99,11 @@ export default {
     },
   },
   computed: {
-    // filteredList() {
-    //   return this.fields.filter((item) => {
-    //     return item.name.toLowerCase().includes(this.search.toLowerCase());
-    //   });
-    // },
+    filteredList() {
+      return this.fields.filter((item) => {
+        return item.name.toLowerCase().includes(this.search.toLowerCase());
+      });
+    },
   },
 };
 </script>

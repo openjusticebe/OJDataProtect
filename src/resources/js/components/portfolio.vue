@@ -73,7 +73,7 @@
             Cancel
           </button>
         </header>
-        <form class="relative">
+        <form class="relative" v-if="!new_org">
           <svg
             width="20"
             height="20"
@@ -126,6 +126,7 @@
             xl:grid-cols-2
             gap-4
           "
+          v-if="!new_org"
         >
           <li x-for="item in items" v-for="item in filteredList">
             <a
@@ -273,27 +274,6 @@
               </dl>
             </a>
           </li>
-          <li class="hover:shadow-lg flex rounded-lg">
-            <a
-              @click="new_org = !new_org"
-              class="
-                hover:border-transparent
-                hover:shadow-xs
-                hover:bg-green-dark
-                w-full
-                flex
-                items-center
-                justify-center
-                rounded-lg
-                border-2 border-dashed border-gray-200
-                text-sm
-                font-medium
-                py-4
-              "
-            >
-              New organisation
-            </a>
-          </li>
         </ul>
       </section>
     </div>
@@ -302,7 +282,6 @@
 
  
  <script>
-import md5 from "md5";
 import GetDataMixin from "../mixins/GetDataMixin";
 
 export default {
