@@ -13,31 +13,22 @@ class OrganisationProcessController extends Controller
     {
     }
 
-    public function show($org_slug, $process_id)
+    public function show(Organisation $organisation, Process $process)
     {
-        $organisation = Organisation::whereSlug($org_slug)->first();
-        $process = Process::find($process_id);
-
-
         return view('organisation.process.process', compact('organisation', 'process'));
     }
 
-
-    public function store($org_slug, $process_id, StoreProcessRequest $request)
+    public function store(Organisation $organisation, Process $process, StoreProcessRequest $request)
     {
-        $organisation = Organisation::whereSlug($org_slug)->first();
-        $process = Process::find($process_id);
         $process->fill($request)->save();
 
         return view('organisation.process.process', compact('organisation', 'process'));
     }
 
 
-    public function destroy($org_slug, $process_id)
+    public function destroy(Organisation $organisation, Process $process)
     {
-        $organisation = Organisation::whereSlug($org_slug)->first();
-
-        $process = Process::find($process_id)->delete();
+        $process->delete();
 
         return view('organisation.process.process', compact('organisation', 'process'));
     }
