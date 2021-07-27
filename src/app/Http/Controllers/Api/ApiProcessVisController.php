@@ -8,22 +8,22 @@ use App\Models\Process;
 
 class ApiVisProcessController extends Controller
 {
-  /**
-  * Display the specified resource.
-  *
-  * @param  int  $id
-  * @return \Illuminate\Http\Response
-  */
-  public function data($org_slug, $process_id)
-  {
-    $process = Process::with('tags')->findOrFail($process_id);
+    /**
+    * Display the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
+    public function data(Organisation $organisation, $process_id)
+    {
+        $process = Process::with('tags')->findOrFail($process_id);
 
-    $nodes = [];
-    $edges = [];
+        $nodes = [];
+        $edges = [];
 
-    $i = 0;
+        $i = 0;
 
-    $categories = [
+        $categories = [
       'data_object',
       'data_subject',
       'purpose',
@@ -31,53 +31,47 @@ class ApiVisProcessController extends Controller
       'data_processor'
     ];
 
-    foreach ($categories as $key_cat => $category) {
+        foreach ($categories as $key_cat => $category) {
+            $group_id = $key_cat + 1000;
 
-      $group_id = $key_cat + 1000;
+            $id_cat = $i;
 
-      $id_cat = $i;
-
-      $nodes[] = [
+            $nodes[] = [
         'id' => $i,
         'label' => $category,
         'group' => $group_id,
         'shape' => 'ellipse'
       ];
 
-      $i++;
+            $i++;
 
-      foreach ($process->tags()->ofCategory($category)->get() as $key_tag => $tag) {
-
-        $nodes[] = [
+            foreach ($process->tags()->ofCategory($category)->get() as $key_tag => $tag) {
+                $nodes[] = [
           'id' => $i,
           'label' => '<b>'. $tag->name . '</b>',
           'group' => $group_id,
           'shape' => 'text'
         ];
 
-        // Fixing tag to its own category
-        $edges[] = [
+                // Fixing tag to its own category
+                $edges[] = [
           'from' => $i,
           'to' => $id_cat,
         ];
 
-        $i++;
-
-      }
-      // Fixing categories together
-      $edges[] = [
+                $i++;
+            }
+            // Fixing categories together
+            $edges[] = [
         'from' => $id_cat,
         'to' => $i,
         'label' => 'data collection'
 
       ];
-
-
-    }
-    return response()->json([
+        }
+        return response()->json([
       'nodes' => $nodes,
       'edges' => $edges
     ]);
-  }
-
+    }
 }

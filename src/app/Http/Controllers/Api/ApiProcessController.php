@@ -16,9 +16,9 @@ class ApiProcessController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($org_slug)
+    public function index(Organisation $organisation)
     {
-        $processes = Process::orderBy('created_at', 'desc')->whereOrganisation_id(Organisation::whereSlug($org_slug)->firstOrfail()->id)->paginate(5);
+        $processes = Process::orderBy('created_at', 'desc')->whereOrganisation_id($organisation->id)->firstOrfail()->id)->paginate(5);
 
         return ProcessResource::collection($processes);
     }

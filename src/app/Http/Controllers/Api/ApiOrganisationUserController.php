@@ -16,7 +16,7 @@ class ApiOrganisationUserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update($org_slug)
+    public function update(Organisation $organisation)
     {
     }
 
@@ -25,7 +25,7 @@ class ApiOrganisationUserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function detach($org_slug)
+    public function detach(Organisation $organisation)
     {
     }
 }
