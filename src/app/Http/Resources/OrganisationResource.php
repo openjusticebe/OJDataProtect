@@ -29,8 +29,8 @@ class OrganisationResource extends JsonResource
       'relationships' => new OrganisationRelationshipResource($this),
       'datetimes' => $this->datetimes,
       'links'         => [
-        'self' => route('organisation.show', [$this->slug]),
-        'api_update' => route('api.organisation.update', [$this->slug]),
+        'self' => route('organisation.show', [$this]),
+        'api_update' => route('api.organisation.update', [$this]),
       ],
     ];
     }
