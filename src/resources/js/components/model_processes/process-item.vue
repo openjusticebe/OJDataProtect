@@ -24,10 +24,9 @@
         </div>
         <div>
           <dt class="sr-only">Tags</dt>
-          <dd>tags</dd>
-          <dd>
-            <pre>{{ process.tags }}</pre>
-          </dd>
+          <tag-list>
+            <tag-item v-for="tag in process.tags" :key="tag.id" :tag="tag" />
+          </tag-list>
         </div>
         <div class="flex-none w-full mt-0.5 font-normal">
           <dt class="inline">Editer by</dt>

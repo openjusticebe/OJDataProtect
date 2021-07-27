@@ -20,6 +20,7 @@ class TagResource extends JsonResource
       'name' => $this->name,
       'description' => $this->description,
       'pivot' => $this->pivot,
+      'specific_organisation' => (string)$this->pivot ? $this->pivot->specific_organisation : false
     ];
     }
 }

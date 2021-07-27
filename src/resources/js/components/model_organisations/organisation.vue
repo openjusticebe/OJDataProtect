@@ -20,16 +20,10 @@
       >
         <header class="flex items-center justify-between">
           <h2 class="text-lg leading-6 font-medium text-black">
+            <organisation-address :organisation="fields" />
             {{ fields.name }}
 
             {{ fields.description }}
-            {{ fields.address }}
-
-            {{ fields.city }}
-
-            {{ fields.postcode }}
-
-            {{ fields.country }}
 
             <img :src="fields.logo_url" :alt="fields.name" />
 
@@ -46,6 +40,14 @@
             :process="process"
           />
         </process-list>
+
+        <tag-list>
+          <tag-item
+            v-for="tag in fields.relationships.tags"
+            :key="tag.id"
+            :tag="tag"
+          />
+        </tag-list>
 
         <div v-for="member in fields.relationships.members">
           <h2>
