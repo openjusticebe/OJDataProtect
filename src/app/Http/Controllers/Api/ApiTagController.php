@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\TagResource;
+use App\Models\Tag;
 
 class ApiTagController extends Controller
 {
@@ -32,10 +33,9 @@ class ApiTagController extends Controller
         $tag->id = $request->input('tag_id');
         $tag->name = $request->input('name');
         $tag->description = $request->input('description');
-        if($tag->save()) {
+        if ($tag->save()) {
             return new TagResource($tag);
         }
-
     }
     /**
      * Display the specified resource.
@@ -43,10 +43,8 @@ class ApiTagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Tag $tag)
     {
-        // Get tag
-        $tag = Tag::findOrFail($id);
         // Return single tag as a resource
         return new TagResource($tag);
     }
@@ -56,11 +54,9 @@ class ApiTagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Tag $tag)
     {
-        // Get tag
-        $tag = Tag::findOrFail($id);
-        if($tag->delete()) {
+        if ($tag->delete()) {
             return new TagResource($tag);
         }
     }

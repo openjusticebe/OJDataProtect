@@ -16,29 +16,4 @@ class ApiHomeController extends Controller
         $organisations->load(['members', 'processes', 'units', 'dpos']);
         return OrganisationResource::collection($organisations);
     }
-
-    // public function show(Organisation $organisation)
-    // {
-    //     $organisation->load(['processes', 'users'])->withCount('processes');
-
-    //     return new OrganisationResource($organisation);
-    // }
-
-    // public function update(Organisation $organisation, Request $request)
-    // {
-    //     $organisation->fill($request->all());
-    //     $organisation->slug = $organisation->getUniqueSlug($organisation->title);
-    //     $organisation->save();
-
-    //     return response(null, Response::HTTP_OK);
-    // }
-
-    // public function destroy(Organisation $organisation)
-    // {
-    //     if (Gate::allows('delete-organisation', $organisation)) {
-    //         $organisation->delete();
-
-    //         return response(null, Response::HTTP_OK);
-    //     }
-    // }
 }

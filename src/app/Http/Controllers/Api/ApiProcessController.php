@@ -61,11 +61,9 @@ class ApiProcessController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Process $process)
     {
-        // Get process
-        $process = Process::findOrFail($id);
-        // Return single process as a resource
+     
         return new ProcessResource($process);
     }
     /**
@@ -74,10 +72,9 @@ class ApiProcessController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Process $process)
     {
-        // Get process
-        $process = Process::findOrFail($id);
+  
         if ($process->delete()) {
             return new ProcessResource($process);
         }

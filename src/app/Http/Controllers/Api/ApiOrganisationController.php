@@ -22,6 +22,25 @@ class ApiOrganisationController extends Controller
        
         return new OrganisationResource($organisation);
     }
+
+    // public function update(Organisation $organisation, Request $request)
+    // {
+    //     $organisation->fill($request->all());
+    //     $organisation->slug = $organisation->getUniqueSlug($organisation->name);
+    //     $organisation->save();
+
+    //     return response(null, Response::HTTP_OK);
+    // }
+
+    // public function destroy(Organisation $organisation)
+    // {
+    //     if (Gate::allows('delete-organisation', $organisation)) {
+    //         $organisation->delete();
+
+    //         return response(null, Response::HTTP_OK);
+    //     }
+    // }
+
     // /**
     //  * Store a newly created resource in storage.
     //  *
@@ -32,7 +51,6 @@ class ApiOrganisationController extends Controller
     // {
     //     $organisation = new Organisation;
     //     $organistaion->name = $request->input('name');
-    //     $organistaion->organisation_id = $request->input('organisation_id');
     //     $organistaion->description = $request->input('description');
 
     //     if ($organistaion->save()) {
@@ -53,33 +71,6 @@ class ApiOrganisationController extends Controller
     //     $organistaion->description = $request->input('description');
 
     //     if ($organistaion->save()) {
-    //         return new OrganisationResource($process);
-    //     }
-    // }
-    // /**
-    //  * Display the specified resource.
-    //  *
-    //  * @param  int  $id
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function show($id)
-    // {
-    //     // Get process
-    //     $organisation = Process::findOrFail($id);
-    //     // Return single process as a resource
-    //     return new OrganisationResource($process);
-    // }
-    // /**
-    //  * Remove the specified resource from storage.
-    //  *
-    //  * @param  int  $id
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function destroy($id)
-    // {
-    //     // Get process
-    //     $organisation = Process::findOrFail($id);
-    //     if ($organistaion->delete()) {
     //         return new OrganisationResource($process);
     //     }
     // }

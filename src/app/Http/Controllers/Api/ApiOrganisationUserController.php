@@ -4,10 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Process;
+use App\Models\User;
 use App\Models\Organisation;
-use App\Http\Resources\ProcessResource;
-use App\Http\Resources\OrganisationResource;
 
 class ApiOrganisationUserController extends Controller
 {
@@ -16,7 +14,7 @@ class ApiOrganisationUserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Organisation $organisation)
+    public function update(Organisation $organisation, User $user)
     {
     }
 
@@ -25,7 +23,7 @@ class ApiOrganisationUserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function detach(Organisation $organisation)
+    public function detach(Organisation $organisation, User $user)
     {
     }
 }
