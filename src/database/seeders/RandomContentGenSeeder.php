@@ -30,11 +30,15 @@ class RandomContentGenSeeder extends Seeder
                 ]]);
             }
 
-            $organisation->members()->syncWithoutDetaching([$member->id => [
+            $organisation->members()->syncWithoutDetaching(
+                [
+                    $member->id => [
                 'member_type' => 'data_protection_officer',
                 'is_external' => rand(0, 1),
                 'is_admin' => rand(0, 1)
-            ]]);
+                ]
+        ]
+            );
 
             Tag::factory()->count(rand(5, 24))
             ->create([
