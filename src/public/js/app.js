@@ -4161,6 +4161,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["organisation"],
   data: function data() {
@@ -23280,19 +23286,43 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._v(
-      "\n  " +
-        _vm._s(_vm.organisation.address) +
-        "\n\n  " +
-        _vm._s(_vm.organisation.city) +
-        "\n\n  " +
-        _vm._s(_vm.organisation.postcode) +
-        "\n\n  " +
-        _vm._s(_vm.organisation.country) +
-        "\n"
-    )
-  ])
+  return _c(
+    "div",
+    { staticClass: "bg-gray-200 p-4 md:text-left space-y-4 absolute right-0" },
+    [
+      _c("span", { staticClass: "font-medium" }, [
+        _vm._v(_vm._s(_vm.organisation.name))
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("div", { staticClass: "text-gray-500" }, [
+        _c(
+          "a",
+          {
+            attrs: {
+              href:
+                "https://www.openstreetmap.org/search?query=" +
+                _vm.organisation.full_address
+            }
+          },
+          [
+            _vm._v("\n      " + _vm._s(_vm.organisation.address)),
+            _c("br"),
+            _vm._v(
+              "\n      " +
+                _vm._s(_vm.organisation.city) +
+                ", " +
+                _vm._s(_vm.organisation.postcode) +
+                " "
+            ),
+            _c("br"),
+            _vm._v("\n      " + _vm._s(_vm.organisation.country))
+          ]
+        )
+      ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

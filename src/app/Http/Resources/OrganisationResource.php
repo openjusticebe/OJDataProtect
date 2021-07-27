@@ -19,6 +19,7 @@ class OrganisationResource extends JsonResource
       'slug' => (string)$this->slug,
       'name' => (string)mb_strimwidth($this->name, 0, 45, "..."),
       'description' => (string)mb_strimwidth($this->description, 0, 144, "..."),
+      'full_address' =>  $this->address . ' ' . $this->city  . ' ' . $this->postal_code  . ' ' . $this->country,
       'address' => $this->address,
       'city' => $this->city,
       'postcode' => $this->postcode,
