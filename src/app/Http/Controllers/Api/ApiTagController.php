@@ -17,7 +17,7 @@ class ApiTagController extends Controller
     public function index()
     {
         // Get tags
-        $tags = Tag::orderBy('created_at', 'desc')->paginate(5);
+        $tags = Tag::orderBy('created_at', 'desc')->get();
         // Return collection of tages as a resource
         return TagResource::collection($tags);
     }

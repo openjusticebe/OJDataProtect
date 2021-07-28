@@ -18,6 +18,8 @@ class TagResource extends JsonResource
         return [
       'id' => $this->id,
       'name' => $this->name,
+      'tag_type' => $this->tag_type,
+      'category' => $this->category,
       'description' => $this->description,
       'pivot' => $this->pivot,
       'specific_organisation' => (string)$this->pivot ? $this->pivot->specific_organisation : false

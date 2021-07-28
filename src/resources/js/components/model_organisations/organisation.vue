@@ -20,19 +20,18 @@
       >
         <header class="flex items-center justify-between">
           <h2 class="text-lg leading-6 font-medium text-black">
-            <organisation-address :organisation="fields" />
             {{ fields.name }}
-
-            {{ fields.description }}
-
-            <img :src="fields.logo_url" :alt="fields.name" />
-
-            {{ fields.vat_number }}
           </h2>
 
           <!-- Processes <small>{{ filteredList.length }}</small> -->
         </header>
-
+        <organisation-address :organisation="fields" />
+        <div class="absolute right-0">
+          <img :src="fields.logo_url" :alt="fields.name" />
+        </div>
+        <div class="text-medium">
+          {{ fields.description }}
+        </div>
         <process-list>
           <process-item
             v-for="process in fields.relationships.processes"
@@ -49,27 +48,23 @@
           />
         </tag-list>
 
-        <div v-for="member in fields.relationships.members">
-          <h2>
-            <a :href="member.links.self">{{ member.name }}</a>
-          </h2>
-        </div>
-
-        <div v-for="dpo in fields.relationships.dpos">
-          <h2>
-            <a :href="dpo.links.self">{{ dpo.name }}</a>
-          </h2>
-        </div>
-
+        <user-list>
+          <user-item
+            v-for="user in fields.relationships.members"
+            :key="user.id"
+            :user="user"
+          />
+        </user-list>
+        <user-list>
+          <user-item
+            v-for="user in fields.relationships.dpos"
+            :key="user.id"
+            :user="user"
+          />
+        </user-list>
         <div v-for="unit in fields.relationships.units">
           <h2>
             <a :href="unit.links.self">{{ unit.name }}</a>
-          </h2>
-        </div>
-
-        <div v-for="tag in fields.relationships.tags">
-          <h2>
-            <a href="">{{ tag.name }}</a>
           </h2>
         </div>
       </section>

@@ -1,88 +1,48 @@
 <x-app-layout>
-  <x-slot name="header">
-      <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-          {{ __('Organisation') }} {{ $organisation->name }} dd
-  </x-slot>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <a
+                href="{{ route('organisation.show', [$organisation]) }}">{{ $organisation->name }}</a>
+            <small class="
+                text-gray-500">{{ __('Organisation') }}</small>
+    </x-slot>
 
-  <div class="container mx-auto sm:px-4">
-    <div class="flex flex-wrap  justify-center">
+    <div class="container mx-auto sm:px-4">
+        <div class="flex flex-wrap justify-center">
 
-      <div class="md:w-3/4 pr-4 pl-4">
-        <div class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-gray-300">
+            <div class="md:w-3/4 pr-4 pl-4">
+                <div
+                    class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-gray-300">
 
-          <div class="py-3 px-6 mb-0 bg-gray-200 border-b-1 border-gray-300 text-gray-900">
-            <h5>
-              {{ $process->name }}
-            </h5>
-          </div>
+                    <div
+                        class="py-3 px-6 mb-0 bg-gray-200 border-b-1 border-gray-300 text-gray-900">
+                        <h5>
+                            {{ $process->name }}
+                        </h5>
+                    </div>
 
-          <div class="flex-auto p-6">
-
-            <ul class="flex flex-wrap list-none pl-0 mb-0 border border-t-0 border-r-0 border-l-0 border-b-1 border-gray-200 justify-end" id="nav-tab" role="tablist">
-              <li class="">
-                <a class=" inline-block py-2 px-4 no-underline active" id="nav-show-tab" data-toggle="tab" href="#nav-show" role="tab" aria-controls="nav-show" aria-selected="true">Show</a>
-              </li>
-              <li class="">
-
-                <a class=" inline-block py-2 px-4 no-underline" id="nav-edit-tab" data-toggle="tab" href="#nav-edit" role="tab" aria-controls="nav-edit" aria-selected="false">Edit</a>
-              </li>
-            </ul>
-            <div class="tab-content" id="nav-tabContent">
-              <div class="tab-pane opacity-0 opacity-100 block active" id="nav-show" role="tabpanel" aria-labelledby="nav-show-tab">
-                <p>
-                  {{ $process->description }}
-                </p>
-
-              </div>
-              <div class="tab-pane opacity-0" id="nav-edit" role="tabpanel" aria-labelledby="nav-edit-tab">
-                <form>
-
-                  {{-- {!! Form::textField('name', 'Name', $process->name) !!}
-
-                  {!! Form::textareaField('description', 'Description', $process->description, ['rows' => 10, 'cols' => 150]) !!}
-
-                  {!! Form::submitBtns() !!} --}}
-
-                </form>
+                    <div class="flex-auto p-6">
 
 
-              </div>
-              <div class="tab-pane opacity-0" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">Contact
+                        <div class="">
+                            <div
+                                class="opacity-0 opacity-100 block active">
+                                <p>
+                                    {{ $process->description }}
+                                </p>
 
-              </div>
-            </div>
-          </div>
+                            </div>
+
+                        </div>
+                    </div>
 
 
-          <div class="flex-auto p-6">
+                    <div class="flex-auto p-6">
 
 
-            <h3>Tags</h3>
-            <table class="w-full max-w-full mb-4 bg-transparent table-hover">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Type</th>
-                  <th>Category</th>
-                  <th>Description</th>
-                  <th>Specific description</th>
-                </tr>
-              </thead>
-              @foreach ($process->tags as $tag)
-                <tr>
-                  <td>
-                    {{ $tag->name }} <br />
-                    {{-- {!! Html::tag_badge($organisation, $tag) !!} --}}
-                  </td>
-                  <td>{{ $tag->type }}</td>
-                  <td>{{ $tag->category }}</td>
-                  <td>{{ $tag->description }}</td>
-                  <td>{{ $tag->pivot->specific_description }}</td>
-                </tr>
-              @endforeach
-            </table>
 
-            {{--
+
+                        {{--
             <h2>Definition</h2>
             <ul>
             <li> <strong>Data Subject</strong> A European Union resident whose personal data is being processed.</li>
@@ -101,30 +61,33 @@
         --}}
 
 
-       
 
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:w-1/4 pr-4 pl-4">
+
+                <div
+                    class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-gray-300">
+                    <div
+                        class="py-3 px-6 mb-0 bg-gray-200 border-b-1 border-gray-300 text-gray-900">
+                        Adding tag
+                    </div>
+                    <div class="flex-auto p-6">
+
+                        <input type="text" name="" value="">
+                        <input type="text" name="" value="">
+                        <button type="button" name="button"
+                            class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-green-500 text-white hover:bg-green-600">add</button>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
     </div>
-  </div>
-</div>
-
-<div class="md:w-1/4 pr-4 pl-4">
-
-  <div class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-gray-300">
-    <div class="py-3 px-6 mb-0 bg-gray-200 border-b-1 border-gray-300 text-gray-900">
-      Adding tag
-    </div>
-    <div class="flex-auto p-6">
-
-      <input type="text" name="" value="">
-      <input type="text" name="" value="">
-<button type="button" name="button" class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-green-500 text-white hover:bg-green-600">add</button>
-    </div>
-
-  </div>
-
-
-</div>
-
-</div>
-</div>
 </x-app-layout>

@@ -10,8 +10,9 @@ class Unit extends BaseModel
     use HasFactory;
 
     protected $fillable = [
-
+        'name',
     ];
+
 
     public function organisation()
     {

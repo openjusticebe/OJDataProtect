@@ -8,6 +8,11 @@ class Tag extends BaseModel
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'type',
+    ];
+
     public function organisation()
     {
         return $this->belongsTo('App\Models\Organisation');

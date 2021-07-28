@@ -8,6 +8,12 @@ class Process extends BaseModel
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'description',
+            ];
+
+
     public function organisation()
     {
         return $this->belongsTo('App\Models\Organisation');

@@ -59,8 +59,6 @@ class Organisation extends BaseModel
     }
 
 
-
-
     public function dpos()
     {
         return $this->belongsToMany('App\Models\User')

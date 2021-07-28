@@ -24,10 +24,10 @@ class MemberResource extends JsonResource
       'email'         => (string)$this->email,
       'email_hash'    => (string)md5($this->email),
       'datetimes'     => $this->datetimes,
-      'member_type'   => (string)$this->pivot->member_type,
+      'is_external'   => (bool)$this->is_external,
+      'is_auth'       => (bool)$this->is_auth,
+      'member_type'   => (string)$this->pivot->member_type ? (string)$this->pivot->member_type : 'false',
       'member_since'  => (string)$this->pivot->created_at->diffForHumans(['parts' => 2]),
-      'organisation_id' => (int)$this->pivot->organisation_id,
-      'is_auth'       => (boolean)$this->is_auth,
       'links'         => [
         'self' => '',
         'api_update' => route('api.organisation.users.update', [$organisation, $this]),
