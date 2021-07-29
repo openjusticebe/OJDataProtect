@@ -11,13 +11,11 @@ use App\Http\Resources\OrganisationResource;
 
 class ApiOrganisationProcessController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Organisation $organisation)
+    public function show(Organisation $organisation, Process $process)
     {
+        $process->load('tags');
+
+        return new ProcessResource($process);
     }
 
     /**
@@ -25,7 +23,34 @@ class ApiOrganisationProcessController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function detach(Organisation $organisation)
+    public function update(Organisation $organisation, Process $process, Request $request)
     {
+        $process->name = $request->input('name');
+        $process->description = $request->input('description');
+
+        if ($process->save()) {
+            return new ProcessResource($process);
+        }
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(Organisation $organisation, Process $process)
+    {
+    }
+
+    public function store(Request $request)
+    {
+        $process = new Process;
+        $process->name = $request->input('name');
+        $process->organisation_id = $request->input('organisation_id');
+        $process->description = $request->input('description');
+
+        if ($process->save()) {
+            return new ProcessResource($process);
+        }
     }
 }

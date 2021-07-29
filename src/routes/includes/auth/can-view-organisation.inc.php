@@ -16,10 +16,7 @@ Route::resource('organisation.process', OrganisationProcessController::class)->o
 ]);
 
 
-// Route::get('org-{organisation}', [OrganisationController::class, 'show'])
-// ->name('organisation.show');
-
-// Route::get('org-{organisation}/process-{proc_id}', [OrganisationProcessController::class, 'show'])
-// ->name('organisation.process.show');
-
-Route::get('org-{organisation}/tag-{tag_id}', [OrganisationTagController::class, 'show'])->name('organisation.tags.show');
+Route::resource('organisation.tag', OrganisationTagController::class)->only(['show'])->parameters([
+  'organisation' => 'organisation:slug',
+  'process' => 'process:id',
+]);

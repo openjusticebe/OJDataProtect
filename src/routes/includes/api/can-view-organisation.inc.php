@@ -4,29 +4,37 @@ use App\Http\Controllers\Api\ApiProcessController;
 use App\Http\Controllers\Api\ApiOrganisationController;
 use App\Http\Controllers\Api\ApiOrganisationUserController;
 use App\Http\Controllers\Api\ApiOrganisationProcessController;
+use App\Http\Controllers\Api\ApiOrganisationProcessGraphController;
 
 Route::prefix('v1')->name('api.')->group(function () {
-    Route::get('process.index', [ApiProcessController::class, 'index'])->name('process.index');
  
-    // Route::post('org-{org_slug}/update', [ApiOrganisationController::class, 'update'])
-    // ->name('organisation.update');
-
+    // Route::get('/test/test', [TestController::class, 'test']);
 
     # Organisation
-    Route::apiResource('organisation', ApiOrganisationController::class)->only(['show','update', 'index', 'destroy'])->parameters([
-            'organisation' => 'organisation:slug',
+    Route::apiResource('organisation', ApiOrganisationController::class)->only(['show','update', 'index', 'destroy'])->scoped([
+            'organisation' => 'slug'
           ]);
 
-        
-
-    # process
-    Route::apiResource('organisation.process', ApiOrganisationProcessController::class)->parameters([
-    'organisation' => 'organisation:slug',
-    'process' => 'process:slug',
+    # Process
+    Route::apiResource('organisation.process', ApiOrganisationProcessController::class)->scoped([
+    'organisation' => 'slug',
+    'process' => 'id'
   ]);
 
-    Route::apiResource('organisation.users', ApiOrganisationUserController::class);
+    # OrganisationUser
+    Route::apiResource('organisation.users', ApiOrganisationUserController::class)->scoped([
+      'organisation' => 'slug',
+      'process' => 'id',
+    ])->names([
+      'destroy' => 'organisation.users.detach',
+      'create' => 'organisation.users.attach'
+  ]);
 
-    Route::post('org-{organisation:slug}/users/{user}/detach', [ApiOrganisationUserController::class, 'detach'])
-  ->name('organisation.users.detach');
+    # OrganisationProcessGraph
+    Route::apiResource('organisation.process.chart', ApiOrganisationProcessGraphController::class)->scoped([
+      'organisation' => 'slug',
+      'process' => 'id',
+    ])->names([
+      'data' => 'organisation.process.show'
+  ]);
 });

@@ -3,46 +3,44 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             <a
                 href="{{ route('organisation.show', [$organisation]) }}">{{ $organisation->name }}</a>
-            <small class="
-                text-gray-500">{{ __('Organisation') }}</small>
+            <small>{{ __('Organisation') }}</small>
+        </h2>
     </x-slot>
 
-    <div class="container mx-auto sm:px-4">
-        <div class="flex flex-wrap justify-center">
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div
+                class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 
-            <div class="md:w-3/4 pr-4 pl-4">
                 <div
-                    class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-gray-300">
+                    class="py-3 px-6 mb-0 bg-gray-200 border-b-1 border-gray-300 text-gray-900">
+                    <h5>
+                        {{ $process->name }}
+                    </h5>
+                </div>
 
-                    <div
-                        class="py-3 px-6 mb-0 bg-gray-200 border-b-1 border-gray-300 text-gray-900">
-                        <h5>
-                            {{ $process->name }}
-                        </h5>
-                    </div>
-
-                    <div class="flex-auto p-6">
+                <div class="p-6 bg-white border-b border-gray-200">
 
 
-                        <div class="">
-                            <div
-                                class="opacity-0 opacity-100 block active">
-                                <p>
-                                    {{ $process->description }}
-                                </p>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                    <div class="flex-auto p-6">
+                    <process
+                        page_url="{{ route('api.organisation.process.show', [$organisation, $process->id]) }}">
+                    </process>
 
 
 
+                </div>
 
-                        {{--
+
+            </div>
+        </div>
+    </div>
+
+
+
+</x-app-layout>
+
+
+{{--
             <h2>Definition</h2>
             <ul>
             <li> <strong>Data Subject</strong> A European Union resident whose personal data is being processed.</li>
@@ -59,35 +57,3 @@
           <li>Communication to the Data Subject: The Controller communicates the results to the data subject.</li>
         </ul>
         --}}
-
-
-
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="md:w-1/4 pr-4 pl-4">
-
-                <div
-                    class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-gray-300">
-                    <div
-                        class="py-3 px-6 mb-0 bg-gray-200 border-b-1 border-gray-300 text-gray-900">
-                        Adding tag
-                    </div>
-                    <div class="flex-auto p-6">
-
-                        <input type="text" name="" value="">
-                        <input type="text" name="" value="">
-                        <button type="button" name="button"
-                            class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-green-500 text-white hover:bg-green-600">add</button>
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </div>
-    </div>
-</x-app-layout>

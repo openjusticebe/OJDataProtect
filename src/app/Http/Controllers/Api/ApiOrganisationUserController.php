@@ -9,21 +9,16 @@ use App\Models\Organisation;
 
 class ApiOrganisationUserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function update(Organisation $organisation, User $user)
     {
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function detach(Organisation $organisation, User $user)
+    public function create(Organisation $organisation, User $user) // attach
+    {
+    }
+
+
+    public function destroy(Organisation $organisation, User $user) // detach
     {
     }
 }

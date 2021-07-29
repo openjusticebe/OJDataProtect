@@ -14,7 +14,7 @@
       text-teal text-sm
     "
   >
-    <span class="font-medium">{{ organisation.name }}</span> <br />
+    <span class="font-medium sr-only">{{ organisation.name }}</span> <br />
     <div class="text-gray-500">
       <a
         :href="

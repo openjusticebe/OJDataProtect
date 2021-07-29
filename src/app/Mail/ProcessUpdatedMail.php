@@ -7,7 +7,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ProcessUpdated extends Mailable
+class ProcessUpdatedMail extends Mailable
 {
     use Queueable, SerializesModels;
 

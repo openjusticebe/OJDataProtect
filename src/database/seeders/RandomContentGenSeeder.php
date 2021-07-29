@@ -20,8 +20,8 @@ class RandomContentGenSeeder extends Seeder
 
         foreach ($organisations as $organisation) {
             $member = User::inRandomOrder()->first();
-
-            for ($i=0; $i < rand(1, 5); $i++) {
+            $random_users = rand(1, 5);
+            for ($i=0; $i < $random_users; $i++) {
                 $member = User::inRandomOrder()->first();
                 $organisation->members()->syncWithoutDetaching([$member->id => [
                     'member_type' => 'member',
@@ -32,26 +32,26 @@ class RandomContentGenSeeder extends Seeder
 
             $organisation->members()->syncWithoutDetaching(
                 [
-                    $member->id => [
+                $member->id => [
                 'member_type' => 'data_protection_officer',
                 'is_external' => rand(0, 1),
                 'is_admin' => rand(0, 1)
                 ]
-        ]
+               ]
             );
 
             Tag::factory()->count(rand(5, 24))
-            ->create([
-                'organisation_id' => $organisation->id
-            ]);
+
+            ->create(['organisation_id' => $organisation->id]);
 
             foreach ($organisation->processes as $process) {
-                for ($i=0; $i < rand(1, 15); $i++) {
-                    $data = $organisation->tags()->inRandomOrder()->first();
+                $random_tags = rand(5, 15);
+                for ($i=0; $i < $random_tags; $i++) {
+                    $tag_ids = $organisation->tags()->inRandomOrder()->get()->pluck('id')->toArray();
+                   
+                    $tag_id = $tag_ids[rand(0, count($tag_ids) - 1)];
 
-                    $process->tags()->attach($data->id, [
-                        'specific_description' => $faker->text
-                    ]);
+                    $process->tags()->syncWithoutDetaching([$tag_id], ['specific_description' => $faker->text]);
                 }
             }
         }
