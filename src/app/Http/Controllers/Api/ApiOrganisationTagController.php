@@ -38,7 +38,8 @@ class ApiOrganisationTagController extends Controller
      */
     public function show(Organisation $organisation, Tag $tag)
     {
-        // Return single tag as a resource
+        $tag->load('processes');
+
         return new TagResource($tag);
     }
     /**

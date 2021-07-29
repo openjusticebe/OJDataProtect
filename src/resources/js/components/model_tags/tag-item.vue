@@ -13,7 +13,7 @@
         text-teal text-sm
       "
     >
-      <span
+      <a
         class="
           inline-flex
           text-white
@@ -24,7 +24,8 @@
           items-center
         "
         :class="classColor(tag.category)"
-        >{{ tag.name }}</span
+        :href="tag.links.self"
+        >{{ tag.name }}</a
       >
       <span class="inline-flex px-2">{{ tag.description }} </span>
       <span class="inline-flex px-2 text-green-500">{{ tag.category }} </span>

@@ -70,7 +70,7 @@
               py-2
             "
           >
-            Cancel
+            {{ __("Cancel") }}
           </button>
         </header>
         <form class="relative" v-if="!new_org">
@@ -113,7 +113,8 @@
           />
         </form>
         <div class="text-right text-sm" v-if="search">
-          Filter for <em>{{ search }}</em>
+          {{ __("Filter_for") }}
+          <em>{{ search }}</em>
         </div>
 
         <new-org v-if="new_org"></new-org>
@@ -185,6 +186,7 @@
                         bg-blue-100
                         border-t border-b border-blue-500
                         text-blue-700
+                        hover:bg-blue-300
                         px-4
                         py-3
                       "

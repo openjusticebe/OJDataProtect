@@ -9,16 +9,8 @@ use App\Models\Tag;
 
 class OrganisationTagController extends Controller
 {
-    public function __construct()
+    public function show(Organisation $organisation, Tag $tag)
     {
-    }
-
-    public function show($org_slug, $tag_id)
-    {
-        $organisation = Organisation::whereSlug($org_slug)->first();
-        $tag = Tag::find($tag_id);
-
-
-        return view('organisation.tag.tag', compact('organisation', 'tag'));
+        return view('organisation.tag.show', compact('organisation', 'tag'));
     }
 }

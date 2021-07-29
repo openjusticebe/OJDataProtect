@@ -22,7 +22,11 @@ class TagResource extends JsonResource
       'category' => $this->category,
       'description' => $this->description,
       'pivot' => $this->pivot,
-      'specific_organisation' => (string)$this->pivot ? $this->pivot->specific_organisation : false
+      'processes' => ProcessResource::collection($this->whenLoaded('processes')),
+      'specific_organisation' => (string)$this->pivot ? $this->pivot->specific_organisation : false,
+      'links' => [
+        'self' => route('organisation.tag.show', [$this->organisation, $this->id])
+      ]
     ];
     }
 }

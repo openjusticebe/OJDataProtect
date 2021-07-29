@@ -23,7 +23,7 @@ class ProcessResource extends JsonResource
       'datetimes' => $this->datetimes,
       'tags' => TagResource::collection($this->whenLoaded('tags')),
       'links'         => [
-        'self' => route('organisation.process.show', [$this->organisation->slug, $this->id]),
+        'self' => route('organisation.process.show', [$this->organisation, $this->id]),
         'api_update' => route('api.organisation.process.update', [$this->organisation, $this->id]),
       ],
     ];

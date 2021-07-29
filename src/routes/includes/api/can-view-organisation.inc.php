@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\ApiProcessController;
 use App\Http\Controllers\Api\ApiOrganisationController;
+use App\Http\Controllers\Api\ApiOrganisationTagController;
 use App\Http\Controllers\Api\ApiOrganisationUserController;
 use App\Http\Controllers\Api\ApiOrganisationProcessController;
 use App\Http\Controllers\Api\ApiOrganisationProcessGraphController;
@@ -20,6 +21,13 @@ Route::prefix('v1')->name('api.')->group(function () {
     'organisation' => 'slug',
     'process' => 'id'
   ]);
+
+    # Tag
+    Route::apiResource('organisation.tag', ApiOrganisationTagController::class)->scoped([
+        'organisation' => 'slug',
+        'process' => 'id'
+      ]);
+    
 
     # OrganisationUser
     Route::apiResource('organisation.users', ApiOrganisationUserController::class)->scoped([
