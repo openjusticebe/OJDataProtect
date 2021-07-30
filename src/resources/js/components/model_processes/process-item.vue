@@ -29,8 +29,8 @@
           </tag-list>
         </div>
         <div class="flex-none w-full mt-0.5 font-normal">
-          <dt class="inline">Editer by</dt>
-          <!-- <dd class="inline text-black">{{ process.author }}</dd> -->
+          <dt class="inline text-gray-700">Editer by</dt>
+          <dd class="inline text-gray-500">{{ process }}</dd>
         </div>
       </dl>
     </div>

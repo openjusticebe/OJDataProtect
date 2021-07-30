@@ -20,11 +20,11 @@ use Illuminate\Support\Facades\Route;
 
 // Route::group(['middleware' => ['auth:api', 'verified']], function () {
 Route::group(['middleware' => ['auth:api']], function () {
-    require base_path('routes/includes/api/default.inc.php');
+    require base_path('routes/includes/api/api-logged.php');
 
     Route::group(['middleware' => ['can:view-organisation,organisation'
   ],
 ], function () {
-    require base_path('routes/includes/api/can-view-organisation.inc.php');
+    require base_path('routes/includes/api/api-user-can-view-org.php');
 });
 });

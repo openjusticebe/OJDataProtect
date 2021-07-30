@@ -4,17 +4,26 @@
   >
     {{ values }}
 
-    <FormulateForm v-model="values" @submit="submitted">
-      <h2 class="text-2xl mb-2">Add new tag</h2>
+    <FormulateForm
+      v-model="values"
+      @submit="submitted"
+      action="https://vuejs.org/"
+      method="post"
+    >
+      <h2 class="text-2xl mb-2">Add new process</h2>
       <FormulateInput
         type="text"
-        label="Name of your tag"
+        label="Name of your process"
         help="Note: you will be able to edit it afterward"
         name="name"
         validation="required|max:200|min:2"
       />
-      <h2 class="text-2xl mb-2">Describe your tag</h2>
-      <FormulateInput type="textarea" name="description" validation="" />
+      <h2 class="text-2xl mb-2">Describe your process</h2>
+      <FormulateInput
+        type="textarea"
+        name="description"
+        validation="required"
+      />
 
       <div>
         <FormulateInput type="submit" />

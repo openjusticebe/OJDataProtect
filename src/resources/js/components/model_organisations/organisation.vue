@@ -32,6 +32,9 @@
         <div class="text-medium">
           {{ fields.description }}
         </div>
+
+        <process-new />
+
         <process-list>
           <process-item
             v-for="process in fields.relationships.processes"

@@ -8,6 +8,7 @@ use App\Models\Process;
 use App\Models\Organisation;
 use App\Http\Resources\ProcessResource;
 use App\Http\Resources\OrganisationResource;
+use Auth;
 
 class ApiOrganisationController extends Controller
 {
@@ -20,6 +21,26 @@ class ApiOrganisationController extends Controller
     {
         $organisation->load(['members', 'dpos', 'tags', 'processes.tags', 'units', ]);
        
+        return new OrganisationResource($organisation);
+    }
+
+    public function store(Request $request)
+    {
+        $organisation = new Organisation();
+        $organisation->name = $request->name;
+        $organisation->slug = $organisation->setSlugAttribute($organisation->name);
+        $organisation->description = $request->description;
+        $organisation->save();
+
+        $organisation->members()->syncWithoutDetaching(
+            [
+        Auth::user()->id => [
+          'member_type' => 'member',
+          'is_external' => 0,
+          'is_admin' => 1
+            ]
+        ]
+        );
         return new OrganisationResource($organisation);
     }
 }

@@ -51,7 +51,7 @@
                 d="M6 5a1 1 0 011 1v3h3a1 1 0 110 2H7v3a1 1 0 11-2 0v-3H2a1 1 0 110-2h3V6a1 1 0 011-1z"
               />
             </svg>
-            New
+            {{ __("New") }}
           </button>
           <button
             v-else
@@ -117,7 +117,7 @@
           <em>{{ search }}</em>
         </div>
 
-        <new-org v-if="new_org"></new-org>
+        <organisation-new v-if="new_org" :fields="fields" />
 
         <ul
           class="
@@ -285,8 +285,10 @@
  
  <script>
 import GetDataMixin from "../mixins/GetDataMixin";
+import organisationNew from "./model_organisations/organisation-new.vue";
 
 export default {
+  components: { organisationNew },
   mixins: [GetDataMixin],
   props: ["page_url"],
   data() {

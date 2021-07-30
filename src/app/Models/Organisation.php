@@ -74,7 +74,7 @@ class Organisation extends BaseModel
         parent::boot();
 
         self::creating(function ($organisation) {
-            $organisation->update(['slug' => $organisation->name]);
+            $organisation->setSlugAttribute($organisation->name);
         });
 
         self::deleting(function ($organisation) {

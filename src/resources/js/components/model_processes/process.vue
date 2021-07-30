@@ -28,6 +28,8 @@
           {{ fields.description }}
         </div>
 
+        <tag-new />
+
         <tag-list>
           <tag-item v-for="tag in fields.tags" :key="tag.id" :tag="tag" />
         </tag-list>
@@ -39,8 +41,10 @@
  
  <script>
 import GetDataMixin from "../../mixins/GetDataMixin";
+import processNew from "./process-new.vue";
 
 export default {
+  components: { processNew },
   mixins: [GetDataMixin],
   props: ["page_url"],
   data() {
