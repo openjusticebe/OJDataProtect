@@ -9,9 +9,9 @@ class Organisation extends BaseModel
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name',
-        'vat_number',
+    protected $guarded = [
+    'id',
+    'slug'
     ];
 
     /**
@@ -74,7 +74,7 @@ class Organisation extends BaseModel
         parent::boot();
 
         self::creating(function ($organisation) {
-            $organisation->setSlugAttribute($organisation->name);
+            $organisation->slug = $organisation->getSlug($organisation->name, $organisation);
         });
 
         self::deleting(function ($organisation) {

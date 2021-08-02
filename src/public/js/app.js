@@ -4062,6 +4062,60 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mixins: [_mixins_FormMixin__WEBPACK_IMPORTED_MODULE_0__.default],
@@ -4739,6 +4793,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _mixins_GetDataMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/GetDataMixin */ "./resources/js/mixins/GetDataMixin.js");
 /* harmony import */ var _model_organisations_organisation_new_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./model_organisations/organisation-new.vue */ "./resources/js/components/model_organisations/organisation-new.vue");
+//
 //
 //
 //
@@ -24147,12 +24202,11 @@ var render = function() {
     "div",
     {
       staticClass:
-        "hover:shadow-lg group block rounded-lg p-4 border border-blue-300",
+        "hover:shadow-lg group rounded-lg p-4 border border-blue-300",
       attrs: { id: "form-organisation-new" }
     },
     [
       _vm._v("\n  " + _vm._s(_vm.values) + "\n\n  "),
-      _vm._v(" "),
       _c(
         "FormulateForm",
         {
@@ -24171,27 +24225,106 @@ var render = function() {
             _vm._v("Add new organisation")
           ]),
           _vm._v(" "),
-          _c("FormulateInput", {
-            attrs: {
-              type: "text",
-              label: "Name of your organisation",
-              help: "Note: you will be able to edit it afterward",
-              name: "name",
-              validation: "required|max:200|min:2"
-            }
-          }),
-          _vm._v(" "),
-          _c("h2", { staticClass: "text-2xl mb-2" }, [
-            _vm._v("Describe your organisation")
-          ]),
-          _vm._v(" "),
-          _c("FormulateInput", {
-            attrs: { type: "textarea", name: "description", validation: "" }
-          }),
+          _c(
+            "div",
+            { staticClass: "grid grid-cols-2 gap-4" },
+            [
+              _c("FormulateInput", {
+                attrs: {
+                  type: "text",
+                  label: "Name of your organisation",
+                  help: "Note: you will be able to edit it afterward",
+                  name: "name",
+                  validation: "required|max:200|min:2"
+                }
+              }),
+              _vm._v(" "),
+              _c("h2", { staticClass: "text-2xl mb-2" }, [
+                _vm._v("Describe your organisation")
+              ]),
+              _vm._v(" "),
+              _c("FormulateInput", {
+                attrs: { type: "textarea", name: "description", validation: "" }
+              }),
+              _vm._v(
+                "\n\n      'logo_url' => $this->faker->imageUrl($width = 150, $height = 150, $word\n      = $company_name),\n\n      "
+              ),
+              _c("h2", { staticClass: "text-2xl mb-2" }, [_vm._v("Address")]),
+              _vm._v(" "),
+              _c("FormulateInput", {
+                attrs: {
+                  type: "text",
+                  name: "address",
+                  label: "Address",
+                  placeholder: "Abbey road, 21",
+                  help: "Insert your street and number",
+                  validation: ""
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "double-wide" },
+                [
+                  _c("FormulateInput", {
+                    attrs: {
+                      type: "text",
+                      name: "Postcode",
+                      label: "1234",
+                      placeholder: "1234",
+                      help: "Insert you postcode",
+                      validation: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("FormulateInput", {
+                    attrs: {
+                      type: "text",
+                      name: "city",
+                      label: "City",
+                      placeholder: "Houte-Si-Plou",
+                      help: "Insert your city",
+                      validation: ""
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "double-wide" },
+                [
+                  _c("FormulateInput", {
+                    attrs: {
+                      type: "text",
+                      name: "country",
+                      label: "Country",
+                      placeholder: "Honolulu",
+                      help: "Insert your country",
+                      validation: ""
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("FormulateInput", {
+                attrs: {
+                  type: "url",
+                  name: "log_url",
+                  label: "Logo URL",
+                  placeholder: "Sample url of your logo",
+                  help: "Sample url of your logo",
+                  validation: ""
+                }
+              })
+            ],
+            1
+          ),
           _vm._v(" "),
           _c("div", [_c("FormulateInput", { attrs: { type: "submit" } })], 1)
-        ],
-        1
+        ]
       )
     ],
     1
@@ -25210,9 +25343,16 @@ var render = function() {
                   ])
                 : _vm._e(),
               _vm._v(" "),
-              _vm.new_org
-                ? _c("organisation-new", { attrs: { fields: _vm.fields } })
-                : _vm._e(),
+              _c(
+                "div",
+                {},
+                [
+                  _vm.new_org
+                    ? _c("organisation-new", { attrs: { fields: _vm.fields } })
+                    : _vm._e()
+                ],
+                1
+              ),
               _vm._v(" "),
               !_vm.new_org
                 ? _c(
@@ -25423,8 +25563,7 @@ var render = function() {
                     0
                   )
                 : _vm._e()
-            ],
-            1
+            ]
           )
         ])
   ])

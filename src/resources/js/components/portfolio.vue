@@ -117,8 +117,9 @@
           <em>{{ search }}</em>
         </div>
 
-        <organisation-new v-if="new_org" :fields="fields" />
-
+        <div class="">
+          <organisation-new v-if="new_org" :fields="fields" />
+        </div>
         <ul
           class="
             grid grid-cols-1

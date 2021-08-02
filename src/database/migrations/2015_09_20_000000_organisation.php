@@ -16,14 +16,14 @@ class Organisation extends Migration
         Schema::create('organisations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->string('vat_number')->nullable(true)->default(null);
             $table->string('address')->nullable(true)->default(null);
             $table->string('postcode')->nullable(true)->default(null);
             $table->string('city')->nullable(true)->default(null);
             $table->string('country')->nullable(true)->default(null);
             $table->string('logo_url')->nullable(true)->default(null);
-            $table->text('description');
+            $table->text('description')->nullable(true)->default(null);
             $table->timestamps();
         });
     }

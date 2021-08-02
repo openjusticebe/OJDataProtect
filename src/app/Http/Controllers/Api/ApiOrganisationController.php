@@ -28,7 +28,6 @@ class ApiOrganisationController extends Controller
     {
         $organisation = new Organisation();
         $organisation->name = $request->name;
-        $organisation->slug = $organisation->setSlugAttribute($organisation->name);
         $organisation->description = $request->description;
         $organisation->save();
 

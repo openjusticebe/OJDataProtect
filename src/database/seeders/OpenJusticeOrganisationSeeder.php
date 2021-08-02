@@ -46,7 +46,6 @@ class OpenJusticeOrganisationSeeder extends Seeder
         $organisation = Organisation::factory()
     ->create([
       'name' => 'OpenJustice ASBL',
-      'slug' => 'openjustice-asbl',
       'vat_number' => 'BE 0749.460.404',
       'address' => 'Rue Basse-Wez 43',
       'postcode' => '4020',

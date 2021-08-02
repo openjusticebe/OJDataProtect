@@ -6,6 +6,8 @@ OJDataProtect is a tool for Data Protection Officers (DPO) to register their dat
 
   The Data Protection Officer (DPO) is required to keep a register of all the processing operations on personal data carried out by the Commission. The register, which must contain information explaining the purpose and conditions of all processing operations, is accessible to any interested person.
 
+![OJDataProtect](https://raw.githubusercontent.com/openjusticebe/ui-assets/main/svg/ojdataprotect.svg)
+
 ## How to install
 - Clone the repo
 - `cd src/` 
