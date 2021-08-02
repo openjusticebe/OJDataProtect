@@ -134,7 +134,7 @@
             <a
               :href="item.links.self"
               class="
-                hover:bg-blue-500
+                hover:bg-blue-400
                 hover:border-transparent
                 hover:shadow-lg
                 group
@@ -159,56 +159,64 @@
                   <dd
                     class="
                       group-hover:text-white
-                      leading-6
-                      font-medium
-                      text-black
+                      leading-2
+                      font-xl
+                      text-black text-bold
                     "
                   >
                     {{ item.name }}
                   </dd>
                 </div>
                 <div>
-                  <dt class="sr-only">Category</dt>
+                  <dt class="">Description</dt>
                   <dd
                     class="
-                      group-hover:text-blue-200
+                      group-hover:text-blue-100
                       text-sm
                       font-medium
+                      text-gray-600
                       sm:mb-4
                       lg:mb-0
                       xl:mb-4
                     "
                   >
-                    Description: {{ item.description }}
-
-                    <div
-                      v-for="process in item.relationships.processes"
-                      class="
-                        bg-blue-100
-                        border-t border-b border-blue-500
-                        text-blue-700
-                        hover:bg-blue-300
-                        px-4
-                        py-3
-                      "
-                    >
-                      <p>
-                        <a :href="process.links.self">{{ process.name }}</a>
-                      </p>
-                    </div>
+                    {{ item.description }}
                   </dd>
                 </div>
 
-                <h2 class="text-md leading-5 font-medium text-black sr-only">
-                  Units
-                </h2>
+                <div>
+                  <dt class="">Processes</dt>
+                  <dd>
+                    <ul>
+                      <li
+                        v-for="(process, n) in item.relationships.processes"
+                        key="process.id"
+                        class="
+                          bg-grey-100
+                          text-blue-900
+                          hover:bg-blue-300
+                          px-4
+                          py-0
+                        "
+                      >
+                        <p>
+                          <a :href="process.links.self"
+                            >{{ n + 1 }}. {{ process.name }}</a
+                          >
+                        </p>
+                      </li>
+                    </ul>
+                  </dd>
+                </div>
+
+                <h2 class="text-md leading-5 font-medium text-black">Units</h2>
 
                 <div v-for="unit in item.relationships.units">
                   {{ unit.name }}
                 </div>
 
                 <div class="col-start-2 row-start-1 row-end-3">
-                  <dt class="sr-only">Dpos</dt>
+                  <dt class="">Dpos</dt>
                   <dd
                     class="
                       flex
@@ -242,7 +250,7 @@
                 </div>
 
                 <div class="col-start-2 row-start-1 row-end-3">
-                  <dt class="sr-only">Members</dt>
+                  <dt class="">Members</dt>
                   <dd
                     class="
                       flex
