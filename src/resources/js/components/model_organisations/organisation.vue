@@ -38,76 +38,20 @@
           </div>
         </div>
 
-        <div
-          id="new_process"
-          class="
-            px-4
-            sm:px-6
-            lg:px-4
-            xl:px-6
-            pt-4
-            pb-4
-            sm:pb-6
-            lg:pb-4
-            xl:pb-6
-            space-y-4
-          "
-        >
-          <div class="float-right" id="new_process_btns">
-            <button
-              class="
-                hover:bg-blue-200
-                hover:text-blue-800
-                group
-                flex
-                items-center
-                rounded-md
-                bg-blue-100
-                text-blue-600 text-sm
-                font-medium
-                px-4
-                py-2
-              "
-              v-if="!new_process"
-              @click="new_process = !new_process"
-            >
-              <svg
-                class="group-hover:text-blue-600 text-blue-500 mr-2"
-                width="12"
-                height="20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M6 5a1 1 0 011 1v3h3a1 1 0 110 2H7v3a1 1 0 11-2 0v-3H2a1 1 0 110-2h3V6a1 1 0 011-1z"
-                />
-              </svg>
-              {{ __("New") }}
-            </button>
+        <div id="new_process">
+          <btn-new
+            v-if="!new_process"
+            @click.native="new_process = !new_process"
+            >process
+          </btn-new>
+          <btn-cancel
+            v-else
+            @click.native="new_process = !new_process"
+          ></btn-cancel>
 
-            <button
-              v-else
-              @click="new_process = !new_process"
-              class="
-                hover:bg-gray-200
-                hover:text-gray-800
-                group
-                flex
-                items-center
-                rounded-md
-                bg-gray-100
-                text-gray-600 text-sm
-                font-medium
-                px-4
-                py-2
-              "
-            >
-              {{ __("Cancel") }}
-            </button>
+          <div class="">
+            <process-new v-if="new_process" />
           </div>
-
-          <process-new v-if="new_process" />
         </div>
 
         <div id="relationships-entities" v-if="!new_process">

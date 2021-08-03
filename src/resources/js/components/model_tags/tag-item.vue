@@ -1,5 +1,19 @@
 <template>
-  <div class="p-2">
+  <div class="px-1">
+    <a
+      class="
+        inline-flex
+        text-white
+        rounded-full
+        h-6
+        px-3
+        justify-center
+        items-center
+      "
+      :class="classColor(tag.category)"
+      :href="tag.links.self"
+      >{{ tag.name }}</a
+    >
     <div
       class="
         inline-flex
@@ -13,23 +27,9 @@
         text-teal text-sm
       "
     >
-      <a
-        class="
-          inline-flex
-          text-white
-          rounded-full
-          h-6
-          px-3
-          justify-center
-          items-center
-        "
-        :class="classColor(tag.category)"
-        :href="tag.links.self"
-        >{{ tag.name }}</a
-      >
-      <span class="inline-flex px-2">{{ tag.description }} </span>
-      <span class="inline-flex px-2 text-green-500">{{ tag.category }} </span>
-      <span class="inline-flex px-2 text-blue-500">{{ tag.type }} </span>
+      <span class="">{{ tag.description }} </span>
+      <span class="text-green-500">{{ tag.category }} </span>
+      <span class="text-blue-500">{{ tag.type }} </span>
       <span
         class="inline-flex px-2 bg-blue-400 text-yellow-200"
         v-if="tag.specific_organisation"

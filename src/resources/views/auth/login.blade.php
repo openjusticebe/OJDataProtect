@@ -58,7 +58,7 @@
                 </a>
                 @endif
 
-                <a class="inline-flex items-center px-4 py-2 bg-gray-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-100 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150"
+                <a class="inline-flex items-center px-4 py-2 bg-green-dark border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-light active:bg-blue-900 focus:outline-none focus:border-blue-100 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 green-light"
                     href="{{ route('register') }}">
                     {{ __('Register') }}</a>
 

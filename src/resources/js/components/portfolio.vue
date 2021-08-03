@@ -22,77 +22,15 @@
           <h2 class="text-lg leading-6 font-medium text-black">
             Organisations <small>{{ filteredList.length }}</small>
           </h2>
-          <button
-            class="
-              hover:bg-blue-200
-              hover:text-blue-800
-              group
-              flex
-              items-center
-              rounded-md
-              bg-blue-100
-              text-blue-600 text-sm
-              font-medium
-              px-4
-              py-2
-            "
-            v-if="!new_org"
-            @click="new_org = !new_org"
-          >
-            <svg
-              class="group-hover:text-blue-600 text-blue-500 mr-2"
-              width="12"
-              height="20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M6 5a1 1 0 011 1v3h3a1 1 0 110 2H7v3a1 1 0 11-2 0v-3H2a1 1 0 110-2h3V6a1 1 0 011-1z"
-              />
-            </svg>
-            {{ __("New") }}
-          </button>
-          <button
-            v-else
-            @click="new_org = !new_org"
-            class="
-              hover:bg-gray-200
-              hover:text-gray-800
-              group
-              flex
-              items-center
-              rounded-md
-              bg-gray-100
-              text-gray-600 text-sm
-              font-medium
-              px-4
-              py-2
-            "
-          >
-            {{ __("Cancel") }}
-          </button>
+
+          <btn-new v-if="!new_org" @click.native="new_org = !new_org">{{
+            __("organisation")
+          }}</btn-new>
+          <btn-cancel v-else @click.native="new_org = !new_org"></btn-cancel>
         </header>
         <form class="relative" v-if="!new_org">
-          <svg
-            width="20"
-            height="20"
-            fill="currentColor"
-            class="
-              absolute
-              left-3
-              top-1/2
-              transform
-              -translate-y-1/2
-              text-gray-400
-            "
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-            />
-          </svg>
+          <search-icon />
+
           <input
             class="
               focus:border-blue-500
@@ -189,7 +127,7 @@
                     <ul>
                       <li
                         v-for="(process, n) in item.relationships.processes"
-                        key="process.id"
+                        :key="process.id"
                         class="
                           bg-grey-100
                           text-blue-900
