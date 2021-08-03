@@ -42,7 +42,9 @@ class TagFactory extends Factory
           'data_object',
           'data_subject',
           'data_recipient',
-          'data_controller'
+          'data_controller',
+          'data_operator',
+          'data_processor'
         ]),
         'description' => $this->faker->text,
       ];

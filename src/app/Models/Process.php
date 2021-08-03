@@ -21,7 +21,10 @@ class Process extends BaseModel
 
     public function tags()
     {
-        return $this->belongsToMany('App\Models\Tag')->withPivot(['specific_description'])->withTimestamps();
+        return $this->belongsToMany('App\Models\Tag')
+        ->withPivot(['specific_description'])
+        ->withTimestamps()
+        ->orderByRaw('FIELD(category, "data_operator", "data_processor", "data_object", "data_subject", "purpose", "data_controller", "data_recipient") ASC');
     }
 
     public static function boot()

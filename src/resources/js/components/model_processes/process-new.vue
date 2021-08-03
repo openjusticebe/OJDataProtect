@@ -2,21 +2,14 @@
   <div
     class="hover:shadow-lg group block rounded-lg p-4 border border-blue-300"
   >
-    {{ values }}
-
-    <FormulateForm
-      v-model="values"
-      @submit="submitted"
-      action="https://vuejs.org/"
-      method="post"
-    >
+    <FormulateForm v-model="values" @submit="submitted">
       <h2 class="text-2xl mb-2">Add new process</h2>
       <FormulateInput
         type="text"
         label="Name of your process"
         help="Note: you will be able to edit it afterward"
         name="name"
-        validation="required|max:200|min:2"
+        validation="required|max:200|min:5"
       />
       <h2 class="text-2xl mb-2">Describe your process</h2>
       <FormulateInput

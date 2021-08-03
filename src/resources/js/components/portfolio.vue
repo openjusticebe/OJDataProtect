@@ -68,7 +68,7 @@
           "
           v-if="!new_org"
         >
-          <li x-for="item in items" v-for="item in filteredList">
+          <li v-for="item in filteredList">
             <a
               :href="item.links.self"
               class="
@@ -108,7 +108,7 @@
                   <dt class="">Description</dt>
                   <dd
                     class="
-                      group-hover:text-gray-100
+                      group-hover:text-gray-600
                       text-sm
                       font-medium
                       text-gray-600
@@ -136,9 +136,9 @@
                           py-0
                         "
                       >
-                        <a :href="process.links.self"
-                          >{{ n + 1 }}. {{ process.short_name }}</a
-                        >
+                        <a :href="process.links.self">{{
+                          process.short_name
+                        }}</a>
                       </li>
                     </ul>
                   </dd>
@@ -153,6 +153,7 @@
                     {{ unit }}
                   </div>
                 </div>
+
                 <div class="col-start-2 row-start-1 row-end-3">
                   <dt class="">Data Protection Officers</dt>
                   <dd
