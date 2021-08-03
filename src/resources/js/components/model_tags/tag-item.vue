@@ -29,7 +29,7 @@
       >
       <span class="inline-flex px-2">{{ tag.description }} </span>
       <span class="inline-flex px-2 text-green-500">{{ tag.category }} </span>
-      <span class="inline-flex px-2 text-blue-500">{{ tag.tag_type }} </span>
+      <span class="inline-flex px-2 text-blue-500">{{ tag.type }} </span>
       <span
         class="inline-flex px-2 bg-blue-400 text-yellow-200"
         v-if="tag.specific_organisation"

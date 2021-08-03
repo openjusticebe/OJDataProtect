@@ -47,7 +47,7 @@ class BaseModel extends Model
         $this->save();
     }
 
-    public function getTypeAttribute()
+    public function getBasenameAttribute()
     {
         return class_basename($this);
     }
@@ -67,26 +67,4 @@ class BaseModel extends Model
         $slugCount = count($model->whereRaw("slug REGEXP '^{$slug}(-[0-9]*)?$'")->get());
         return ($slugCount > 0) ? "{$slug}-{$slugCount}" : $slug;
     }
-
-    // public function setSlugAttribute($name)
-    // {
-    //     if (static::whereSlug($slug = str_slug($name, '-'))->exists()) {
-    //         $slug = $this->incrementSlug($name);
-    //     }
-    //     $this->attributes['slug'] = $slug;
-    // }
-    
-    // public function incrementSlug($name)
-    // {
-
-    //      // get the slug of the latest created post
-    //     $max = static::whereName($name)->latest('id')->skip(1)->value('slug');
-
-    //     if (is_numeric($max[-1])) {
-    //         return preg_replace_callback('/(\d+)$/', function ($matches) {
-    //             return $matches[1] + 1;
-    //         }, $max);
-    //     }
-    //     return "{$slug}-2";
-    // }
 }

@@ -134,7 +134,7 @@
             <a
               :href="item.links.self"
               class="
-                hover:bg-blue-400
+                hover:bg-gray-200
                 hover:border-transparent
                 hover:shadow-lg
                 group
@@ -158,10 +158,9 @@
                   <dt class="sr-only">Title</dt>
                   <dd
                     class="
-                      group-hover:text-white
                       leading-2
-                      font-xl
-                      text-black text-bold
+                      text-2xl text-black text-bold
+                      subpixel-antialiased
                     "
                   >
                     {{ item.name }}
@@ -171,7 +170,7 @@
                   <dt class="">Description</dt>
                   <dd
                     class="
-                      group-hover:text-blue-100
+                      group-hover:text-gray-100
                       text-sm
                       font-medium
                       text-gray-600
@@ -184,7 +183,7 @@
                   </dd>
                 </div>
 
-                <div>
+                <div v-if="item.relationships.processes.length">
                   <dt class="">Processes</dt>
                   <dd>
                     <ul>
@@ -199,24 +198,25 @@
                           py-0
                         "
                       >
-                        <p>
-                          <a :href="process.links.self"
-                            >{{ n + 1 }}. {{ process.name }}</a
-                          >
-                        </p>
+                        <a :href="process.links.self"
+                          >{{ n + 1 }}. {{ process.short_name }}</a
+                        >
                       </li>
                     </ul>
                   </dd>
                 </div>
 
-                <h2 class="text-md leading-5 font-medium text-black">Units</h2>
+                <div v-if="item.relationships.units.length">
+                  <h2 class="text-md leading-5 font-medium text-black">
+                    Units
+                  </h2>
 
-                <div v-for="unit in item.relationships.units">
-                  {{ unit.name }}
+                  <div v-for="unit in item.relationships.units" v-if="">
+                    {{ unit }}
+                  </div>
                 </div>
-
                 <div class="col-start-2 row-start-1 row-end-3">
-                  <dt class="">Dpos</dt>
+                  <dt class="">Data Protection Officers</dt>
                   <dd
                     class="
                       flex
@@ -294,10 +294,8 @@
  
  <script>
 import GetDataMixin from "../mixins/GetDataMixin";
-import organisationNew from "./model_organisations/organisation-new.vue";
 
 export default {
-  components: { organisationNew },
   mixins: [GetDataMixin],
   props: ["page_url"],
   data() {

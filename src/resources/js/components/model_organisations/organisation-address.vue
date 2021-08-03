@@ -1,33 +1,26 @@
 <template>
-  <div
-    class="
-      p-4
-      md:text-left
-      space-y-4
-      absolute
-      right-0
-      inline-flex
-      items-center
-      bg-gray-100
-      rounded-full
-      shadow
-      text-teal text-sm
-    "
-  >
+  <div class="p-4 bg-gray-100 shadow text-teal text-sm">
     <span class="font-medium sr-only">{{ organisation.name }}</span> <br />
-    <div class="text-gray-500">
-      <a
-        :href="
-          'https://www.openstreetmap.org/search?query=' +
-          organisation.full_address
-        "
-      >
-        {{ organisation.address }}<br />
-        {{ organisation.city }}, {{ organisation.postcode }} <br />
+    <ul class="text-gray-500">
+      <li class="whitespace-pre">{{ organisation.address }}</li>
+      <li>{{ organisation.city }}, {{ organisation.postcode }}</li>
+      <li>
         {{ organisation.country }}
-      </a>
-    </div>
-    <span class="font-medium">{{ organisation.vat_number }}</span>
+      </li>
+      <li>
+        <a
+          :href="
+            'https://www.openstreetmap.org/search?query=' +
+            organisation.full_address
+          "
+          class="text-blue-600"
+          >map</a
+        >
+      </li>
+    </ul>
+    <span class="font-medium whitespace-pre">{{
+      organisation.vat_number
+    }}</span>
   </div>
 </template>
 

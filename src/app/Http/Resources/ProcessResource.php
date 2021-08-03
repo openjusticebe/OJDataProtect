@@ -17,6 +17,7 @@ class ProcessResource extends JsonResource
         // return parent::toArray($request);
         return [
       'id' => $this->id,
+      'short_name' => (string)mb_strimwidth($this->name, 0, 45, "..."),
       'name' => $this->name,
       'description' => $this->description,
       'organisation_id' => $this->organisation_id,

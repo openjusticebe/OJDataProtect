@@ -31,21 +31,21 @@ class OpenJusticeProcessesSeeder extends Seeder
       // Name, category, type, description
       [
         'name' => 'Ip Address',
-        'tag_type' => 'identification',
+        'type' => 'identification',
         'category' => 'data_object',
         'description' => 'Ip address of last connection',
         'specific_description' => ''
       ],
       [
         'name' => 'Personal and professional opinion',
-        'tag_type' => 'expertise',
+        'type' => 'expertise',
         'category' => 'data_object',
         'description' => 'Opinion of the community based on professional experience',
         'specific_description' => ''
       ],
       [
         'name' => 'Professional information',
-        'tag_type' => 'professional',
+        'type' => 'professional',
         'category' => 'data_object',
         'description' => 'Profession, title',
         'specific_description' => ''
@@ -53,35 +53,35 @@ class OpenJusticeProcessesSeeder extends Seeder
 
       [
         'name' => 'User',
-        'tag_type' => 'user',
+        'type' => 'user',
         'category' => 'data_subject',
         'description' => 'Membres inscrits sur la plateforme et essentiellement professionnels du droit, Juges, Greffiers, Avocats, Huissiers, Juristes, Sociologues, Etudiants, Chercheurs.',
         'specific_description' => ''
       ],
       [
         'name' => 'Researcher',
-        'tag_type' => 'participant',
+        'type' => 'participant',
         'category' => 'data_subject',
         'description' => 'Researcher',
         'specific_description' => ''
       ],
       [
         'name' => 'Name',
-        'tag_type' => 'identification',
+        'type' => 'identification',
         'category' => 'data_object',
         'description' => 'First name and last name',
         'specific_description' => ''
       ],
       [
         'name' => 'Email Address',
-        'tag_type' => 'identification',
+        'type' => 'identification',
         'category' => 'data_object',
         'description' => 'Email addresses provide by the responsible',
         'specific_description' => ''
       ],
       [
         'name' => "Mission de l'ASBL",
-        'tag_type' => '',
+        'type' => '',
         'category' => 'purpose',
         'description' => 'Consensus based on scientific construction',
         'specific_description' => 'Open Justice met à disposition des utilisateurs inscrits sur la plateforme Openjustice.be une interface d’anonymisation des décisions de justice qui doit être utilisée avant transmission des décisions (dès lors anonymisées) dans une base de données.  Pour se connecter et disposer d’un identifiant, l’utilisateur doit transmettre son nom, prénom et coordonnées professionnelles.  Il est important de noter qu’il n’y a aucun enregistrement des données lors de l’importation de la décision dans l’interface et que partant, Open Justice ne traite en principe pas les données personnelles contenues dans les décisions de Justice.'
@@ -92,7 +92,7 @@ class OpenJusticeProcessesSeeder extends Seeder
         foreach ($tags_database as $item) {
             $tag = \App\Models\Tag::firstOrCreate([
         'name' => $item['name'],
-        'tag_type' => $item['tag_type'],
+        'type' => $item['type'],
         'category' => $item['category'],
         'description' => $item['description'],
         'organisation_id' => $organisation->id,

@@ -18,12 +18,12 @@ class TagResource extends JsonResource
         return [
       'id' => $this->id,
       'name' => $this->name,
-      'tag_type' => $this->tag_type,
+      'type' => $this->type,
       'category' => $this->category,
       'description' => $this->description,
-      'pivot' => $this->pivot,
+      // 'pivot' => $this->pivot,
       'processes' => ProcessResource::collection($this->whenLoaded('processes')),
-      'specific_organisation' => (string)$this->pivot ? $this->pivot->specific_organisation : false,
+      'specific_description' => (string)$this->pivot ? $this->pivot->specific_description : false,
       'links' => [
         'self' => route('organisation.tag.show', [$this->organisation, $this->id])
       ]

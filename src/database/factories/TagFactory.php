@@ -23,7 +23,7 @@ class TagFactory extends Factory
     {
         return [
         'name' => $this->faker->word(),
-        'tag_type' => $this->faker->randomElement([
+        'type' => $this->faker->randomElement([
           'identification',
           'financial',
           'habits',
