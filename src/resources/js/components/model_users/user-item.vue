@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-gray-200">
-    {{ user.name }} {{ user.member_type }} {{ user.is_auth }}
-  </div>
+  <li class="">
+    <user-icon /> {{ user.name }} {{ user.member_type }} {{ user.is_auth }}
+  </li>
 </template>
 
 <script>

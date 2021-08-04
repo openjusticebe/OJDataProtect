@@ -31,8 +31,8 @@ class OpenJusticeOrganisationSeeder extends Seeder
     ]);
 
         $member2 = User::factory()->create([
-      'name' => 'Anne-Sophie vandendooren',
-      'email' => 'anne-sophie@openjustice.com',
+      'name' => 'Anne-Sophie Vandendooren',
+      'email' => 'anne-sophie@openjustice.be',
       'password' => $demo_password,
     ]);
 

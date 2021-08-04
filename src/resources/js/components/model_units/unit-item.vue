@@ -1,7 +1,5 @@
 <template>
-  <div class="bg-gray-200">
-    {{ unit.name }} {{ unit.member_type }} {{ unit.is_auth }}
-  </div>
+  <li class="">{{ unit.name }} {{ unit.member_type }} {{ unit.is_auth }}</li>
 </template>
 
 <script>

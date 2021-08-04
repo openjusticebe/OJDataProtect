@@ -28,6 +28,8 @@
           {{ fields.description }}
         </div>
 
+        <process-graph :page_url="fields.links.api_graph" />
+
         <tag-new />
 
         <tag-list>
@@ -41,10 +43,8 @@
  
  <script>
 import GetDataMixin from "../../mixins/GetDataMixin";
-import processNew from "./process-new.vue";
 
 export default {
-  components: { processNew },
   mixins: [GetDataMixin],
   props: ["page_url"],
   data() {

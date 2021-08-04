@@ -40,7 +40,7 @@ class RandomContentGenSeeder extends Seeder
                ]
             );
 
-            Tag::factory()->count(rand(5, 24))->create(['organisation_id' => $organisation->id]);
+            Tag::factory()->count(rand(12, 24))->create(['organisation_id' => $organisation->id]);
 
             foreach ($organisation->processes as $process) {
                 $random_tags = rand(5, 15);

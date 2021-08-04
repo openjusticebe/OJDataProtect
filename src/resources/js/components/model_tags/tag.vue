@@ -20,7 +20,7 @@
       >
         <header class="flex items-center justify-between">
           <h2 class="text-lg leading-6 font-medium text-black">
-            {{ fields.name }}
+            <tag-icon /> {{ fields.name }}
           </h2>
         </header>
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Process;
+use App\Models\Organisation;
 
 class ApiOrganisationProcessGraphController extends Controller
 {
@@ -14,16 +15,16 @@ class ApiOrganisationProcessGraphController extends Controller
     * @param  int  $id
     * @return \Illuminate\Http\Response
     */
-    public function data(Organisation $organisation, Process $process)
+    public function show(Organisation $organisation, Process $process)
     {
-        $tag = $process->load(['tags']);
-
+        $process = $process->load(['tags']);
+        
         $nodes = collect();
 
         $edges = collect();
 
         // Create parents nodes
-        $parents = $tag->get()->map(function ($parent) {
+        $parents = $process->tags->get()->map(function ($parent) {
             return [
             'id' => $parent->id,
             'label' => $parent->name,

@@ -7,6 +7,9 @@ use App\Http\Controllers\Api\ApiOrganisationUserController;
 use App\Http\Controllers\Api\ApiOrganisationProcessController;
 use App\Http\Controllers\Api\ApiOrganisationProcessGraphController;
 
+use App\Models\Organisation;
+use App\Models\Process;
+
 Route::prefix('v1')->name('api.')->group(function () {
  
 
@@ -37,11 +40,12 @@ Route::prefix('v1')->name('api.')->group(function () {
       'create' => 'organisation.users.attach'
   ]);
 
+
+
     # OrganisationProcessGraph
-    Route::apiResource('organisation.process.chart', ApiOrganisationProcessGraphController::class)->scoped([
-      'organisation' => 'slug',
-      'process' => 'id',
-    ])->names([
-      'data' => 'organisation.process.show'
-  ]);
+    Route::get('organisation/{organisation:slug}/process/{process:id}/graph', [ApiOrganisationProcessGraphController::class, 'show'])->name('organisation.process.graph');
+    // Route::apiResource('organisation.process_chart', ApiOrganisationProcessGraphController::class)->only(['show'])->scoped([
+    //   'organisation' => 'slug',
+    //   'process_chart' => 'id',
+    // ]);
 });

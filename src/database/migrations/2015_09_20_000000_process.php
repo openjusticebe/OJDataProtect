@@ -18,6 +18,9 @@ class Process extends Migration
             $table->string('name');
             $table->integer('organisation_id');
             $table->text('description');
+            $table->integer('created_by')->unsigned()->nullable();
+            $table->integer('updated_by')->unsigned()->nullable();
+            $table->timestamp('notified_at')->nullable()->default(null);
             $table->timestamps();
         });
     }

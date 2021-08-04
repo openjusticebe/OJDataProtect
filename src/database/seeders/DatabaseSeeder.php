@@ -15,11 +15,11 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call(OrganisationsTableSeeder::class);
         $this->call(UsersTableSeeder::class);
+  
+
+        $this->call(RandomContentGenSeeder::class);
         $this->call(ProcessesTableSeeder::class);
   
-  
-        $this->call(RandomContentGenSeeder::class);
-
         $this->call(OpenJusticeOrganisationSeeder::class);
         $this->call(OpenJusticeProcessesSeeder::class);
 

@@ -27,6 +27,17 @@ class Process extends BaseModel
         ->orderByRaw('FIELD(category, "data_operator", "data_processor", "data_object", "data_subject", "purpose", "data_controller", "data_recipient") ASC');
     }
 
+    public function editor()
+    {
+        return $this->belongsTo('App\Models\User', 'updated_by', 'id');
+    }
+
+    public function creator()
+    {
+        return $this->belongsTo('App\Models\User', 'created_by', 'id');
+    }
+
+
     public static function boot()
     {
         parent::boot();

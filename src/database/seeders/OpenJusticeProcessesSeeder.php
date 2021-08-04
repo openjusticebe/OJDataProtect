@@ -23,7 +23,10 @@ class OpenJusticeProcessesSeeder extends Seeder
             [
         'name' => 'Anonymisation des décisions de justice en vue de la constitution d’une base de données libre et accessible à tous',
         'organisation_id' => $organisation->id,
-        'description' => 'Open Justice met à disposition des utilisateurs inscrits sur la plateforme Openjustice.be une interface d’anonymisation des décisions de justice qui doit être utilisée avant transmission des décisions (dès lors anonymisées) dans une base de données.  Pour se connecter et disposer d’un identifiant, l’utilisateur doit transmettre son nom, prénom et coordonnées professionnelles.  Il est important de noter qu’il n’y a aucun enregistrement des données lors de l’importation de la décision dans l’interface et que partant, Open Justice ne traite en principe pas les données personnelles contenues dans les décisions de Justice.'
+        'description' => 'Open Justice met à disposition des utilisateurs inscrits sur la plateforme Openjustice.be une interface d’anonymisation des décisions de justice qui doit être utilisée avant transmission des décisions (dès lors anonymisées) dans une base de données.  Pour se connecter et disposer d’un identifiant, l’utilisateur doit transmettre son nom, prénom et coordonnées professionnelles.  Il est important de noter qu’il n’y a aucun enregistrement des données lors de l’importation de la décision dans l’interface et que partant, Open Justice ne traite en principe pas les données personnelles contenues dans les décisions de Justice.',
+        'updated_by' => $organisation->members()->inRandomOrder()->first()->id,
+        'created_by' => $organisation->members()->inRandomOrder()->first()->id
+
       ]
         );
 

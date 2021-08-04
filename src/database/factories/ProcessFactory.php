@@ -21,10 +21,17 @@ class ProcessFactory extends Factory
      */
     public function definition()
     {
+        $organisation = Organisation::inRandomOrder()->first();
+
+        $random_updator = $organisation->members()->inRandomOrder()->first();
+        $random_creator = $organisation->members()->inRandomOrder()->first();
+
         return [
         'name' => ucfirst($this->faker->bs),
-        'organisation_id' => Organisation::inRandomOrder()->first()->id,
+        'organisation_id' => $organisation->id,
        'description' => $this->faker->text,
+       'updated_by' => $random_updator ? $random_updator->id : null,
+        'created_by' => $random_creator ? $random_creator->id : null
     ];
     }
 };

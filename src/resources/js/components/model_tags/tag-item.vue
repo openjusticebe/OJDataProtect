@@ -1,23 +1,24 @@
 <template>
-  <div class="">
+  <li class="">
     <a
       class="text-white rounded-full px-2"
       :class="classColor(tag.category)"
       :href="tag.links.self"
-      >{{ tag.name }}</a
     >
-    <span class="bg-white text-green-500">{{ tag.category }}</span>
-    <span class="bg-white text-blue-500">{{ tag.type }}</span>
-    <span class="" :alt="tag.description">{{
-      tag.description.slice(0, 10)
+      {{ tag.name }}</a
+    >
+    <span class="bg-gray-200 text-green-500">{{ tag.category }}</span>
+    <span class="bg-gray-200 text-blue-500">{{ tag.type }}</span>
+    <span class="bg-yellow-200 text-purple-500" :alt="tag.description">{{
+      tag.description
     }}</span>
     <span
-      class=""
+      class="bg-gray-200"
       v-if="tag.specific_description"
       :alt="tag.specific_description"
-      >{{ tag.specific_description.slice(0, 10) }}
+      >{{ tag.specific_description }}
     </span>
-  </div>
+  </li>
 </template>
 
 <script>
