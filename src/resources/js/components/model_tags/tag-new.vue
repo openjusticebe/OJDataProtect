@@ -2,8 +2,6 @@
   <div
     class="hover:shadow-lg group block rounded-lg p-4 border border-blue-300"
   >
-    {{ values }}
-
     <FormulateForm v-model="values" @submit="submitted">
       <h2 class="text-2xl mb-2">Add new tag</h2>
       <FormulateInput

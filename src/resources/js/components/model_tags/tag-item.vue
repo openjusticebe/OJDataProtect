@@ -2,8 +2,8 @@
   <li class="">
     <a
       class="text-white rounded-full px-2"
-      :class="classColor(tag.category)"
       :href="tag.links.self"
+      :style="'background-color:' + tag.color"
     >
       {{ tag.name }}</a
     >
@@ -30,17 +30,6 @@ export default {
       new_tag: false,
     };
   },
-  methods: {
-    classColor(category) {
-      if (category === "data_object") return "bg-pink-600";
-      if (category === "data_subject") return "bg-yellow-600";
-      if (category === "data_recipient") return "bg-blue-600";
-      if (category === "purpose") return "bg-green-600";
-      if (category === "data_processor") return "bg-red-600";
-      if (category === "data_controller") return "bg-pink-600";
-      if (category === "data_operator") return "bg-indigo-600";
-      return "bg-gray-600";
-    },
-  },
+  methods: {},
 };
 </script>

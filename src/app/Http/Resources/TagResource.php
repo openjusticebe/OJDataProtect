@@ -21,7 +21,7 @@ class TagResource extends JsonResource
       'type' => $this->type,
       'category' => $this->category,
       'description' => $this->description,
-      // 'pivot' => $this->pivot,
+      'color' => $this->color,
       'processes' => ProcessResource::collection($this->whenLoaded('processes')),
       'specific_description' => (string)$this->pivot ? $this->pivot->specific_description : false,
       'links' => [

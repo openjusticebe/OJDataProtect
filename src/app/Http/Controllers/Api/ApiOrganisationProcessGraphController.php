@@ -17,12 +17,6 @@ class ApiOrganisationProcessGraphController extends Controller
     */
     public function show(Organisation $organisation, Process $process)
     {
-        return response()->json([
-        'data' => [
-          'organisation' => $organisation->name
-        ]]);
-
-
         $process = $process->load(['tags']);
         
         $nodes = collect();
@@ -30,27 +24,27 @@ class ApiOrganisationProcessGraphController extends Controller
         $edges = collect();
 
         // Create parents nodes
-        $parents = $process->tags->get()->map(function ($parent) {
+        $tags = $process->tags()->get()->map(function ($tag) {
             return [
-            'id' => $parent->id,
-            'label' => $parent->name,
+            'id' => $tag->id,
+            'label' => $tag->name,
             'shape' => 'box',
-            'color' => $parent->color,
+            'color' => $tag->color,
             'font' => [
               'color' => 'white',
-              'border-color' => $parent->color,
+              'border-color' => $tag->color,
               'size' => 20,
             ],
           ];
         });
 
-        // Create parents edges
-        foreach ($parents as $parent) {
+        // Create tags edges
+        foreach ($tags as $tag) {
             $edges = $edges->concat(
                 [
               [
-                'from' => $parent['id'],
-                'to' => $tag->id,
+                'from' => $tag['id'],
+                'to' => $tag['id'],
                 'arrows' => 'to',
                 'dashes' => false,
               ],
@@ -58,51 +52,38 @@ class ApiOrganisationProcessGraphController extends Controller
             );
         }
 
-        // Create children nodes
-        $children = $tag->children()->get()->map(function ($child) {
-            return [
-        'id' => $child->id,
-        'label' => $child->name,
-        'shape' => 'box',
-        'color' => $child->color,
-        'font' => [
-          'color' => 'white',
-          'border-color' => $child->color,
-          'size' => 12,
-          ],
-        ];
-        });
+        // // Create children nodes
+        // $children = $tag->children()->get()->map(function ($child) {
+        //     return [
+        // 'id' => $child->id,
+        // 'label' => $child->name,
+        // 'shape' => 'box',
+        // 'color' => $child->color,
+        // 'font' => [
+        //   'color' => 'white',
+        //   'border-color' => $child->color,
+        //   'size' => 12,
+        //   ],
+        // ];
+        // });
 
-        // Create children edges
-        foreach ($children as $child) {
-            $edges = $edges->concat(
-                [
-              [
-                'from' => $tag->id,
-                'to' => $child['id'],
-                'arrows' => 'to',
-                'dashes' => true,
-              ],
-          ]
-            );
-        }
+        // // Create children edges
+        // foreach ($children as $child) {
+        //     $edges = $edges->concat(
+        //         [
+        //       [
+        //         'from' => $tag->id,
+        //         'to' => $child['id'],
+        //         'arrows' => 'to',
+        //         'dashes' => true,
+        //       ],
+        //   ]
+        //     );
+        // }
 
         // Merging every the 3 kind of nodes
-        $nodes = $nodes->concat($parents)->concat($children)->concat(
-            [
-          [
-          'id' => $tag->id,
-          'label' => $tag->name,
-          'shape' => 'box',
-          'color' => $tag->color,
-          'font' => [
-            'color' => 'white',
-            'border-color' => 'red',
-            'size' => 20,
-            ],
-          ],
-        ]
-        );
+        $nodes = $nodes->concat($tags);
+        
 
         return response()->json([
       'data' => [

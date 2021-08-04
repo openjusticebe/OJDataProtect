@@ -30,11 +30,12 @@
 
         <process-graph :page_url="fields.links.api_graph" />
 
-        <tag-new />
-
         <tag-list>
           <tag-item v-for="tag in fields.tags" :key="tag.id" :tag="tag" />
         </tag-list>
+
+        <process-edit />
+        <tag-new />
       </section>
     </div>
   </div>
