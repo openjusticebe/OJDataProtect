@@ -17,6 +17,12 @@ class ApiOrganisationProcessGraphController extends Controller
     */
     public function show(Organisation $organisation, Process $process)
     {
+        return response()->json([
+        'data' => [
+          'organisation' => $organisation->name
+        ]]);
+
+
         $process = $process->load(['tags']);
         
         $nodes = collect();

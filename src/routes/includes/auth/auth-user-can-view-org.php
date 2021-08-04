@@ -3,6 +3,7 @@
 use App\Models\Organisation;
 use App\Http\Controllers\OrganisationController;
 use App\Http\Controllers\OrganisationProcessController;
+use App\Http\Controllers\OrganisationProcessDocumentController;
 use App\Http\Controllers\OrganisationTagController;
 
 // Organisation
@@ -20,3 +21,6 @@ Route::resource('organisation.tag', OrganisationTagController::class)->only(['sh
   'organisation' => 'organisation:slug',
   'process' => 'process:id',
 ]);
+
+
+Route::get('organisation/{organisation:slug}/process/downloadDPA', [OrganisationProcessDocumentController::class, 'downloadDPA'])->name('organisation.process.downloadDPA');
