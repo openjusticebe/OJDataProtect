@@ -18,8 +18,8 @@ class Tag extends Migration
             $table->string('name');
             $table->string('type')->nullable();
             $table->string('category');
+            $table->text('description')->nullable();
             $table->integer('organisation_id');
-            $table->text('description');
             $table->timestamps();
         });
     }

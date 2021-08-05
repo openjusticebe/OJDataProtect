@@ -23,7 +23,6 @@ class ProcessTagFactory extends Factory
     {
         return [
         'process_id' => App\Models\Process::inRandomOrder()->first()->id,
-        // 'data_id' => App\Models\Data::inRandomOrder()->first()->id,
         'specific_description' => $this->faker->text,
         ];
     }

@@ -17,7 +17,7 @@ class Unit extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('organisation_id');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

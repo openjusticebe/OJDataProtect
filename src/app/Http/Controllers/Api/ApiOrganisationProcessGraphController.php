@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Process;
 use App\Models\Organisation;
+use App\Helpers\BasicFunctions;
+use Illuminate\Support\Str;
 
 class ApiOrganisationProcessGraphController extends Controller
 {
@@ -23,6 +25,34 @@ class ApiOrganisationProcessGraphController extends Controller
 
         $edges = collect();
 
+        $default_process = collect();
+
+
+        foreach ([
+        'purpose',
+        'data_object',
+        'data_subject',
+        'data_recipient',
+        'data_controller',
+        'data_operator',
+        'data_processor'
+        ] as $category) {
+            $default_process->push(
+                [
+      'id' => $category,
+    'label' => Str::title(str_replace('_', ' ', $category)),
+    'shape' => 'box',
+    'color' => "#ccc",
+    'font' => [
+      'color' => 'black',
+      'border-color' => BasicFunctions::getColor($category),
+      'size' => 20,
+    ]
+    ]
+            );
+        }
+       
+
         // Create parents nodes
         $tags = $process->tags()->get()->map(function ($tag) {
             return [
@@ -30,6 +60,7 @@ class ApiOrganisationProcessGraphController extends Controller
             'label' => $tag->name,
             'shape' => 'box',
             'color' => $tag->color,
+            'category' => $tag->category,
             'font' => [
               'color' => 'white',
               'border-color' => $tag->color,
@@ -44,8 +75,8 @@ class ApiOrganisationProcessGraphController extends Controller
                 [
               [
                 'from' => $tag['id'],
-                'to' => $tag['id'],
-                'arrows' => 'to',
+                'to' => $tag['category'],
+                'arrows' => 'from',
                 'dashes' => false,
               ],
           ]
@@ -82,7 +113,7 @@ class ApiOrganisationProcessGraphController extends Controller
         // }
 
         // Merging every the 3 kind of nodes
-        $nodes = $nodes->concat($tags);
+        $nodes = $nodes->concat($default_process)->concat($tags);
         
 
         return response()->json([

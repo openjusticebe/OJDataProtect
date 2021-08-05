@@ -43,7 +43,7 @@ class RandomContentGenSeeder extends Seeder
             Tag::factory()->count(rand(12, 24))->create(['organisation_id' => $organisation->id]);
 
             foreach ($organisation->processes as $process) {
-                $random_tags = rand(5, 15);
+                $random_tags = rand(6, 15);
                 for ($i=0; $i < $random_tags; $i++) {
                     $tag_ids = $organisation->tags()->inRandomOrder()->get()->pluck('id')->toArray();
                    
