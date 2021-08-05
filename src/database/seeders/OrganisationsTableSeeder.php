@@ -13,6 +13,6 @@ class OrganisationsTableSeeder extends Seeder
      */
     public function run()
     {
-        Organisation::factory()->count(10)->create();
+        Organisation::factory()->count(15)->create();
     }
 }

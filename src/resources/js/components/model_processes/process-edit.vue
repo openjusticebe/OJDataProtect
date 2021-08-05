@@ -75,5 +75,11 @@
         government entity.
       </li>
     </ul>
+    <h2>Legislation</h2>
+    <ul>
+      <li>
+        https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/obligations_en
+      </li>
+    </ul>
   </div>
 </template>

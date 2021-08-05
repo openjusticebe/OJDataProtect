@@ -13,6 +13,6 @@ class ProcessesTableSeeder extends Seeder
      */
     public function run()
     {
-        Process::factory()->count(30)->create();
+        Process::factory()->count(40)->create();
     }
 }

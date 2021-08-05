@@ -83,36 +83,43 @@ class ApiOrganisationProcessGraphController extends Controller
             );
         }
 
-        // // Create children nodes
-        // $children = $tag->children()->get()->map(function ($child) {
-        //     return [
-        // 'id' => $child->id,
-        // 'label' => $child->name,
-        // 'shape' => 'box',
-        // 'color' => $child->color,
-        // 'font' => [
-        //   'color' => 'white',
-        //   'border-color' => $child->color,
-        //   'size' => 12,
-        //   ],
-        // ];
-        // });
+        $edges->push([
+          'from' => 'data_object',
+          'to' => 'data_subject',
+          'arrows' => 'to',
+          'dashes' => true,
+          'shadow' => true,
+          'smooth' => true,
+        ], [
+          'from' => 'data_subject',
+          'to' => 'data_operator',
+          'arrows' => 'to',
+          'dashes' => true,
+        ], [
+          'from' => 'data_operator',
+          'to' => 'data_controller',
+          'arrows' => 'to',
+          'dashes' => true,
+        ], [
+          'from' => 'data_processor',
+          'to' => 'data_controller',
+          'arrows' => 'to',
+          'dashes' => true,
+        ], [
+          'from' => 'data_controller',
+          'to' => 'data_recipient',
+          'arrows' => 'to',
+          'dashes' => true,
+        ], [
+          'from' => 'data_recipient',
+          'to' => 'purpose',
+          'arrows' => 'to',
+          'dashes' => true,
+        ]);
 
-        // // Create children edges
-        // foreach ($children as $child) {
-        //     $edges = $edges->concat(
-        //         [
-        //       [
-        //         'from' => $tag->id,
-        //         'to' => $child['id'],
-        //         'arrows' => 'to',
-        //         'dashes' => true,
-        //       ],
-        //   ]
-        //     );
-        // }
+      
 
-        // Merging every the 3 kind of nodes
+        // Merging every the nodes
         $nodes = $nodes->concat($default_process)->concat($tags);
         
 
