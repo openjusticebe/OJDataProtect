@@ -28,6 +28,8 @@ class ApiOrganisationProcessController extends Controller
         $process->name = $request->input('name');
         $process->description = $request->input('description');
 
+        $process->fill($request)->save();
+
         if ($process->save()) {
             return new ProcessResource($process);
         }
@@ -40,6 +42,7 @@ class ApiOrganisationProcessController extends Controller
      */
     public function delete(Organisation $organisation, Process $process)
     {
+        $process->delete();
     }
 
     public function store(Request $request)

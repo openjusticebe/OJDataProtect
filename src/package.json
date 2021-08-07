@@ -31,6 +31,8 @@
     "dependencies": {
         "@braid/vue-formulate": "^2.5.2",
         "md5": "^2.3.0",
+        "vue-chartjs": "^3.5.1",
+        "vue-multiselect": "^2.1.6",
         "vue2vis": "^0.0.18"
     }
 }

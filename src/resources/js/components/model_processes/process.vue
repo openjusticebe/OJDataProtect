@@ -28,6 +28,8 @@
           {{ fields.description }}
         </div>
 
+        <process-risk-impact />
+
         <process-graph :page_url="fields.links.api_graph" />
 
         <tag-list>
@@ -55,7 +57,11 @@ export default {
     };
   },
 
-  methods: {},
+  methods: {
+    showAlert() {
+      alert("test");
+    },
+  },
   computed: {
     filteredList() {
       return this.fields.filter((item) => {

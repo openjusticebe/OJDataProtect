@@ -42,4 +42,14 @@ class ApiOrganisationController extends Controller
         );
         return new OrganisationResource($organisation);
     }
+
+
+    public function destroy(Organisation $organisation)
+    {
+        if (Gate::allows('delete-organisation', $organisation)) {
+            $organisation->delete();
+
+            return response(null, Response::HTTP_OK);
+        }
+    }
 }

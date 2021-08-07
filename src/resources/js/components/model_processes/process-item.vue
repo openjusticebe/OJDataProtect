@@ -2,7 +2,10 @@
   <li class="p-4 flex space-x-4">
     <div class="min-w-0 relative flex-auto sm:pr-20 lg:pr-0 xl:pr-20">
       <h2 class="text-lg font-semibold text-black mb-0.5">
-        <a :href="process.links.self"> <process-icon /> {{ process.name }}</a>
+        <a :href="process.links.self">
+          <process-label>{{ process.name }}</process-label>
+          {{ process.name }}</a
+        >
       </h2>
       <div>
         <h2 class="text-md">Description</h2>
