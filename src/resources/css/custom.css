@@ -1,0 +1,53 @@
+/* BUTTONS */
+
+.btn-base {
+    @apply py-1.5 px-4  text-white font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2  focus:ring-opacity-75;
+  }
+  
+.btn {
+    @apply btn-base bg-blue-500 hover:bg-blue-700 focus:ring-blue-400;
+ }
+ 
+.btn-submit {
+    @apply btn-base bg-green-500 hover:bg-green-700 focus:ring-green-400;
+ }
+ 
+.btn-cancel {
+    @apply btn-base bg-gray-500 hover:bg-gray-700 focus:ring-gray-400;
+ }
+
+.btn-danger {
+    @apply btn-base bg-yellow-500 hover:bg-yellow-700 focus:ring-yellow-400;
+ }
+ 
+.btn-xs {
+     @apply font-semibold py-0 px-3 bg-blue-500 text-white hover:bg-blue-700 rounded text-xs shadow-md focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-75;
+  }
+
+/* TAGS */
+
+.tag-category {
+   @apply bg-gray-200 text-green-500;
+}
+
+.tag-type {
+   @apply bg-gray-200 text-blue-500;
+
+}
+
+.tag-description {
+   @apply bg-yellow-200 text-purple-500;
+
+}
+
+.tag-specific-description {
+   @apply text-xs bg-gray-200;
+
+}
+
+
+ /* MODULES */
+
+ .panel {
+     @apply hover:shadow-lg group block rounded-lg p-4 border border-blue-300;
+ }

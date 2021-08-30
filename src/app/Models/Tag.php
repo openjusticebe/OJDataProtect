@@ -34,6 +34,9 @@ class Tag extends BaseModel
         return BasicFunctions::getColor($this->category);
     }
 
+    
+
+
     public function scopeOfType($query, $type)
     {
         return $query->where('type', $type);

@@ -3,21 +3,19 @@
     <div class="min-w-0 relative flex-auto sm:pr-20 lg:pr-0 xl:pr-20">
       <h2 class="text-lg font-semibold text-black mb-0.5">
         <a :href="process.links.self">
-          <process-label>{{ process.name }}</process-label>
-          {{ process.name }}</a
-        >
+          <process-label>{{ process.short_name }}</process-label>
+        </a>
       </h2>
       <div>
-        <h2 class="text-md">Description</h2>
+        <h2 class="sr-only">Description</h2>
         <p>{{ process.description }}</p>
       </div>
-      <div>
-        <tag-list>
-          <tag-item v-for="tag in process.tags" :key="tag.id" :tag="tag" />
-        </tag-list>
-      </div>
+
       <div class="flex-none w-full mt-0.5 font-normal">
-        <p class="inline text-gray-700">Edited by {{ process.editor }}</p>
+        <p class="inline text-gray-700">
+          {{ __("app.updated_by") }}
+          <span class="font-semibold">{{ process.updated_by }}</span>
+        </p>
       </div>
     </div>
   </li>

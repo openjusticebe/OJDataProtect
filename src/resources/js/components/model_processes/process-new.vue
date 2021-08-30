@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="hover:shadow-lg group block rounded-lg p-4 border border-blue-300"
-  >
+  <div class="panel">
     <FormulateForm v-model="values" @submit="submitted">
       <h2 class="text-2xl mb-2">Add new process</h2>
       <FormulateInput

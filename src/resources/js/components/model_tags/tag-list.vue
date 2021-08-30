@@ -1,5 +1,12 @@
 <template>
-  <ul>
+  <table class="table-auto">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>#</th>
+        <th>#</th>
+      </tr>
+    </thead>
     <slot></slot>
-  </ul>
+  </table>
 </template>

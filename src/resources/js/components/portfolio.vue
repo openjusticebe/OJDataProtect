@@ -154,7 +154,7 @@
                   </div>
                 </div>
 
-                <div class="col-start-2 row-start-1 row-end-3">
+                <div class="col-start-2 row-start-2 row-end-3">
                   <dt class="">Data Protection Officers</dt>
                   <dd
                     class="

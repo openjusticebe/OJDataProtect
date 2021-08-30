@@ -6,16 +6,9 @@
     <div v-else>
       <h2 class="text-xl">Graph</h2>
 
-      <network ref="network" id="network" :nodes="fields.nodes" :edges="fields.edges" />
-        <!-- :options="fields.options" -->
-
-     <!-- <pre>
-      {{ fields }}
-    </pre> -->
-        <div class="grid">
-          <div id="mynetwork"></div>
-        </div>
-
+      <network ref="network" id="network" :nodes="fields.nodes" :edges="fields.edges" :options="fields.options" 
+      class="panel h-96" />
+         
       </network>
     </div>
   </div>
@@ -23,9 +16,8 @@
 
 <style scoped>
 #network {
-  width: 600px;
-  height: 400px;
-  border: 0px solid lightgray;
+  /* width: 800px; */
+  /* height: 400px; */
 }
 </style>
 

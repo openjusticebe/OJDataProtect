@@ -4,7 +4,7 @@
     <div class="col">
       <div>
         <label class="typo__label">
-          <fa icon="tag"></fa>
+          <tag-label />
         </label>
         <multiselect
           id="tag_select"
@@ -30,7 +30,7 @@
                 borderColor: props.option.color,
               }"
             >
-              <fa icon="tag"></fa>
+              <tag-label />
               {{ props.option.name }}
             </span>
           </template>
@@ -43,7 +43,7 @@
                 borderColor: props.option.color,
               }"
             >
-              <fa icon="tag"></fa>
+              <tag-label />
               {{ props.option.name }}</span
             >
           </template>
@@ -53,9 +53,17 @@
         type="button"
         name="addTags"
         @click="addTags"
-        class="btn btn-sm btn-block small btn-success"
+        class="
+          bg-blue-500
+          hover:bg-blue-700
+          text-white
+          font-bold
+          py-2
+          px-4
+          rounded
+        "
       >
-        <fa icon="tag"></fa> {{ __("app.insert") }}
+        <tag-label class="">{{ __("app.insert") }}</tag-label>
       </button>
 
       <!-- {{ success }}
@@ -73,7 +81,7 @@ import Multiselect from "vue-multiselect";
 // Vue.component('multiselect', Multiselect)
 
 export default {
-  props: ["text", "snippet"],
+  props: ["text"],
 
   components: { Multiselect },
   //   mixins: [FormMixin],

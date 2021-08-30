@@ -12,21 +12,21 @@
       <tbody>
         <tr>
           <th class="text-right">High likelihood</th>
-          <td class="bg-yellow-400"></td>
-          <td class="bg-red-600"></td>
-          <td class="bg-red-800"></td>
+          <td class="bg-yellow-400 bg-gradient-to-r from-yellow-200"></td>
+          <td class="bg-red-600 bg-gradient-to-r from-yellow-400"></td>
+          <td class="bg-red-800 bg-gradient-to-r from-red-600"></td>
         </tr>
         <tr>
           <th class="text-right">Medium likelihood</th>
-          <td class="bg-yellow-100" @click="showAlert"></td>
-          <td class="bg-yellow-400"></td>
-          <td class="bg-red-600"></td>
+          <td class="bg-yellow-200 bg-gradient-to-r from-white"></td>
+          <td class="bg-yellow-400 bg-gradient-to-r from-yellow-200"></td>
+          <td class="bg-red-600 bg-gradient-to-r from-yellow-400"></td>
         </tr>
         <tr>
           <th class="text-right">Low likelihood</th>
-          <td class="bg-yellow-100"></td>
-          <td class="bg-yellow-100"></td>
-          <td class="bg-yellow-400"></td>
+          <td class="bg-yellow-100 bg-gradient-to-r from-white"></td>
+          <td class="bg-yellow-200 bg-gradient-to-r from-yellow-100"></td>
+          <td class="bg-yellow-400 bg-gradient-to-r from-yellow-200"></td>
         </tr>
       </tbody>
     </table>
@@ -40,10 +40,6 @@ export default {
     return {};
   },
 
-  methods: {
-    showAlert() {
-      alert("test");
-    },
-  },
+  methods: {},
 };
 </script>

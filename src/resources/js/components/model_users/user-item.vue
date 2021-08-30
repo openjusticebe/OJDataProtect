@@ -1,6 +1,7 @@
 <template>
   <li class="">
-    <user-icon /> {{ user.name }} {{ user.member_type }} {{ user.is_auth }}
+    <user-label> {{ user.name }}</user-label>
+    <pre>{{ user.member_type }} {{ user.is_auth }}</pre>
   </li>
 </template>
 

@@ -19,8 +19,8 @@
         "
       >
         <header class="flex items-center justify-between">
-          <h2 class="text-lg leading-6 font-medium text-black">
-            <tag-icon /> {{ fields.name }}
+          <h2 class="text-lg leading-6 font-2xl text-black">
+            <tag-label>{{ fields.name }}</tag-label>
           </h2>
         </header>
 

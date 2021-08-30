@@ -128,9 +128,16 @@ class ApiOrganisationProcessGraphController extends Controller
         'nodes' => $nodes,
         'edges' => $edges,
         'options' => [
+          'interaction' => [
+            'hover' => true,
+            'click' => true,
+            'zoomView' => false,
+            'clickToUse' => false,
+            'zoomable' => false,
+          ],
           'layout' => [
             'hierarchical' => [
-              'direction' => "UD",
+              'direction' => "LR",
               'sortMethod' => "directed",
             ],
           ],

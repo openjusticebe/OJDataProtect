@@ -1,6 +1,9 @@
 <?php
 
 return [
+  'updated_by' => 'Updated by',
+  'add_new_tag' => 'Add New Tag',
+  'insert' => 'Insert',
   'portfolio' => 'Portfolio',
   'json' => 'Json',
   'metadata' => 'Metadata',

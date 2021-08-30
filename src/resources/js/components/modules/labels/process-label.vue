@@ -1,18 +1,18 @@
 <template>
   <span>
-    <span class="icon">
-      <process-icon />
+    <span class="icon-label">
+      <process-icon class="w-6 h-6" />
     </span>
-    <span class="text">
+    <span class="text-label">
       <slot></slot>
     </span>
   </span>
 </template>
 
 <style scoped>
-.icon,
-.text {
-  vertical-align: middle;
+.icon-label,
+.text-label {
   display: inline-block;
+  vertical-align: middle;
 }
 </style>

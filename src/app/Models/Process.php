@@ -11,6 +11,8 @@ class Process extends BaseModel
     protected $fillable = [
         'name',
         'description',
+        'type',
+        'category'
             ];
 
 
@@ -51,6 +53,27 @@ class Process extends BaseModel
             'created_by',
             'id'
         );
+    }
+
+
+    public function getTagsGroupedAttribute()
+    {
+        $tags = $this->tags()->get();
+
+        $tags_grouped = $tags->mapToGroups(function ($item, $key) {
+            return [$item['category'] => [
+                'name' => $item['name'],
+                'type' => $item['type'],
+                'category' => $item['category'],
+                'description' => $item['description'],
+                'specific_description' => $item->pivot->specific_description,
+                'color' => $item->color,
+                'links' =>
+                    [ 'self' => route('organisation.tag.show', [$item->organisation, $item]) ]
+            ]];
+        });
+        
+        return $tags_grouped;
     }
 
 

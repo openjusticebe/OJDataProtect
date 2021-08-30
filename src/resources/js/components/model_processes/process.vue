@@ -18,11 +18,9 @@
           space-y-4
         "
       >
-        <header class="flex items-center justify-between">
-          <h2 class="text-lg leading-6 font-medium text-black">
-            {{ fields.name }}
-          </h2>
-        </header>
+        <h2 class="sr-only">
+          {{ fields.name }}
+        </h2>
 
         <div class="text-medium">
           {{ fields.description }}
@@ -30,21 +28,24 @@
 
         <process-risk-impact />
 
+        <button class="btn-xs">btn xs</button>
+        <button class="btn">btn</button>
+        <button class="btn-submit">btn-submit</button>
+        <button class="btn-cancel">btn-cancel</button>
+
+        <process-edit :process="fields" />
+
         <process-graph :page_url="fields.links.api_graph" />
 
-        <tag-list>
-          <tag-item v-for="tag in fields.tags" :key="tag.id" :tag="tag" />
-        </tag-list>
-
-        <process-edit />
         <tag-new />
+        <tag-select />
       </section>
     </div>
   </div>
 </template>
 
  
- <script>
+<script>
 import GetDataMixin from "../../mixins/GetDataMixin";
 
 export default {
