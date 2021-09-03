@@ -36,9 +36,6 @@
         <process-edit :process="fields" />
 
         <process-graph :page_url="fields.links.api_graph" />
-
-        <tag-new />
-        <tag-select />
       </section>
     </div>
   </div>

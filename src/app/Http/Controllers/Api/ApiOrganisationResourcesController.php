@@ -6,11 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\TagSelectResource;
 use App\Models\Organisation;
 use App\Models\Tag;
+use Illuminate\Http\Request;
 
-class ApiCOrganisationResourcesController extends Controller
+class ApiOrganisationResourcesController extends Controller
 {
-    public function tags(Organisation $organisation)
+    public function show(Organisation $organisation, Request $request)
     {
-        return TagSelectResource::collection($organisation->tags);
+        $tags = ($request->has('categories') ? $organisation->tags->whereIn('category', explode(",", $request->get('categories'))) : $organisation->tags);
+      
+        return TagSelectResource::collection($tags);
     }
 }

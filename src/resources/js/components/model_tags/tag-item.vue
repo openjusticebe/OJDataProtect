@@ -3,7 +3,7 @@
     <td>
       <span class="tag-category sr-only">{{ tag.category }}</span>
       <a
-        class="text-white rounded-full px-2"
+        class="tag-name"
         :href="tag.links.self"
         :style="'background-color:' + tag.color"
       >

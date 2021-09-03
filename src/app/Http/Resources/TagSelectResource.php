@@ -20,6 +20,7 @@ class TagSelectResource extends JsonResource
       'type' => (string)$this['type'],
       'category' => (string)$this['category'],
       'default_description' => (string)$this['default_description'],
+      'color' => (string)$this['color'],
     ];
     }
 }

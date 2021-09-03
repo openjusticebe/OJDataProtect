@@ -25,6 +25,9 @@
   }
 
 /* TAGS */
+.tag-name {
+   @apply text-white rounded-full px-2 bg-blue-500;
+}
 
 .tag-category {
    @apply bg-gray-200 text-green-500;
@@ -34,7 +37,6 @@
    @apply bg-gray-200 text-blue-500;
 
 }
-
 .tag-description {
    @apply bg-yellow-200 text-purple-500;
 

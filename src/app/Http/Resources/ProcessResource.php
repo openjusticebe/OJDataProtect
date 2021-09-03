@@ -31,6 +31,7 @@ class ProcessResource extends JsonResource
         'self' => route('organisation.process.show', [$this->organisation, $this->id]),
         'api_update' => route('api.organisation.process.update', [$this->organisation, $this->id]),
         'api_graph' => route('api.organisation.process.graph', [$this->organisation, $this->id]),
+        'api_resources_tags' => route('api.organisation.api_resources_tags', [$this->organisation]),
         'download_dpa' => route('organisation.process.downloadDPA', [$this->organisation, $this->id]),
       ],
     ];

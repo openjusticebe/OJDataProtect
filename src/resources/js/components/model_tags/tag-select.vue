@@ -5,6 +5,7 @@
       <div>
         <label class="typo__label">
           <tag-label />
+          {{ options }}
         </label>
         <multiselect
           id="tag_select"
@@ -24,7 +25,7 @@
         >
           <template slot="option" slot-scope="props">
             <span
-              class="btn btn-sm btn-primary"
+              class="tag-name"
               :style="{
                 backgroundColor: props.option.color,
                 borderColor: props.option.color,
@@ -37,7 +38,7 @@
 
           <template slot="tag" slot-scope="props">
             <span
-              class="btn btn-sm btn-primary"
+              class="tag-name"
               :style="{
                 backgroundColor: props.option.color,
                 borderColor: props.option.color,
@@ -81,12 +82,14 @@ import Multiselect from "vue-multiselect";
 // Vue.component('multiselect', Multiselect)
 
 export default {
-  props: ["text"],
+  props: ["process", "categories"],
 
   components: { Multiselect },
   //   mixins: [FormMixin],
   created() {
-    this.fetchTagsData(this.text.collection.links.api_resources_tags);
+    this.fetchTagsData(
+      this.process.links.api_resources_tags + "?categories=" + this.categories
+    );
   },
   data() {
     return {
