@@ -1,5 +1,5 @@
 const data = {
-  purpose: {
+  nature_and_purpose: {
     key: "purpose",
     name: "Nature and purpose of the processing",
     categories: ["purpose", "data_recipient"],

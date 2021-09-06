@@ -41,6 +41,7 @@ class Organisation extends BaseModel
             'App\Models\Tag',
         )
       ->withCount('process_tag')
+      ->orderBy('tags.type', 'DESC')
       ->orderBy('tags.name');
     }
 

@@ -5,7 +5,6 @@
       <div>
         <label class="typo__label">
           <tag-label />
-          {{ options }}
         </label>
         <multiselect
           id="tag_select"
@@ -50,20 +49,7 @@
           </template>
         </multiselect>
       </div>
-      <button
-        type="button"
-        name="addTags"
-        @click="addTags"
-        class="
-          bg-blue-500
-          hover:bg-blue-700
-          text-white
-          font-bold
-          py-2
-          px-4
-          rounded
-        "
-      >
+      <button type="button" name="addTags" @click="addTags" class="btn-xs">
         <tag-label class="">{{ __("app.insert") }}</tag-label>
       </button>
 

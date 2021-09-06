@@ -28,11 +28,6 @@
 
         <process-risk-impact />
 
-        <button class="btn-xs">btn xs</button>
-        <button class="btn">btn</button>
-        <button class="btn-submit">btn-submit</button>
-        <button class="btn-cancel">btn-cancel</button>
-
         <process-edit :process="fields" />
 
         <process-graph :page_url="fields.links.api_graph" />

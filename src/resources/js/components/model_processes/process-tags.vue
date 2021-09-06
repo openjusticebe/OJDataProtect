@@ -5,7 +5,10 @@
       <button @click="edit = !edit" class="btn-xs">edit</button>
     </th>
     <td class="text-left">
-      <div v-for="category in data_type.categories" v-if="data_type.categories">
+      <div
+        v-for="category in data_type.categories"
+        v-if="data_type.categories && !add_new"
+      >
         <tag-list v-if="process.tagsGrouped[category]">
           <tag-item
             v-for="tag in process.tagsGrouped[category]"
@@ -15,12 +18,19 @@
         </tag-list>
       </div>
 
-      <button @click="add_new = !add_new" class="btn-xs">add new</button>
       <tag-select
         :process="process"
         :categories="data_type.categories.toString()"
         v-if="data_type.categories && add_new"
       />
+
+      <button @click="add_new = !add_new" class="btn-xs" v-if="!add_new">
+        add new
+      </button>
+      <button @click="add_new = !add_new" class="btn-xs bg-green-500" v-else>
+        <close-label />
+        close
+      </button>
     </td>
   </tr>
 </template>

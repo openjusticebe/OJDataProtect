@@ -13,7 +13,6 @@ use App\Models\Process;
 
 Route::prefix('v1')->name('api.')->group(function () {
  
-
     # Organisation
     Route::apiResource('organisation', ApiOrganisationController::class)->only(['show', 'update', 'index', 'destroy'])->scoped([
             'organisation' => 'slug'
