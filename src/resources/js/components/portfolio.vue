@@ -167,7 +167,6 @@
                     "
                   >
                     <img
-                      x-for="user in item.relationships.dpos"
                       v-for="user in item.relationships.dpos"
                       :src="
                         'https://www.gravatar.com/avatar/' +
@@ -201,7 +200,6 @@
                     "
                   >
                     <img
-                      x-for="user in item.relationships.members"
                       v-for="user in item.relationships.members"
                       :src="
                         'https://www.gravatar.com/avatar/' +

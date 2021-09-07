@@ -13,7 +13,6 @@ class Unit extends BaseModel
         'name',
     ];
 
-
     public function organisation()
     {
         return $this->belongsTo('App\Models\Organistation');

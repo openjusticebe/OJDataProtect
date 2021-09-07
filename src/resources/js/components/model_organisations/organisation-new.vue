@@ -101,17 +101,11 @@ export default {
   data() {
     return {
       values: {},
-      // csrfToken: "",
-      // apiToken: "",
     };
   },
-  mounted() {
-    // this.csrfToken = document.querySelector('meta[name="csrf-token"]').content;
-    // this.apiToken = document.querySelector('meta[name="api-token"]').content;
-  },
+  mounted() {},
   methods: {
     submitted() {
-      console.log(this.values);
       this.postOrganisation();
     },
     postOrganisation() {

@@ -26,51 +26,14 @@
           <!-- Processes <small>{{ filteredList.length }}</small> -->
         </header>
 
-        <div id="organisation-card" class="flex flex-row">
-          <div class="float-right">
-            <organisation-address :organisation="fields" />
-          </div>
-          <div class="float-left">
-            <img :src="fields.logo_url" :alt="fields.name" />
-          </div>
-          <div class="text-medium">
+        <div id="organisation-card" class="grid grid-cols-5 gap-4">
+          <div class="font-medium col-span-3">
             {{ fields.description }}
           </div>
-        </div>
 
-        <div id="new_process">
-          <btn-new
-            v-if="!new_process"
-            @click.native="new_process = !new_process"
-            >process
-          </btn-new>
-          <btn-cancel
-            v-else
-            @click.native="new_process = !new_process"
-          ></btn-cancel>
+          <div class="col-span-2">
+            <organisation-address :organisation="fields" />
 
-          <div class="">
-            <process-new v-if="new_process" />
-          </div>
-        </div>
-
-        <div id="relationships-entities" v-if="!new_process">
-          <div>
-            <process-list>
-              <process-item
-                v-for="process in fields.relationships.processes"
-                :key="process.id"
-                :process="process"
-              />
-            </process-list>
-            <!-- 
-          <tag-list>
-            <tag-item
-              v-for="tag in fields.relationships.tags"
-              :key="tag.id"
-              :tag="tag"
-            />
-          </tag-list> -->
             <user-list>
               <user-item
                 v-for="user in fields.relationships.members"
@@ -90,6 +53,42 @@
                 <a :href="unit.links.self">{{ unit.name }}</a>
               </h2>
             </div>
+          </div>
+        </div>
+
+        {{ fields }}
+
+        <div id="new_process" class="flex items-center justify-between">
+          <btn-new
+            v-if="!new_process"
+            @click.native="new_process = !new_process"
+            >process
+          </btn-new>
+          <btn-cancel
+            v-else
+            @click.native="new_process = !new_process"
+          ></btn-cancel>
+        </div>
+        <div class="">
+          <process-new v-if="new_process" :links="fields.links" />
+        </div>
+        <div id="relationships-entities" v-if="!new_process">
+          <div>
+            <process-list>
+              <process-item
+                v-for="process in fields.relationships.processes"
+                :key="process.id"
+                :process="process"
+              />
+            </process-list>
+            <!-- 
+          <tag-list>
+            <tag-item
+              v-for="tag in fields.relationships.tags"
+              :key="tag.id"
+              :tag="tag"
+            />
+          </tag-list> -->
           </div>
         </div>
       </section>

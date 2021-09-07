@@ -45,11 +45,11 @@ class ApiOrganisationProcessController extends Controller
         $process->delete();
     }
 
-    public function store(Request $request)
+    public function store(Organisation $organisation, Request $request)
     {
         $process = new Process;
         $process->name = $request->input('name');
-        $process->organisation_id = $request->input('organisation_id');
+        $process->organisation_id = $organisation->id;
         $process->description = $request->input('description');
 
         if ($process->save()) {
