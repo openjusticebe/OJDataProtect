@@ -27,8 +27,8 @@
       <button @click="add_new = !add_new" class="btn-xs" v-if="!add_new">
         add new
       </button>
-      <button @click="add_new = !add_new" class="btn-xs bg-green-500" v-else>
-        <close-label />
+      <button @click="add_new = !add_new" class="btn-xs-cancel" v-else>
+        <close-icon />
         close
       </button>
     </td>

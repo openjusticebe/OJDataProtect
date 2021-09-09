@@ -130,10 +130,7 @@ class ApiOrganisationProcessGraphController extends Controller
         'options' => [
           'interaction' => [
             'hover' => true,
-            'click' => true,
             'zoomView' => false,
-            'clickToUse' => false,
-            'zoomable' => false,
           ],
           'layout' => [
             'hierarchical' => [

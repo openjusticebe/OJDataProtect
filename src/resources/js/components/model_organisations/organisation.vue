@@ -56,8 +56,6 @@
           </div>
         </div>
 
-        {{ fields }}
-
         <div id="new_process" class="flex items-center justify-between">
           <btn-new
             v-if="!new_process"
