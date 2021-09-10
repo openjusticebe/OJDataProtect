@@ -29,9 +29,20 @@ class ProcessFactory extends Factory
         return [
         'name' => ucfirst($this->faker->bs),
         'organisation_id' => $organisation->id,
-       'description' => $this->faker->text,
+        'description' => $this->faker->text,
+        'reminder_every' => rand(4, 30),
+        'safe_keeping_duration' => rand(3, 3000),
+        'start_date' => now(),
+        'status'  => $this->faker->randomElement([
+        'archived',
+        'pending'
+      ]),
        'updated_by' => $random_updator ? $random_updator->id : null,
         'created_by' => $random_creator ? $random_creator->id : null
+
+
+        
+
     ];
     }
 };

@@ -21,6 +21,21 @@ class ProcessResource extends JsonResource
       'short_name' => (string)mb_strimwidth($this->name, 0, 45, "..."),
       'description' => $this->description,
       'organisation_id' => $this->organisation_id,
+
+      'reminder_every' => $this->reminder_every,
+
+      'next_reminder_at' => (string)$this->start_date->addDays($this->reminder_every)->format('Y-m-d'),
+      'next_reminder_diff' => (string)$this->start_date->addDays($this->reminder_every)->diffForHumans(['parts' => 1]),
+
+      'safe_keeping_duration' => (string)$this->safe_keeping_duration,
+      'safe_keeping_to' => (string)$this->start_date->addDays($this->safe_keeping_duration)->format('Y-m-d'),
+      'safe_keeping_to_diff' => (string)$this->start_date->addDays($this->safe_keeping_duration)->diffForHumans(['parts' => 1]),
+      
+      'start_date' => (string)$this->start_date->format('Y-m-d'),
+      'start_date_diff' => (string)$this->start_date->diffForHumans(['parts' => 2]),
+
+      'status'  => $this->status,
+      
       'tags' => TagResource::collection($this->whenLoaded('tags')),
       'tagsGrouped' => $this->whenLoaded('tags') ? $this->tagsGrouped : null,
       'updated_by' => $this->editor ? $this->editor->name : null,

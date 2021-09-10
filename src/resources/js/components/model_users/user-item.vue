@@ -2,7 +2,7 @@
   <li class="">
     <user-label :class="{ 'font-bold': user.is_auth }">
       {{ user.name }}
-      <span class="text-gray-500">{{ user.member_type }}</span>
+      <span class="text-gray-500">{{ __(user.member_type) }}</span>
     </user-label>
   </li>
 </template>

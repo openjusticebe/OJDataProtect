@@ -43,7 +43,7 @@
 
 /* TAGS */
 .tag-name {
-   @apply text-white rounded-full px-2 bg-blue-500;
+   @apply text-white rounded-full px-2 bg-blue-500 whitespace-nowrap;
 }
 
 .tag-category {
@@ -61,6 +61,15 @@
 
 .tag-specific-description {
    @apply text-xs bg-gray-200;
+
+}
+
+.span-date {
+   @apply text-xs bg-gray-100 font-semibold whitespace-nowrap;
+}
+
+.span-diff {
+   @apply text-xs bg-yellow-400 rounded text-white whitespace-nowrap;
 
 }
 

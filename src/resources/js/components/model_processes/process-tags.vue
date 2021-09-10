@@ -2,7 +2,6 @@
   <tr class="border">
     <th class="text-right">
       {{ data_type.name }}
-      <button @click="edit = !edit" class="btn-xs">edit</button>
     </th>
     <td class="text-left">
       <div
@@ -17,6 +16,8 @@
           />
         </tag-list>
       </div>
+
+      <button @click="edit = !edit" class="btn-xs">edit</button>
 
       <tag-select
         :process="process"

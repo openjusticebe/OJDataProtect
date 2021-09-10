@@ -5,16 +5,44 @@
         <a :href="process.links.self">
           <process-label>{{ process.short_name }}</process-label>
         </a>
+        <span class="text-xs text-gray-500">{{ process.status }}</span>
       </h2>
       <div>
-        <h2 class="sr-only">Description</h2>
-        <p>{{ process.description }}</p>
+        <h2 class="sr-only">{{ __("description") }}</h2>
+        <p>
+          {{ process.description }}
+        </p>
+        <table class="table">
+          <thead>
+            <tr class="bg-gray-100">
+              <th>{{ __("start_date") }}</th>
+              <th>{{ __("reminder") }}</th>
+              <th>{{ __("safe_keeping_duration") }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="span-date">{{ process.start_date }}</span>
+              </td>
+              <td>
+                <span class="span-date">{{ process.next_reminder_at }}</span>
+                <br />
+                <span class="span-diff">{{ process.next_reminder_diff }}</span>
+              </td>
+              <td>
+                <span class="span-date">{{ process.safe_keeping_to }}</span>
+                <br />
+                <span class="span-diff">{{
+                  process.safe_keeping_to_diff
+                }}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
-      <div
-        class="flex-none w-full mt-0.5 font-normal"
-        v-if="process.updated_by"
-      >
+      <div class="mt-0.5 font-normal text-right" v-if="process.updated_by">
         <p class="inline text-gray-700">
           {{ __("app.updated_by") }}
           <span class="font-semibold">{{ process.updated_by }}</span>

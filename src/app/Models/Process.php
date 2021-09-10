@@ -15,7 +15,11 @@ class Process extends BaseModel
         'category'
             ];
 
-
+    protected $casts = [
+        'start_date' => 'datetime:Y-m-d h:i:s',
+        'notified_at' => 'datetime:Y-m-d h:i:s'
+        ];
+            
     public function organisation()
     {
         return $this->belongsTo('App\Models\Organisation');
