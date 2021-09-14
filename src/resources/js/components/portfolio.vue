@@ -68,7 +68,7 @@
           "
           v-if="!new_org"
         >
-          <li v-for="item in filteredList">
+          <li v-for="item in filteredList" :key="item.id">
             <a
               :href="item.links.self"
               class="
@@ -126,7 +126,7 @@
                   <dd>
                     <ul>
                       <li
-                        v-for="(process, n) in item.relationships.processes"
+                        v-for="process in item.relationships.processes"
                         :key="process.id"
                         class="
                           bg-grey-100
@@ -151,7 +151,7 @@
                     Units
                   </h2>
 
-                  <div v-for="unit in item.relationships.units" v-if="">
+                  <div v-for="unit in item.relationships.units" :key="unit.id">
                     {{ unit }}
                   </div>
                 </div>
@@ -175,6 +175,7 @@
                         user.email_hash +
                         '?d=mp'
                       "
+                      :key="user.id"
                       :alt="user.name"
                       width="48"
                       height="48"
@@ -203,6 +204,7 @@
                   >
                     <img
                       v-for="user in item.relationships.members"
+                      :key="user.id"
                       :src="
                         'https://www.gravatar.com/avatar/' +
                         user.email_hash +

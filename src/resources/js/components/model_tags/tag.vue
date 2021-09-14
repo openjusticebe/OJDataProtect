@@ -19,18 +19,19 @@
         "
       >
         <header class="flex items-center justify-between">
-          <h2 class="text-lg leading-6 font-2xl text-black">
+          <h1 class="text-lg leading-6 font-2xl text-black">
             <tag-label>{{ fields.name }}</tag-label>
 
             <span class="tag-type">{{ fields.type }}</span>
             <span class="tag-category">{{ fields.category }}</span>
-          </h2>
+          </h1>
         </header>
 
         <div class="text-medium">
           {{ fields.description }}
         </div>
 
+        <h2 class="text-lg font-bold">Processes</h2>
         <process-list>
           <process-item
             v-for="process in fields.processes"

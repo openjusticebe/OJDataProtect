@@ -48,7 +48,7 @@
                 :user="user"
               />
             </user-list>
-            <div v-for="unit in fields.relationships.units">
+            <div v-for="unit in fields.relationships.units" :key="unit.id">
               <h2>
                 <a :href="unit.links.self">{{ unit.name }}</a>
               </h2>
@@ -71,7 +71,7 @@
           <process-new v-if="new_process" :links="fields.links" />
         </div>
         <div id="relationships-entities" v-if="!new_process">
-          <form class="relative" v-if="!new_org">
+          <form class="relative" v-if="!new_process">
             <search-icon />
 
             <input
