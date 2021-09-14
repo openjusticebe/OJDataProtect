@@ -11,7 +11,11 @@
     "
   >
     <div class="col-span-3">
-      <span class="font-bold">{{ organisation.name }}</span> <br />
+      <span class="font-bold">
+        <identification-icon />
+        {{ organisation.name }}</span
+      >
+      <br />
       <ul class="text-gray-500">
         <li class="whitespace-pre">{{ organisation.address }}</li>
         <li>{{ organisation.city }}, {{ organisation.postcode }}</li>

@@ -17,7 +17,7 @@
             <tr class="bg-gray-100">
               <th>{{ __("start_date") }}</th>
               <th>{{ __("reminder") }}</th>
-              <th>{{ __("safe_keeping_duration") }}</th>
+              <th>{{ __("safe_keeping_duration") }}<duration-icon /></th>
             </tr>
           </thead>
           <tbody>
@@ -31,7 +31,7 @@
                 <span class="span-diff">{{ process.next_reminder_diff }}</span>
               </td>
               <td>
-                <span class="span-date">{{ process.safe_keeping_to }}</span>
+                <span class="span-date">{{ process.safe_keeping_to }} </span>
                 <br />
                 <span class="span-diff">{{
                   process.safe_keeping_to_diff
@@ -80,7 +80,7 @@
         <p>Are you sure ?</p>
         <button class="btn-xs" @click="confirm_delete = false">Cancel</button>
 
-        <button class="btn-xs-danger">Confirm</button>
+        <button class="btn-xs-danger"><trash-icon /> Confirm</button>
       </div>
     </div>
   </li>

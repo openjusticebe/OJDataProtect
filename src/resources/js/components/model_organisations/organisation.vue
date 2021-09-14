@@ -19,7 +19,7 @@
         "
       >
         <header class="flex items-center justify-between">
-          <h2 class="text-lg leading-6 font-medium text-black">
+          <h2 class="text-lg leading-6 text-black font-extrabold">
             {{ fields.name }}
           </h2>
 
@@ -71,10 +71,37 @@
           <process-new v-if="new_process" :links="fields.links" />
         </div>
         <div id="relationships-entities" v-if="!new_process">
+          <form class="relative" v-if="!new_org">
+            <search-icon />
+
+            <input
+              class="
+                focus:border-blue-500
+                focus:ring-1 focus:ring-blue-500
+                focus:outline-none
+                w-full
+                text-sm text-black
+                placeholder-gray-500
+                border border-gray-200
+                rounded-md
+                py-2
+                pl-10
+              "
+              v-model="search"
+              type="text"
+              aria-label="Filter processes"
+              placeholder="Filter processes"
+            />
+          </form>
+          <div class="text-right text-sm" v-if="search">
+            {{ __("Filter_for") }}
+            <em>{{ search }}</em>
+          </div>
+
           <div>
             <process-list>
               <process-item
-                v-for="process in fields.relationships.processes"
+                v-for="process in filteredList"
                 :key="process.id"
                 :process="process"
               />
@@ -111,7 +138,7 @@ export default {
   methods: {},
   computed: {
     filteredList() {
-      return this.fields.filter((item) => {
+      return this.fields.relationships.processes.filter((item) => {
         return item.name.toLowerCase().includes(this.search.toLowerCase());
       });
     },

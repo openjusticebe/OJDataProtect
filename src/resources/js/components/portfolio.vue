@@ -136,9 +136,11 @@
                           py-0
                         "
                       >
-                        <a :href="process.links.self">{{
-                          process.short_name
-                        }}</a>
+                        <a :href="process.links.self"
+                          ><process-label>{{
+                            process.short_name
+                          }}</process-label>
+                        </a>
                       </li>
                     </ul>
                   </dd>
@@ -243,13 +245,13 @@ export default {
   },
 
   methods: {
-    isAdmin: function (role) {
-      if (role === "admin") {
-        return "border-dark";
-      } else {
-        return "border-light";
-      }
-    },
+    // isAdmin: function (role) {
+    //   if (role === "admin") {
+    //     return "border-dark";
+    //   } else {
+    //     return "border-light";
+    //   }
+    // },
   },
   computed: {
     filteredList() {
