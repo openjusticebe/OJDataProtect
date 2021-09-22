@@ -4,7 +4,11 @@
       <tbody class="divide-y divide-gray-200">
         <tr class="border">
           <th class="text-right">Subject-matter of the processing</th>
-          <td>{{ process.description }}</td>
+
+          <td>
+            {{ process.description }}
+            <button @click="edit = !edit" class="btn-xs">edit</button>
+          </td>
         </tr>
 
         <process-tags

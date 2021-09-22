@@ -18,7 +18,7 @@ class ProcessResource extends JsonResource
         return [
       'id' => $this->id,
       'name' => $this->name,
-      'short_name' => (string)mb_strimwidth($this->name, 0, 45, "..."),
+      'short_name' => $this->short_name,
       'description' => $this->description,
       'organisation_id' => $this->organisation_id,
 

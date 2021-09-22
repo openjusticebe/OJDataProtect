@@ -22,11 +22,11 @@
  
 
 .btn-xs-base {
-     @apply font-semibold py-0 px-3 rounded text-xs shadow-md focus:outline-none focus:ring-2 focus:ring-opacity-75;
+     @apply font-semibold py-0 px-3 text-white rounded text-xs shadow-md focus:outline-none focus:ring-2 focus:ring-opacity-75;
   }
 
 .btn-xs {
-     @apply btn-xs-base bg-blue-500 text-white hover:bg-blue-700 focus:ring-white focus:ring-opacity-75;
+     @apply btn-xs-base bg-blue-500  hover:bg-blue-700 focus:ring-white focus:ring-opacity-75;
   }
 
 .btn-xs-submit {
@@ -38,7 +38,7 @@
 }
 
 .btn-xs-danger {
-   @apply btn-xs-base bg-red-500 text-white hover:bg-yellow-700 focus:ring-red-400;
+   @apply btn-xs-base bg-red-500 hover:bg-yellow-700 focus:ring-red-400;
 }
 
 /* TAGS */
@@ -51,7 +51,7 @@
 }
 
 .tag-type {
-   @apply bg-gray-200 text-blue-500;
+   @apply bg-gray-200 text-blue-500 border border-blue-300 shadow rounded-md mx-auto;
 
 }
 .tag-description {

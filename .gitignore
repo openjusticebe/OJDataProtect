@@ -11,6 +11,7 @@ src/yarn-error.log
 .DS_Store
 *.pxm
 src/database/seeders/Mesylab*
+src/public/css/*
 src/public/js/*
 src/public/js/app.js
-src/public/js/app.js
+scripts/

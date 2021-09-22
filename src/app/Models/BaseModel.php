@@ -47,6 +47,12 @@ class BaseModel extends Model
         $this->save();
     }
 
+    public function getShortNameAttribute()
+    {
+        return (string)mb_strimwidth($this->name, 0, 60, "...");
+    }
+
+
     public function getBasenameAttribute()
     {
         return class_basename($this);

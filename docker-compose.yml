@@ -9,6 +9,7 @@ services:
     volumes:
       - ./src:/var/www:delegated
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:delegated
+      - logsdata:/var/www/storage/logs
     depends_on:
       - php
     networks:
@@ -66,7 +67,8 @@ volumes:
     driver: local
   mysqldata:
     driver: local
-
+  logsdata:
+    driver: local
 networks:
   app-network:
     driver: bridge

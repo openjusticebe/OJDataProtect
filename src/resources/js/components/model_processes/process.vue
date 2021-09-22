@@ -18,15 +18,21 @@
           space-y-4
         "
       >
-        <h2 class="sr-only">
+        <h1 class="sr-only">
           {{ fields.name }}
-        </h2>
+        </h1>
 
-        <div class="text-medium">
-          {{ fields.description }}
+        <div class="flex">
+          <div class="text-medium">
+            <h2>Description</h2>
+            {{ fields.description }}
+          </div>
+
+          <div>
+            <h2>Risk assessment</h2>
+            <process-risk-impact />
+          </div>
         </div>
-
-        <process-risk-impact />
 
         <process-edit :process="fields" />
 

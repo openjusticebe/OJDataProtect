@@ -1,6 +1,8 @@
 <template>
-  <tr class="border">
+  <tr class="border" :id="data_type.key">
     <th class="text-right">
+      <span class="bg-gray-100">{{ data_type.key }}</span>
+
       {{ data_type.name }}
     </th>
     <td class="text-left">
@@ -17,8 +19,15 @@
         </tag-list>
       </div>
 
-      <button @click="edit = !edit" class="btn-xs">edit</button>
+      <div v-if="['duration'].includes(data_type.key)">
+        <process-timetable-edit :process="process" v-if="timetable_edit" />
 
+        <process-timetable :process="process" v-else />
+
+        <button @click="timetable_edit = !timetable_edit" class="btn-xs">
+          edit
+        </button>
+      </div>
       <tag-select
         :process="process"
         :categories="data_type.categories.toString()"
@@ -37,12 +46,14 @@
 </template>
 
 <script>
+import processTimetable from "./process-timetable.vue";
 export default {
+  components: { processTimetable },
   props: ["data_type", "process"],
   data() {
     return {
       add_new: false,
-      edit: false,
+      timetable_edit: false,
     };
   },
 };
