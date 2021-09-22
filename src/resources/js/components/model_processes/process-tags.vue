@@ -1,10 +1,11 @@
 <template>
   <tr class="border" :id="data_type.key">
-    <th class="text-right">
-      <span class="bg-gray-100">{{ data_type.key }}</span>
-
-      {{ data_type.name }}
+    <th class="bg-gray-400">
+      <div class="transform -rotate-90 text-white uppercase">
+        {{ data_type.key }}
+      </div>
     </th>
+    <th class="text-right">{{ data_type.name }}</th>
     <td class="text-left">
       <div
         v-for="category in data_type.categories"

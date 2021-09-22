@@ -3,6 +3,11 @@
     <table class="table-auto">
       <tbody class="divide-y divide-gray-200">
         <tr class="border">
+          <th class="bg-gray-400">
+            <div class="transform -rotate-90 text-white uppercase">
+              Subject matter
+            </div>
+          </th>
           <th class="text-right">Subject-matter of the processing</th>
 
           <td>

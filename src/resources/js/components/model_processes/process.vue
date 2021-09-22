@@ -28,10 +28,10 @@
             {{ fields.description }}
           </div>
 
-          <div>
+          <!-- <div>
             <h2>Risk assessment</h2>
             <process-risk-impact />
-          </div>
+          </div> -->
         </div>
 
         <process-edit :process="fields" />
