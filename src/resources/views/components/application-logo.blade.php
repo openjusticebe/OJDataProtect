@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink" width="375pt"
     height="250" viewBox="0 100 375 175" version="1.2"
-    style="width:260px; height:105px">
+    style="width:300px; height:145px">
     <defs>
         <g>
             <symbol overflow="visible" id="glyph0-0">
