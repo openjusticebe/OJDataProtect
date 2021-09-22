@@ -24,7 +24,7 @@ class Process extends Migration
             $table->integer('reminder_every')->unsigned()->nullable()->default(null); // in days // with loop
             $table->integer('safe_keeping_duration')->unsigned()->nullable()->default(null); // in days
             $table->timestamp('start_date')->nullable()->default(null);
-            $table->string('status'); // archived or pending
+            $table->string('status')->default('ongoing'); // archived or pending
             
             $table->timestamp('notified_at')->nullable()->default(null);
             $table->timestamps();

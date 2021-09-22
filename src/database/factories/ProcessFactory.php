@@ -35,7 +35,9 @@ class ProcessFactory extends Factory
         'start_date' => now(),
         'status'  => $this->faker->randomElement([
         'archived',
-        'pending'
+        'draft',
+        'pending',
+        'ongoing'
       ]),
        'updated_by' => $random_updator ? $random_updator->id : null,
         'created_by' => $random_creator ? $random_creator->id : null
