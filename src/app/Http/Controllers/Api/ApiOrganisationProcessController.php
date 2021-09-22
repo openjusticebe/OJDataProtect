@@ -25,10 +25,9 @@ class ApiOrganisationProcessController extends Controller
      */
     public function update(Organisation $organisation, Process $process, Request $request)
     {
-        $process->name = $request->input('name');
-        $process->description = $request->input('description');
+        $process->fill($request->all())->save();
 
-        $process->fill($request)->save();
+        $process->updated_by = auth()->id();
 
         if ($process->save()) {
             return new ProcessResource($process);
@@ -48,9 +47,13 @@ class ApiOrganisationProcessController extends Controller
     public function store(Organisation $organisation, Request $request)
     {
         $process = new Process;
-        $process->name = $request->input('name');
         $process->organisation_id = $organisation->id;
-        $process->description = $request->input('description');
+
+        $process->fill($request->all())->save();
+
+        $process->created_by = auth()->id();
+        $process->updated_by = auth()->id();
+
 
         if ($process->save()) {
             return new ProcessResource($process);

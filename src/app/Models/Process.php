@@ -11,9 +11,11 @@ class Process extends BaseModel
     protected $fillable = [
         'name',
         'description',
-        'type',
-        'category'
-            ];
+        'status',
+        'safe_keeping_duration',
+        'reminder_every',
+        'start_date',
+    ];
 
     protected $casts = [
         'start_date' => 'datetime:Y-m-d h:i:s',
@@ -85,7 +87,11 @@ class Process extends BaseModel
     {
         parent::boot();
 
+        self::created(function ($process) {
+        });
+
         self::updated(function ($process) {
+
             // self::resetCache($process);
         });
 

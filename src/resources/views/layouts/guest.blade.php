@@ -12,17 +12,12 @@
     <meta name="application-name"
         content="{{ config('app.name', 'Laravel') }}">
 
-    <!-- Theme Color for Chrome, Firefox OS and Opera -->
     <meta name="theme-color" content="#6ab3b3">
 
-    <!-- Short description of the document (limit to 150 characters) -->
-    <!-- This content *may* be used as a part of search engine results. -->
     <meta name="description" content="OJDataProtect is a tool for Data Protection Officers (DPO) to
     register their data processes following the GDPR.">
 
-    <!-- Control the behavior of search engine crawling and indexing -->
     <meta name="robots" content="index,follow">
-    <!-- All Search Engines -->
 
     <!-- Fonts -->
     <link rel="stylesheet"

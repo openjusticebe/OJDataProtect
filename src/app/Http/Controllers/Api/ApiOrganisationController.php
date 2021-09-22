@@ -21,6 +21,7 @@ class ApiOrganisationController extends Controller
     {
         $organisation->load(['members', 'dpos', 'tags', 'processes.tags', 'units', ]);
        
+
         return new OrganisationResource($organisation);
     }
 
@@ -40,6 +41,8 @@ class ApiOrganisationController extends Controller
             ]
         ]
         );
+
+
         return new OrganisationResource($organisation);
     }
 
