@@ -1,29 +1,34 @@
 <template>
   <div>
-    <table class="table-auto">
+    <table class="table-fixed">
       <tbody class="divide-y divide-gray-200">
+        <tr>
+          <td class="bg-blue-100 w-1/8"></td>
+          <th class="bg-blue-100 text-left">
+            Subject-matter of the processing
+          </th>
+        </tr>
         <tr class="border">
-          <th class="bg-gray-400">
+          <th class="bg-gray-400 w-20">
             <div class="transform -rotate-90 text-white uppercase">
               Subject matter
             </div>
           </th>
-          <th class="text-right">Subject-matter of the processing</th>
 
           <td>
             {{ process.description }}
             <button @click="edit = !edit" class="btn-xs">edit</button>
           </td>
         </tr>
-
-        <process-tags
-          v-for="data_type in data_types"
-          :key="data_type.key"
-          :data_type="data_type"
-          :process="process"
-        />
       </tbody>
     </table>
+
+    <process-tags
+      v-for="data_type in data_types"
+      :key="data_type.key"
+      :data_type="data_type"
+      :process="process"
+    />
   </div>
 </template>
 

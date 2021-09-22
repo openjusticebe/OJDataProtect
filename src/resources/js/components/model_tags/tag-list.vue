@@ -1,12 +1,5 @@
 <template>
-  <table class="table-auto">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Category</th>
-        <th>Description</th>
-      </tr>
-    </thead>
+  <table class="table-fixed">
     <slot></slot>
   </table>
 </template>

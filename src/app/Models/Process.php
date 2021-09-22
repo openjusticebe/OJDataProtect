@@ -92,6 +92,7 @@ class Process extends BaseModel
 
         self::updated(function ($process) {
 
+            // self::sendUpdateStatusOfProcess($process);
             // self::resetCache($process);
         });
 
