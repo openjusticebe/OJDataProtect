@@ -1,12 +1,12 @@
 <template>
   <div
-    class="hover:shadow-lg group rounded-lg p-4 border border-blue-300"
+    class="hover:shadow-lg group rounded-lg p-4 border-4 border-blue-300"
     id="form-organisation-new"
   >
     <FormulateForm v-model="values" @submit="submitted" method="post">
       <h2 class="text-2xl mb-2">Add new process</h2>
 
-      <div class="flex flex-wrap">
+      <div class="flex flex-wra gap-x-8 gap-y-4">
         <div>
           <FormulateInput
             type="text"

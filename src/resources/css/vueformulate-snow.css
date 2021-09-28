@@ -39,9 +39,9 @@
 
 .formulate-input .formulate-file-upload-error,
 .formulate-input .formulate-input-error {
-    color: #960505;
+    color: #ac0606;
     font-size: .8em;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.5;
     margin-bottom: .25em
 }

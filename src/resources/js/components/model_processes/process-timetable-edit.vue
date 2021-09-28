@@ -1,6 +1,6 @@
 <template>
   <div id="timetable-edit">
-    <FormulateForm v-model="values" @submit="submitted">
+    <FormulateForm v-model="fields" @submit="submitted">
       <h2 class="text-2xl mb-2">Dates</h2>
 
       <FormulateInput
@@ -16,27 +16,29 @@
       />
 
       <FormulateInput
-        type="number"
+        label="reminder_every in days"
+        type="range"
         name="reminder_every"
-        label="reminder_every"
-        placeholder="reminder_every placeholder"
-        help="reminder_every help text"
-        validation="required|number|between:10,20"
         min="0"
-        max="100"
+        max="70"
+        step="1"
+        value="14"
+        validation="required|min:0|max:70"
         error-behavior="live"
+        show-value="true"
       />
 
       <FormulateInput
-        type="number"
+        label="safe_keeping_duration in days"
+        type="range"
         name="safe_keeping_duration"
-        label="safe_keeping_duration"
-        placeholder="safe_keeping_duration placeholder"
-        help="safe_keeping_duration help text"
-        validation="required|number|between:10,20"
         min="0"
-        max="100"
+        max="3650"
+        step="15"
+        value="365"
+        validation="required|min:0|max:3650"
         error-behavior="live"
+        show-value="true"
       />
 
       <div>
@@ -51,7 +53,17 @@
 export default {
   props: ["process"],
   data() {
-    return {};
+    return {
+      fields: {},
+    };
+  },
+  methods: {
+    submitted(fields) {
+      this.$emit("submitted", fields);
+    },
+  },
+  created() {
+    this.fields = this.process;
   },
 };
 </script>
