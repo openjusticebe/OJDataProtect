@@ -20,16 +20,18 @@
       >
         <header class="flex items-center justify-between">
           <h2 class="text-lg leading-6 font-medium text-black">
-            Organisations <small>{{ filteredList.length }}</small>
+            {{ $t("organisation") }} <small>{{ filteredList.length }}</small>
           </h2>
 
           <btn-new v-if="!new_org" @click.native="new_org = !new_org">{{
-            __("organisation")
+            $t("organisation")
           }}</btn-new>
           <btn-cancel v-else @click.native="new_org = !new_org"></btn-cancel>
         </header>
         <form class="relative" v-if="!new_org">
           <search-icon />
+
+          <p>{{ $t("hello", { msg: "hello" }) }}</p>
 
           <input
             class="
@@ -51,7 +53,7 @@
           />
         </form>
         <div class="text-right text-sm" v-if="search">
-          {{ __("Filter_for") }}
+          {{ $t("Filter_for") }}
           <em>{{ search }}</em>
         </div>
 
@@ -69,19 +71,7 @@
           v-if="!new_org"
         >
           <li v-for="item in filteredList" :key="item.id">
-            <a
-              :href="item.links.self"
-              class="
-                hover:bg-gray-200
-                hover:border-transparent
-                hover:shadow-lg
-                group
-                block
-                rounded-lg
-                p-4
-                border border-gray-200
-              "
-            >
+            <a :href="item.links.self" class="organisation-item">
               <dl
                 class="
                   grid
@@ -105,7 +95,7 @@
                   </dd>
                 </div>
                 <div>
-                  <dt class="">Description</dt>
+                  <dt class="sr-only">Description</dt>
                   <dd
                     class="
                       group-hover:text-gray-600

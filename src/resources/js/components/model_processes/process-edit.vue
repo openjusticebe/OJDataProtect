@@ -27,22 +27,17 @@
                     validation="required|max:200|min:5"
                   />
                 </div>
-              </div>
-              <div class="flex flex-wrap gap-x-8 gap-y-4">
                 <div class="flex-1">
                   <FormulateInput
                     name="status"
-                    :options="[
-                      { value: 'ongoing', label: 'Ongoing process' },
-                      { value: 'draft', label: 'Draft process' },
-                      { value: 'pending', label: 'Pending process' },
-                      { value: 'archived', label: 'Process archived' },
-                    ]"
+                    :options="status"
                     type="select"
                     label="Status of your process"
                     help="Note: you will be able to edit it afterward"
                   />
                 </div>
+              </div>
+              <div class="flex flex-wrap gap-x-8 gap-y-4">
                 <div class="flex-1">
                   <FormulateInput
                     type="date"
@@ -56,9 +51,11 @@
                 </div>
               </div>
 
-              <div class="flex flex-wrap gap-x-8 gap-y-4">
+              <div class="flex gap-x-8 gap-y-4">
                 <div class="flex-grow">
                   <FormulateInput
+                    rows="10"
+                    cols="200"
                     type="textarea"
                     name="description"
                     validation="required"
@@ -67,10 +64,12 @@
                   />
                 </div>
               </div>
-              <btn-cancel @click.native="edit = !edit"></btn-cancel>
 
-              <FormulateInput type="submit" />
+              <div class="flex gap-x-8 gap-y-4">
+                <FormulateInput type="submit" />
+              </div>
             </FormulateForm>
+            <btn-cancel @click.native="edit = !edit" />
           </div>
           <div v-else class="flex">
             {{ process.description }}
@@ -93,7 +92,8 @@
 </style>
 
 <script>
-import data_types from "../../data/process.js";
+import data_types from "../../data/process-data-types.js";
+import status from "../../data/process-status.js";
 
 export default {
   props: ["process"],
@@ -101,6 +101,7 @@ export default {
     return {
       fields: {},
       data_types: data_types,
+      status: status,
       edit: false,
     };
   },

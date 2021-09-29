@@ -8,14 +8,15 @@
       items-center
       rounded-md
       bg-gray-100
-      text-gray-600 text-sm
-      font-medium
+      text-gray-900 text-sm
+      font-bold
       px-4
       py-2
+      border-2 border-green-500
     "
   >
-    <close-icon />
-    {{ __("Cancel") }}
+    <close-icon class="text-green-600" />
+    {{ $t("cancel") }}
   </button>
 </template>
 

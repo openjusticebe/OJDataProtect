@@ -9,8 +9,8 @@
         <multiselect
           id="tag_select"
           v-model="value"
-          :tag-placeholder="__('app.add_new_tag')"
-          :placeholder="__('app.add_new_tag')"
+          :tag-placeholder="$t('app.add_new_tag')"
+          :placeholder="$t('app.add_new_tag')"
           label="name"
           track-by="name"
           selectLabel="+"
@@ -50,7 +50,7 @@
         </multiselect>
       </div>
       <button type="button" name="addTags" @click="addTags" class="btn-xs">
-        <tag-label class="">{{ __("app.insert") }}</tag-label>
+        <tag-label class="">{{ $t("app.insert") }}</tag-label>
       </button>
 
       <!-- {{ success }}

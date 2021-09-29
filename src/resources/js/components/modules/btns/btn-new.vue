@@ -15,7 +15,7 @@
     "
   >
     <new-icon />
-    {{ __("New") }} <slot />
+    {{ $t("new") }} <slot />
   </button>
 </template>
 

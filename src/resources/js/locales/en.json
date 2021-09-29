@@ -1,0 +1,24 @@
+{
+    "en": {
+      "hello": "Hello world!",
+      "organisation": "Organisation",
+      "new": "New",
+      "cancel": "Cancel",
+      "save": "Save",
+      "edit": "Edit",
+      "delete": "Delete",
+      "start_date": "Start date",
+      "reminder": "Reminder",
+      "safe_keeping_duration": "Safe keeping duration",
+      "are_you_sure": "Are you sure?",
+      "confirm": "Confirm",
+      "delete_confirm": "Are you sure you want to delete this item?",
+      "description": "Description",
+      "member": "Member",
+      "members": "Members",
+      "data_protection_officer": "Data protection officer",
+      "legal_representative": "Legal representative",
+      "process": "Process",
+      "processes": "Processes"
+    }
+ }

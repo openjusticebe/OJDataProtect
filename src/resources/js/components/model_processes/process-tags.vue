@@ -15,7 +15,7 @@
       <td class="text-left">
         <div
           v-for="category in data_type.categories"
-          v-if="data_type.categories && !add_new"
+          v-if="data_type.categories"
         >
           <tag-list v-if="process.tagsGrouped[category]">
             <tag-item
@@ -44,6 +44,7 @@
         <button @click="add_new = !add_new" class="btn-xs" v-if="!add_new">
           add new
         </button>
+
         <button @click="add_new = !add_new" class="btn-xs-cancel" v-else>
           <close-icon />
           close

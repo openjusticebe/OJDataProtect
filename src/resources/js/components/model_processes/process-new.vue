@@ -27,15 +27,11 @@
         <div>
           <FormulateInput
             name="status"
-            :options="[
-              { value: 'ongoing', label: 'Ongoing process', selected: true },
-              { value: 'draft', label: 'Draft process' },
-              { value: 'pending', label: 'Pending process' },
-              { value: 'archived', label: 'Archived process' },
-            ]"
+            :options="status"
             type="select"
             label="Status of your process"
             help="Note: you will be able to edit it afterward"
+            validation="required"
           />
 
           <FormulateInput
@@ -87,6 +83,7 @@
 
 <script>
 import FormMixin from "../../mixins/FormMixin";
+import status from "../../data/process-status.js";
 
 export default {
   props: ["links"],
@@ -94,6 +91,7 @@ export default {
   data() {
     return {
       values: {},
+      status: status,
     };
   },
   mounted() {},

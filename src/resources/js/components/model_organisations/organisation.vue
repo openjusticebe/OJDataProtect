@@ -94,7 +94,7 @@
             />
           </form>
           <div class="text-right text-sm" v-if="search">
-            {{ __("Filter_for") }}
+            {{ $t("Filter_for") }}
             <em>{{ search }}</em>
           </div>
 

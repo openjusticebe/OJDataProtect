@@ -59,23 +59,34 @@
 
 }
 
+ul.process-timetable {
+      @apply py-4;
+}
+
 .tag-specific-description {
    @apply text-xs bg-gray-200;
 
 }
 
+.time-info {
+   @apply font-bold whitespace-nowrap;
+}
+
 .span-date {
-   @apply text-xs bg-gray-100 font-semibold whitespace-nowrap;
+   @apply text-xs rounded py-1 px-1 bg-blue-600 text-white font-bold whitespace-nowrap;
 }
 
 .span-diff {
-   @apply text-xs bg-yellow-400 rounded text-white whitespace-nowrap;
+   @apply text-xs px-1 text-gray-600 font-bold whitespace-nowrap;
 
 }
 
+/* MODULES */
 
- /* MODULES */
-
- .panel {
+.panel {
      @apply hover:shadow-lg group block rounded-lg p-4 border border-blue-300;
  }
+
+.organisation-item {
+       @apply hover:bg-gray-100 hover:border-transparent hover:shadow-lg group block rounded-lg p-4 border-2 hover:border-blue-500;
+}

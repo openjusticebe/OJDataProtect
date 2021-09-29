@@ -8,7 +8,7 @@
         <span class="text-xs text-gray-500">{{ process.status }}</span>
       </h2>
       <div>
-        <h2 class="sr-only">{{ __("description") }}</h2>
+        <h2 class="sr-only">{{ $t("description") }}</h2>
         <p>
           {{ process.description }}
         </p>
@@ -17,7 +17,7 @@
 
       <div class="mt-0.5 font-normal text-right" v-if="process.updated_by">
         <p class="inline text-gray-700">
-          {{ __("app.updated_by") }}
+          {{ $t("app.updated_by") }}
           <span class="font-semibold">{{ process.updated_by }}</span>
         </p>
       </div>
@@ -49,11 +49,15 @@
     </div>
     <div v-if="confirm_delete">
       <div>
-        <p class="font-bold font-uppercase">Confirmation</p>
-        <p>Are you sure ?</p>
-        <button class="btn-xs" @click="confirm_delete = false">Cancel</button>
+        <p class="font-bold font-uppercase">{{ $t("confirmation") }}</p>
+        <p>{{ $t("are_you_sure") }}</p>
+        <button class="btn-xs" @click="confirm_delete = false">
+          {{ $t("cancel") }}
+        </button>
 
-        <button class="btn-xs-danger"><trash-icon /> Confirm</button>
+        <button class="btn-xs-danger">
+          <trash-icon /> {{ $t("confirm") }}
+        </button>
       </div>
     </div>
   </li>

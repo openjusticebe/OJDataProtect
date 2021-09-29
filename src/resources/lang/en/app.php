@@ -165,6 +165,10 @@ return [
   'uploader' => 'Uploader',
   'will_become' => 'will become',
 
+  'start_date' => 'Start date',
+  'reminder' => 'Reminder',
+  'safe_keeping_duration' => 'Safe keeping duration',
+
   'chars' => 'Chars',
   'words' => 'Words',
   'minutes' => 'min',
