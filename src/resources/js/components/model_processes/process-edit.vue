@@ -14,13 +14,16 @@
 
         <td>
           <div v-if="edit">
-            <FormulateForm v-model="fields" @submit="submitted" method="post">
+            <btn-cancel @click.native="edit = !edit" />
+
+            <FormulateForm @submit="submitted" method="post">
               <h2 class="text-2xl mb-2">Add new process</h2>
 
               <div class="flex flex-wrap gap-x-8 gap-y-4">
                 <div class="flex-1">
                   <FormulateInput
                     type="text"
+                    v-model="values.name"
                     label="Name of your process"
                     help="Note: you will be able to edit it afterward"
                     name="name"
@@ -31,6 +34,7 @@
                   <FormulateInput
                     name="status"
                     :options="status"
+                    v-model="values.status"
                     type="select"
                     label="Status of your process"
                     help="Note: you will be able to edit it afterward"
@@ -41,6 +45,7 @@
                 <div class="flex-1">
                   <FormulateInput
                     type="date"
+                    v-model="values.start_date"
                     name="start_date"
                     label="Start date of the process"
                     placeholder="Start date of the process"
@@ -56,6 +61,7 @@
                   <FormulateInput
                     rows="10"
                     cols="200"
+                    v-model="values.description"
                     type="textarea"
                     name="description"
                     validation="required"
@@ -69,11 +75,17 @@
                 <FormulateInput type="submit" />
               </div>
             </FormulateForm>
-            <btn-cancel @click.native="edit = !edit" />
           </div>
-          <div v-else class="flex">
-            {{ process.description }}
-            <button @click="edit = !edit" class="btn-xs">edit</button>
+
+          <div v-else>
+            <div>
+              <btn-edit @click.native="edit = !edit">
+                {{ $t("process") }}
+              </btn-edit>
+            </div>
+            <div>
+              <p>{{ process.description }}</p>
+            </div>
           </div>
         </td>
       </tr>
@@ -92,25 +104,35 @@
 </style>
 
 <script>
+import FormMixin from "../../mixins/FormMixin";
 import data_types from "../../data/process-data-types.js";
 import status from "../../data/process-status.js";
 
 export default {
   props: ["process"],
+  mixins: [FormMixin],
+
   data() {
     return {
       fields: {},
+      values: {},
       data_types: data_types,
       status: status,
       edit: false,
     };
   },
-  created() {
-    this.fields = this.process;
+  mounted() {
+    this.values = this.process;
   },
   methods: {
-    submitted(data) {
-      this.$emit("submitted", data);
+    submitted() {
+      this.postProcess();
+    },
+    postProcess() {
+      this.action = this.process.links.api_update;
+      this.fields = this.values;
+      this.submitPost();
+      window.location.href = this.links.self;
     },
   },
 };

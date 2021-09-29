@@ -47,7 +47,7 @@
 
         <div>
           <FormulateInput
-            label="reminder_every in days"
+            :label="$t('reminder_every_in_days')"
             type="range"
             name="reminder_every"
             min="0"
@@ -60,7 +60,7 @@
           />
 
           <FormulateInput
-            label="safe_keeping_duration in days"
+            :label="$t('safe_keeping_duration_in_days')"
             type="range"
             name="safe_keeping_duration"
             min="0"

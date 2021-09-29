@@ -9,16 +9,24 @@
       "delete": "Delete",
       "start_date": "Start date",
       "reminder": "Reminder",
+      "reminder_every": "Reminder every",
+      "reminder_every_in_days": "Reminder every in days",
       "safe_keeping_duration": "Safe keeping duration",
+      "safe_keeping_duration_in_days": "Safe keeping duration in days",
       "are_you_sure": "Are you sure?",
       "confirm": "Confirm",
-      "delete_confirm": "Are you sure you want to delete this item?",
+      "confirmation": "Confirmation",
+      "delete_confirm": "Are you sure you want to delete this ?",
       "description": "Description",
       "member": "Member",
       "members": "Members",
       "data_protection_officer": "Data protection officer",
       "legal_representative": "Legal representative",
       "process": "Process",
-      "processes": "Processes"
+      "processes": "Processes",
+      "insert": "Insert",
+      "add_new_tag": "Add new tag",
+      "filter_for": "Filter for",
+      "units": "Units"
     }
  }

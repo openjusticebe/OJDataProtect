@@ -21,7 +21,7 @@ const defaultLocale = document.documentElement.lang.substr(0, 2);
 // or however you determine your current app locale
 
 const messages = require(`./locales/${defaultLocale}.json`);
-  
+
 const i18n = new VueI18n({
     locale: defaultLocale,
     fallbackLocale: 'en',
@@ -30,5 +30,5 @@ const i18n = new VueI18n({
 
 const app = new Vue({
     el: '#app',
-    i18n: i18n
+    i18n
 });

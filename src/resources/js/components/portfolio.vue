@@ -31,8 +31,6 @@
         <form class="relative" v-if="!new_org">
           <search-icon />
 
-          <p>{{ $t("hello", { msg: "hello" }) }}</p>
-
           <input
             class="
               focus:border-blue-500
@@ -53,7 +51,7 @@
           />
         </form>
         <div class="text-right text-sm" v-if="search">
-          {{ $t("Filter_for") }}
+          {{ $t("filter_for") }}
           <em>{{ search }}</em>
         </div>
 
@@ -138,7 +136,7 @@
 
                 <div v-if="item.relationships.units.length">
                   <h2 class="text-md leading-5 font-medium text-black">
-                    Units
+                    {{ $t("units") }}
                   </h2>
 
                   <div v-for="unit in item.relationships.units" :key="unit.id">
@@ -181,7 +179,7 @@
                 </div>
 
                 <div class="col-start-2 row-start-1 row-end-3">
-                  <dt class="">Members</dt>
+                  <dt class="">{{ $t("members") }}</dt>
                   <dd
                     class="
                       flex
