@@ -72,7 +72,11 @@ export default {
   //   mixins: [FormMixin],
   created() {
     this.fetchTagsData(
-      this.process.links.api_resources_tags + "?categories=" + this.categories
+      this.process.links.api_resources_tags +
+        "?categories=" +
+        this.categories +
+        "&process=" +
+        this.process.id
     );
   },
   data() {

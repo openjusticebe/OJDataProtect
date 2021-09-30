@@ -15,7 +15,6 @@
         <td>
           <div v-if="edit">
             <FormulateForm @submit="submitted" method="post">
-              <h2 class="text-2xl mb-2">Edit process</h2>
               <div class="grid grid-cols-2 gap-4">
                 <div class="">
                   <FormulateInput
