@@ -1,62 +1,60 @@
 <!-- Vue component -->
 <template>
-  <div class="row">
-    <div class="col">
-      <div>
-        <label class="typo__label">
+  <div class="grid grid-cols-3 gap-4">
+    <div>
+      <!-- <label class="typo__label">
           <tag-label />
-        </label>
-        <multiselect
-          id="tag_select"
-          v-model="value"
-          :tag-placeholder="$t('add_new_tag')"
-          :placeholder="$t('add_new_tag')"
-          label="name"
-          track-by="name"
-          selectLabel="+"
-          deselectLabel="-"
-          :options="options"
-          :multiple="true"
-          :loading="isLoading"
-          :taggable="true"
-          @tag="newTag"
-          class="small"
-        >
-          <template slot="option" slot-scope="props">
-            <span
-              class="tag-name"
-              :style="{
-                backgroundColor: props.option.color,
-                borderColor: props.option.color,
-              }"
-            >
-              <tag-label />
-              {{ props.option.name }}
-            </span>
-          </template>
+        </label> -->
+      <multiselect
+        id="tag_select"
+        v-model="value"
+        :tag-placeholder="$t('add_new_tag')"
+        :placeholder="$t('add_new_tag')"
+        label="name"
+        track-by="name"
+        selectLabel="+"
+        deselectLabel="-"
+        :options="options"
+        :multiple="true"
+        :loading="isLoading"
+        :taggable="true"
+        @tag="newTag"
+        class="small"
+      >
+        <template slot="option" slot-scope="props">
+          <span
+            class="tag-name"
+            :style="{
+              backgroundColor: props.option.color,
+              borderColor: props.option.color,
+            }"
+          >
+            <tag-label />
+            {{ props.option.name }}
+          </span>
+        </template>
 
-          <template slot="tag" slot-scope="props">
-            <span
-              class="tag-name"
-              :style="{
-                backgroundColor: props.option.color,
-                borderColor: props.option.color,
-              }"
-            >
-              <tag-label />
-              {{ props.option.name }}</span
-            >
-          </template>
-        </multiselect>
-      </div>
-      <button type="button" name="addTags" @click="addTags" class="btn-xs">
-        <tag-label class="">{{ $t("insert") }}</tag-label>
-      </button>
+        <template slot="tag" slot-scope="props">
+          <span
+            class="tag-name"
+            :style="{
+              backgroundColor: props.option.color,
+              borderColor: props.option.color,
+            }"
+          >
+            <tag-label />
+            {{ props.option.name }}</span
+          >
+        </template>
+      </multiselect>
+    </div>
+    <button type="button" name="addTags" @click="addTags" class="btn">
+      <tag-label class="">{{ $t("insert") }}</tag-label>
+    </button>
 
-      <!-- {{ success }}
+    <!-- {{ success }}
       {{ errors }}
       {{ error }} -->
-    </div>
   </div>
 </template>
 

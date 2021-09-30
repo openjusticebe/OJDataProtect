@@ -14,13 +14,10 @@
 
         <td>
           <div v-if="edit">
-            <btn-cancel @click.native="edit = !edit" />
-
             <FormulateForm @submit="submitted" method="post">
-              <h2 class="text-2xl mb-2">Add new process</h2>
-
-              <div class="flex flex-wrap gap-x-8 gap-y-4">
-                <div class="flex-1">
+              <h2 class="text-2xl mb-2">Edit process</h2>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="">
                   <FormulateInput
                     type="text"
                     v-model="values.name"
@@ -29,8 +26,6 @@
                     name="name"
                     validation="required|max:200|min:5"
                   />
-                </div>
-                <div class="flex-1">
                   <FormulateInput
                     name="status"
                     :options="status"
@@ -39,10 +34,7 @@
                     label="Status of your process"
                     help="Note: you will be able to edit it afterward"
                   />
-                </div>
-              </div>
-              <div class="flex flex-wrap gap-x-8 gap-y-4">
-                <div class="flex-1">
+
                   <FormulateInput
                     type="date"
                     v-model="values.start_date"
@@ -54,25 +46,22 @@
                     error-behavior="live"
                   />
                 </div>
-              </div>
-
-              <div class="flex gap-x-8 gap-y-4">
-                <div class="flex-grow">
+                <div class="">
                   <FormulateInput
                     rows="10"
-                    cols="200"
+                    cols="80"
                     v-model="values.description"
+                    input-class="w-full px-3 py-2 border border-gray-400 border-box rounded leading-none focus:border-green-500 outline-none"
                     type="textarea"
                     name="description"
                     validation="required"
                     label="Describe your process"
                     help="Note: you will be able to edit it afterward"
                   />
-                </div>
-              </div>
+                  <btn-cancel @click.native="edit = !edit" />
 
-              <div class="flex gap-x-8 gap-y-4">
-                <FormulateInput type="submit" />
+                  <FormulateInput type="submit" />
+                </div>
               </div>
             </FormulateForm>
           </div>

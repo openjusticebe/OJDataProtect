@@ -23,11 +23,11 @@ class ProcessResource extends JsonResource
       'organisation_id' => $this->organisation_id,
 
       'reminder_every' => $this->reminder_every,
-
       'next_reminder_at' => (string)$this->start_date->addDays($this->reminder_every)->format('Y-m-d'),
       'next_reminder_diff' => (string)$this->start_date->addDays($this->reminder_every)->diffForHumans(['parts' => 1]),
 
       'safe_keeping_duration' => (string)$this->safe_keeping_duration,
+
       'safe_keeping_to' => (string)$this->start_date->addDays($this->safe_keeping_duration)->format('Y-m-d'),
       'safe_keeping_to_diff' => (string)$this->start_date->addDays($this->safe_keeping_duration)->diffForHumans(['parts' => 1]),
       

@@ -4,6 +4,7 @@
       <span class="time-info">{{ $t("start_date") }}</span
       >:
       <span class="span-date">{{ process.start_date }}</span>
+      <span class="span-diff">{{ process.start_date_diff }}</span>
     </li>
 
     <li>
