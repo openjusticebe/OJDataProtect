@@ -21,6 +21,7 @@
         <h1 class="sr-only">
           {{ fields.name }}
         </h1>
+        <process-status :process_status="fields.status" />
 
         <div class="flex">
           <!-- <div>

@@ -17,7 +17,7 @@
 
       <div class="mt-0.5 font-normal text-right" v-if="process.updated_by">
         <p class="inline text-gray-700">
-          {{ $t("app.updated_by") }}
+          {{ $t("updated_by") }}
           <span class="font-semibold">{{ process.updated_by }}</span>
         </p>
       </div>

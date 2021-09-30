@@ -131,8 +131,8 @@ export default {
     postProcess() {
       this.action = this.process.links.api_update;
       this.fields = this.values;
-      this.submitPost();
-      window.location.href = this.links.self;
+      this.submitPatch();
+      window.location.href = this.process.links.self;
     },
   },
 };

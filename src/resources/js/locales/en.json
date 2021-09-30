@@ -27,6 +27,7 @@
       "insert": "Insert",
       "add_new_tag": "Add new tag",
       "filter_for": "Filter for",
-      "units": "Units"
+      "units": "Units",
+      "updated_by": "Updated by"
     }
  }

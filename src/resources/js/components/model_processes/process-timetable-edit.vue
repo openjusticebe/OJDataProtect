@@ -1,6 +1,6 @@
 <template>
   <div id="timetable-edit">
-    <FormulateForm v-model="fields" @submit="submitted">
+    <FormulateForm v-model="values" @submit="submitted">
       <h2 class="text-2xl mb-2">Dates</h2>
 
       <FormulateInput
@@ -47,20 +47,32 @@
 </template>
 
 <script>
+import FormMixin from "../../mixins/FormMixin";
+
 export default {
   props: ["process"],
+  mixins: [FormMixin],
+
   data() {
     return {
+      values: {},
       fields: {},
     };
   },
-  methods: {
-    submitted(fields) {
-      this.$emit("submitted", fields);
-    },
+  mounted() {
+    this.values = this.process;
   },
-  created() {
-    this.fields = this.process;
+  methods: {
+    submitted() {
+      this.postProcess();
+    },
+    postProcess() {
+      this.action = this.process.links.api_update;
+      this.fields = this.values;
+      this.submitPatch();
+      window.location.href = this.process.links.self;
+    },
   },
 };
 </script>
+
